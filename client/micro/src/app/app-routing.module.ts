@@ -1,0 +1,62 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { HomeComponent } from './home/home.component';
+import { PartnersComponent } from './partners/partners.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { ProductsComponent } from './products/products.component';
+import { AboutComponent } from './about/about.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { InstallationComponent } from './installation/installation.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { AdminComponent } from 'app/admin/admin.component';
+
+const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent
+  },
+  {
+    path: 'contacts',
+    component: ContactsComponent
+  },
+  {
+    path: 'partners',
+    component: PartnersComponent
+  },
+  {
+    path: 'installation',
+    component: InstallationComponent
+  },
+  {
+    path: 'calculator',
+    component: CalculatorComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
