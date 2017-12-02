@@ -1,0 +1,34 @@
+$mapBreakpoints: (
+    desktop-view: (start: 1024px, end: null),
+    tablet-view: (start: 550px, end: 1023px),
+	mobile-view: (start: null, end: 549px),
+);
+
+$mapVariables: (
+
+    /*COLORS*/
+    sushi: '#6FAE2F', // primary green for buttons
+    athens-gray: '#F8F8FA', // gray for input background
+    alto: '#e0e0e0', // used for input border, placeholder text, disabled
+    oxford-blue: '#394353', // used for input text, primary text, header
+	slate-gray: '#69788C', // used for input label, secondary text
+	st-tropaz: '#296095', // used for interactive text
+    white: '#FFFFFF',
+    pearl-bush-2: '#EBE2DE', // used for horizontal line in Financial
+    valencia: '#d82f47', // red color for errors
+    pearl-bush: '#e7dcd7', // used for modal container borders
+    mine-shaft: #333333, // used for modal title
+    rolling-stone: #6E777D, // used for modal x button
+    coconut-cream: #f9f9de, // used for info message background
+    
+    /*FONT FAMILIES*/
+    open-sans: "'OpenSans', 'Open Sans', sans-serif",
+
+	/*FONT WEIGHTS*/
+	light: 300,
+	regular: 400,
+    semibold: 600,
+
+    /*WIDTHS AND HEIGHTS*/
+    modal-container-width: '1024px',
+);
