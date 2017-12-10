@@ -1,0 +1,53 @@
+@import '../sass-dass/exports';
+
+.heading {
+    @include _(background-image, url('../../assets/background-photo.jpg'));
+    @include _(background-size, cover);
+    @include _(background-repeat, no-repeat);
+    @include _(height, 450px);
+    
+    &__overlay {
+        @include _(height, 100%);
+        @include _(width, 100%);
+        @include _(background-color, rgba(41, 41, 41, .4));
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, center);
+    }
+
+    &__container {
+        @include _(width, 960px);
+        @include _(display, inline-flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+    }
+
+    &__logo {
+        @include _(height, 100px);
+        @include _(width, 100%);
+    }
+
+    &__slogan {
+        @include _(font-family, open-sans);
+        @include _(color, white);
+        @include _(text-align, center);
+        @include _(font-weight, 400);
+        @include _(font-size, 26px);
+    }
+
+    &__button {
+        @include _(height, 45px);
+        @include _(font-size, 17px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(margin-top, 10px);
+    }
+
+    &__calc-icon {
+        @include _(height, 25px);
+        @include _(width, 25px);
+        @include _(margin-right, 10px);
+    }
+}

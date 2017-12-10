@@ -1,0 +1,87 @@
+@import '../../sass-dass/exports';
+
+.footer {
+    &__container {
+        @include _(height, 200px);
+        @include _(background-color, river-bed);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, center);
+        @include _(flex-direction, column);
+        @include _(position, relative);
+    }
+
+    &__row {
+        @include _(display, flex);
+        @include _(justify-content, space-between);
+        @include _(align-items, center);
+        &--last {
+            @include _(position, absolute);
+            @include _(bottom, 10px);
+        }
+    }
+
+    &__logo {
+        @include _(width, 160px);
+        @include _(height, 50px);
+        @include _(cursor, pointer);
+        @include _(outline, none);
+    }
+
+    &__email-container {
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(cursor, pointer);
+        @include _(outline, none);
+        &:hover {
+            .footer__email-icon,
+            .footer__contact-text {
+                @include _(color, lightning-yellow);
+            }
+        }
+    }
+
+    &__email-icon {
+        @include _(color, white);
+        @include _(height, 50px);
+        @include _(width, 50px);
+        @include _(margin-right, 20px);
+    }
+
+    &__contact-text,
+    &__phone-number {
+        @include _(font-family, gudea);
+        @include _(color, white);
+        @include _(font-size, 20px);
+        @include _(text-decoration, none);
+    }
+
+    &__phone-numbers-container {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+    }
+
+    &__phone-number {
+        &:hover {
+            @include _(color, lightning-yellow);
+        }
+        &:last-child {
+            @include _(margin-top, 8px);
+        }
+    }
+
+    &__item {
+        @include _(margin-right, 50px);
+        &:last-child {
+            @include _(margin-right, 0);
+        }
+    }
+
+    &__copyright {
+        @include _(font-family, open-sans);
+        @include _(color, white);
+        @include _(text-align, center);
+        @include _(font-size, 12px);
+    }
+}
+

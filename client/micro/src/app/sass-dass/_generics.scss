@@ -1,0 +1,18 @@
+.generic-button {
+    @include _(font-family, catamaran);
+    @include _(border, none);
+    @include _(border-radius, 5px);
+    @include _(padding-right, 20px);
+    @include _(padding-left, 20px);
+    @include _(outline, none);
+    @include _(cursor, pointer);
+    
+    &--yellow {
+        @include _(color, mine-shaft);
+        @include _(background-color, lightning-yellow);
+
+        &:hover {
+            @include _(background-color, #e4ae00);
+        }
+    }
+}

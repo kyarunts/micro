@@ -7,24 +7,16 @@ $mapBreakpoints: (
 $mapVariables: (
 
     /*COLORS*/
-    sushi: '#6FAE2F', // primary green for buttons
-    athens-gray: '#F8F8FA', // gray for input background
-    alto: '#e0e0e0', // used for input border, placeholder text, disabled
-    oxford-blue: '#394353', // used for input text, primary text, header
-	slate-gray: '#69788C', // used for input label, secondary text
-	st-tropaz: '#296095', // used for interactive text
-    white: '#FFFFFF',
-    pearl-bush-2: '#EBE2DE', // used for horizontal line in Financial
-    valencia: '#d82f47', // red color for errors
-    pearl-bush: '#e7dcd7', // used for modal container borders
-    mine-shaft: #333333, // used for modal title
-    rolling-stone: #6E777D, // used for modal x button
-    coconut-cream: #f9f9de, // used for info message background
+    mine-shaft: '#292929',
+    lightning-yellow: '#FFC818',
+    river-bed: '#4c5b5c',
     
     /*FONT FAMILIES*/
     open-sans: "'OpenSans', 'Open Sans', sans-serif",
-
-	/*FONT WEIGHTS*/
+    catamaran: "'Catamaran', sans-serif",
+    gudea: "'Gudea', sans-serif",
+    
+    /*FONT WEIGHTS*/
 	light: 300,
 	regular: 400,
     semibold: 600,

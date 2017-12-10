@@ -16,6 +16,8 @@ import { AdminComponent } from './admin/admin.component';
 import { MicroHttpService } from './micro-http.service';
 import { ProductsComponentService } from 'app/products/products.component.service';
 import { HttpModule } from '@angular/http';
+import { FooterComponent } from './shared/footer/footer.component';
+import { IconsComponent } from './generics/icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HttpModule } from '@angular/http';
     InstallationComponent,
     CalculatorComponent,
     NavigationComponent,
-    AdminComponent
+    AdminComponent,
+    FooterComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,
