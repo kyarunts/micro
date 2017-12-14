@@ -12,51 +12,52 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { AdminComponent } from 'app/admin/admin.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'admin',
-    component: AdminComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
-  },
-  {
-    path: 'portfolio',
-    component: PortfolioComponent
-  },
-  {
-    path: 'contacts',
-    component: ContactsComponent
-  },
-  {
-    path: 'partners',
-    component: PartnersComponent
-  },
-  {
-    path: 'installation',
-    component: InstallationComponent
-  },
-  {
-    path: 'calculator',
-    component: CalculatorComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: '**',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  }
+    {
+        path: 'admin',
+        component: AdminComponent
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
+    
+    {
+        path: 'products',
+        component: ProductsComponent
+    },
+    {
+        path: 'portfolio',
+        component: PortfolioComponent
+    },
+    {
+        path: 'contacts',
+        component: ContactsComponent
+    },
+    {
+        path: 'partners',
+        component: PartnersComponent
+    },
+    {
+        path: 'installation',
+        component: InstallationComponent
+    },
+    {
+        path: 'calculator',
+        component: CalculatorComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    },
+    {
+        path: '**',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

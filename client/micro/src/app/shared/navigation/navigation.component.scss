@@ -1,0 +1,31 @@
+@import '../../sass-dass/exports';
+
+.navigation {
+    @include _(background-color, mine-shaft);
+    @include _(font-family, catamaran);
+    @include breakpoint(desktop-view) {
+        @include _(height, 70px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+    }
+
+    &__link {
+        @include _(color, white);
+        @include _(font-size, 18px);
+        @include _(text-decoration, none);
+        @include _(cursor, pointer);
+        @include _(margin-right, 25px);
+        &:last-child {
+            @include _(margin-right, 0);
+        }
+
+        &:hover {
+            @include _(color, #ffd85c);
+        }
+
+        &--active {
+            @include _(color, lightning-yellow);
+        }
+    }
+}

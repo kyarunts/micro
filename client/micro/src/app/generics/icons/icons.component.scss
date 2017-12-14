@@ -1,0 +1,5 @@
+@import '../../sass-dass/exports';
+
+.icons {
+    @include _(display, none);
+}

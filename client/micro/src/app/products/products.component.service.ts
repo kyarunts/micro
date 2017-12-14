@@ -5,6 +5,7 @@ import { ProductsObject } from './products.data';
 
 import { Observable } from 'rxjs';
 import { RequestOptionsArgs } from '@angular/http';
+import { ENVIRONMENT } from '../globals';
 
 @Injectable()
 export class ProductsComponentService {
@@ -12,13 +13,13 @@ export class ProductsComponentService {
 
     constructor(private http: MicroHttpService) {}
     
-    public getAll(): Observable<any> {
-        return this.http.get(this.url)
-            .map((products: ProductsObject[]) => products)
-    }
-
-    public getByQuery(query: Object): Observable<any> {
-        return this.http.get(this.url, query)
-            .map((products: ProductsObject[]) => products)
+    public getProducts(query: Object = null): Observable<any> {
+        switch (ENVIRONMENT) {
+            case 'test-mock-data':
+                return Observable.of([{name: 'Product', id: '1'}]);
+            default:
+                return this.http.get(this.url, query)
+                    .map((products: ProductsObject[]) => products)
+        }
     }
 }
