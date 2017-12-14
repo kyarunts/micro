@@ -2,8 +2,8 @@ import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import 'rxjs/add/operators/map';
-import 'rxjs/add/operators/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class MicroHttpService {
