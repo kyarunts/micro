@@ -1,9 +1,66 @@
 <nav class="navigation">
-    <a class="navigation__link" routerLink="/home" routerLinkActive="navigation__link--active">HOME PAGE</a>
-    <a class="navigation__link" routerLink="/products" routerLinkActive="navigation__link--active">PRODUCTS</a>
-    <a class="navigation__link" routerLink="/installation" routerLinkActive="navigation__link--active">INSTALLATION</a>
-    <a class="navigation__link" routerLink="/portfolio" routerLinkActive="navigation__link--active">PORTFOLIO</a>
-    <a class="navigation__link" routerLink="/partners" routerLinkActive="navigation__link--active">PARTNERS</a>
-    <a class="navigation__link" routerLink="/about" routerLinkActive="navigation__link--active">ABOUT US</a>
-    <a class="navigation__link" routerLink="/contacts" routerLinkActive="navigation__link--active">CONTACT US</a>
+    <div class="navigation__logo">
+        <img src="logo1.png">
+    </div>
+    <ul class="navigation__list">
+        <li
+            routerLink="/home" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            HOME PAGE
+        </li>
+        <li 
+            routerLink="/about" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            ABOUT US
+        </li>
+        <li 
+            routerLink="/products" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            PRODUCTS
+            <div class="submenu">
+                
+            </div>
+        </li>
+        <li 
+            routerLink="/portfolio" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            PORTFOLIO
+        </li>
+        <li 
+            routerLink="/partners" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            PARTNERS
+        </li>
+        <li 
+            routerLink="/installation" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            INSTALLATION
+        </li>
+        <li  
+            routerLink="/contacts" 
+            class="navigation__item"
+            routerLinkActive="navigation__item--active"
+        >
+            CONTACTS
+        </li>
+    </ul>
+    <!-- <div class="navigation__addresses">
+        <span class="address__line">Goris, Syunik, RA</span>
+        <span class="address__line">Tatevatsi 78</span>
+        <span class="address__line">
+            <a class="address__link" href="tel:+37428422222">+374 284 22222</a>
+        </span>
+    </div> -->
 </nav>

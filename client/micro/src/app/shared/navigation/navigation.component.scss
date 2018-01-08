@@ -1,31 +1,89 @@
 @import '../../sass-dass/exports';
 
 .navigation {
-    @include _(background-color, mine-shaft);
-    @include _(font-family, catamaran);
-    @include breakpoint(desktop-view) {
-        @include _(height, 70px);
+    @include _(background-color, #1f445a);
+    @include _(height, 100vh);
+    @include _(width, 350px);
+    @include _(position, fixed);
+    @include _(display, flex);
+    @include _(flex-direction, column);
+    @include _(z-index, 200);
+
+    &__list {
+        @include _(padding, 0);
+        @include _(flex, 0 0 50%);
         @include _(display, flex);
+        @include _(flex-direction, column);
         @include _(justify-content, center);
-        @include _(align-items, center);
+        @include _(margin, 0);
     }
 
-    &__link {
-        @include _(color, white);
-        @include _(font-size, 18px);
-        @include _(text-decoration, none);
+    &__item {
+        @include _(border-top, 1px solid #bcc7d82b);
+        @include _(list-style, none);
+        @include _(margin, 0);
+        @include _(text-align, right);
+        @include _(padding, 18px 22px 18px 0);
+        @include _(display, flex);
+        @include _(justify-content, flex-end);
+        @include _(align-items, center);
         @include _(cursor, pointer);
-        @include _(margin-right, 25px);
-        &:last-child {
-            @include _(margin-right, 0);
-        }
-
-        &:hover {
-            @include _(color, #ffd85c);
-        }
+        @include _(position, relative);
+        @include _(color, #bcc7d8);
+        @include _(font-size, 18px);
+        @include _(outline, none);
 
         &--active {
-            @include _(color, lightning-yellow);
+            @include _(color, #EBC137);
+        }
+
+        &:hover .submenu {
+            @include _(visibility, visible);
+            @include _(opacity, 1);
+        }
+
+        &:last-child {
+            @include _(border-bottom, 1px solid #bcc7d82b);
+        }
+        
+        &:after {
+            content: '';
+            @include _(position, absolute);
+            @include _(top, 0);
+            @include _(right, 100%);
+            @include _(width, 100%);
+            @include _(height, 100%);
+            @include _(box-sizing, border-box);
+            @include _(background-color, #808086);
+            @include _(opacity, 0.1);
+            @include _(transition, transform 300ms ease-in 100ms);    
+        }
+
+        &:hover:after {
+            @include _(transform, translateX(100%));
         }
     }
+}
+
+.submenu {
+    @include _(background-color, rgba(31, 68, 90, 0.6));
+    @include _(height, 100vh);
+    @include _(width, 350px);
+    @include _(position, fixed);
+    @include _(visibility, hidden);
+    @include _(opacity, 0);
+    @include _(left, 350px);
+    @include _(z-index, 100);
+    @include _(top, 0);
+    @include _(box-sizing, border-box);
+    @include _(display, flex);
+    @include _(flex-direction, column);
+    @include _(justify-content, center);
+    @include _(cursor, default);
+    @include _(transition, all 1s ease-in-out);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
 }

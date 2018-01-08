@@ -1,0 +1,65 @@
+@import '../../sass-dass/exports';
+
+.home-products {
+    @include _(height, 600px);
+    @include _(padding, 50px);
+    @include _(box-sizing, border-box);
+    @include _(background, linear-gradient(45deg, rgba(255,249,249,1) 0%,rgba(234,238,239,1) 100%));
+    @include _(position, relative);
+
+    &__header {
+        @include _(font-size, 27px);
+        @include _(font-family, play);
+        @include _(color, #1f445a);
+        @include _(font-weight, 600);
+    }
+
+    &__hr {
+        @include _(width, 121px);
+        @include _(margin, 10px 0 40px 0);
+        @include _(border, 2px solid #1f445a);
+    }
+
+    &__slider {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(position, absolute);
+        @include _(bottom, 15px);
+        @include _(left, 50%);
+    }
+
+    &__slider-item {
+        @include _(border, 1px solid #1f445a);
+        @include _(border-radius, 50%);
+        @include _(width, 10px);
+        @include _(height, 10px);
+        @include _(cursor, pointer);
+        @include _(margin, 0 15px);
+
+        &--active {
+            @include _(background-color, #1f445a);
+        }
+    }
+
+    &__arrow {
+        @include _(width, 60px);
+        @include _(height, 100%);
+        @include _(position, absolute);
+        @include _(top, 0);
+        @include _(cursor, pointer);
+        @include _(transition, background-color 0.2s ease-in-out);
+        
+        &:hover {
+            @include _(background-color, rgba(255, 255, 255, 0.3));
+        }
+
+        &--left {
+            @include _(left, 0);
+        }
+
+        &--right {
+            @include _(right, 0);
+        }
+    }
+}

@@ -18,6 +18,10 @@ import { ProductsComponentService } from 'app/products/products.component.servic
 import { HttpModule } from '@angular/http';
 import { FooterComponent } from './shared/footer/footer.component';
 import { IconsComponent } from './generics/icons/icons.component';
+import { CounterDirective } from './generics/counter.directive';
+import { RecentProjectsComponent } from './home/recent-projects/recent-projects.component';
+import { HomeProductsComponent } from './home/home-products/home-products.component';
+import { HomeClientsComponent } from './home/home-clients/home-clients.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { IconsComponent } from './generics/icons/icons.component';
     NavigationComponent,
     AdminComponent,
     FooterComponent,
-    IconsComponent
+    IconsComponent,
+    CounterDirective,
+    RecentProjectsComponent,
+    HomeProductsComponent,
+    HomeClientsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="home-products" (mouseover)="stopAnimation()" (mouseleave)="startAnimation()">
+    <div class="home-products__header">
+        OUR PRODUCTS
+    </div>
+    <hr class="home-products__hr">
+    <div class="home-products__slider">
+        <div
+            *ngFor="let item of productIds; let i = index"
+            [id]="item" 
+            (click)="changeProduct(i)"
+            class="home-products__slider-item"
+            [ngClass]="{'home-products__slider-item--active' : currentProduct === item}"
+        ></div>
+    </div>
+    <div 
+        (click)="changeProduct(currentIndex - 1)"
+        class="home-products__arrow home-products__arrow--left"
+    ></div>
+    <div 
+        (click)="changeProduct(currentIndex + 1)"
+        class="home-products__arrow home-products__arrow--right"
+    ></div>
+</div>

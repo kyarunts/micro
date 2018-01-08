@@ -1,0 +1,77 @@
+@import '../../sass-dass/exports';
+
+.projects {
+    @include _(height, 600px);
+    @include _(padding, 50px);
+    @include _(box-sizing, border-box);
+
+    &__header {
+        @include _(font-size, 27px);
+        @include _(font-family, play);
+        @include _(color, #1f445a);
+        @include _(font-weight, 600);
+    }
+
+    &__hr {
+        @include _(width, 121px);
+        @include _(margin, 10px 0 40px 0);
+        @include _(border, 2px solid #1f445a);
+    }
+
+    &__container {
+        @include _(display, flex);
+    }
+
+    &__list {
+        @include _(width, 30%);
+    }
+
+    &__item {
+        @include _(height, 100px);
+        @include _(border-bottom, 1px solid #e3e6e6);
+        @include _(box-sizing, border-box);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(cursor, pointer);
+        @include _(font-family, quicksand);
+        @include _(color, #1f445a);
+        @include _(transition, background-color 0.5s ease-in-out);
+
+        &:last-child {
+            @include _(border, none);
+        }
+
+        &--active {
+            @include _(background-color, #ffcc35);
+            @include _(box-shadow, 5px 4px 9px 0px rgba(0,0,0,0.75));
+            @include _(border-bottom, none);
+        }
+
+        &:hover {
+            @include _(background-color, #ffcc35);
+
+            &:not(.projects__item--active) {
+                @include _(opacity, 0.7);
+            }
+        }
+    }
+
+    &__item-description {
+        @include _(font-size, 14px);
+        @include _(margin-top, 8px);
+        @include _(font-family, cantarell);
+    }
+
+    &__item-image {
+        @include _(width, 70%);
+        @include _(max-height, 400px);
+        @include _(box-shadow, 5px 4px 9px 0px rgba(0,0,0,0.75));
+
+        & img {
+            @include _(width, 100%);
+            @include _(height, 100%);
+        }
+    }
+}

@@ -106,7 +106,14 @@ $placeholders: ();
 					flex-direction: row-reverse;
 				}
 			}
-		}
+        }
+        @if $rule == 'transition' {
+            @include placeholder($className) {
+                -webkit-transition: #{$finalValue};
+                -moz-transition: #{$finalValue};
+                transition: #{$finalValue};
+            }
+        }
 		@if $rule == 'flex' {
 			@if $finalValue == '0 0 auto' {
 				@include placeholder($className) {

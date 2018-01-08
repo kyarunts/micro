@@ -1,53 +1,152 @@
 @import '../sass-dass/exports';
 
-.heading {
-    @include _(background-image, url('../../assets/background-photo.jpg'));
+.main {
+    @include _(height, 100vh);
+    background-image: url(https://images.unsplash.com/photo-1433840496881-cbd845929862?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
     @include _(background-size, cover);
-    @include _(background-repeat, no-repeat);
-    @include _(height, 450px);
-    
+    @include _(background-attachment, fixed);
+    @include _(position, relative);
+
     &__overlay {
+        @include _(background-color,  rgba(161, 167, 147, 0.5));
         @include _(height, 100%);
         @include _(width, 100%);
-        @include _(background-color, rgba(41, 41, 41, .4));
+    }
+
+    &__contacts {
+        @include _(display, flex);
+        @include _(padding, 20px);
+        @include _(justify-content, flex-end);
+    }
+
+    &__contacts-item {
+        @include _(padding, 10px 40px);
+        @include _(border, 1px solid rgba(234, 234, 234, 0.3));
+        @include _(border-radius, 11px);
         @include _(display, flex);
         @include _(align-items, center);
-        @include _(justify-content, center);
+        @include _(color, #eaeaea);
+        @include _(margin-right, 20px);
+        @include _(cursor, pointer);
+        @include _(text-decoration, none);
+        @include _(transition, transform 0.4s); 
+
+        & > img {
+            @include _(height, 20px);
+            @include _(margin-right, 10px);
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 
-    &__container {
-        @include _(width, 960px);
-        @include _(display, inline-flex);
-        @include _(flex-direction, column);
-        @include _(justify-content, center);
-        @include _(align-items, center);
-    }
-
-    &__logo {
-        @include _(height, 100px);
+    &__stats {
+        @include _(height, 200px);
         @include _(width, 100%);
-    }
-
-    &__slogan {
-        @include _(font-family, open-sans);
-        @include _(color, white);
-        @include _(text-align, center);
-        @include _(font-weight, 400);
-        @include _(font-size, 26px);
-    }
-
-    &__button {
-        @include _(height, 45px);
-        @include _(font-size, 17px);
+        @include _(background-color, rgba(255, 255, 255, 0.3));
+        @include _(position, absolute);
+        @include _(bottom, 0);
         @include _(display, flex);
         @include _(justify-content, center);
         @include _(align-items, center);
-        @include _(margin-top, 10px);
     }
 
-    &__calc-icon {
-        @include _(height, 25px);
-        @include _(width, 25px);
-        @include _(margin-right, 10px);
+    &__stats-separator {
+        @include _(background-color, rgba(31, 68, 90, 0.2));
+        @include _(width, 2px);
+        @include _(height, 78%);
+        @include _(margin, 0 40px);
+    }
+
+    &__stats-description {
+        @include _(color, #1f445a);
+        @include _(flex-basis, 30%);
+    }
+
+    &__stats-title {
+        @include _(font-family, play);
+        @include _(font-size, 27px);
+        @include _(font-weight, 600);
+    }
+
+    &__stats-hr {
+        @include _(width, 121px);
+        @include _(margin, 10px 0);
+        @include _(border, 2px solid #1f445a);
+    }
+
+    &__stats-copy {
+        @include _(font-family, cantarell);
+    }
+
+    &__stats-icons {
+        @include _(display, flex);
+    }
+
+    &__stats-icon {
+        @include _(height, 80px);
+        @include _(width, 80px);
+        @include _(display, flex);
+        @include _(justify-content, space-between);
+        @include _(flex-direction, column);
+        @include _(align-items, center);
+
+        &--top, &--bottom {
+            @include _(display, flex);
+            @include _(justify-content, space-between);
+            @include _(height, 33%);
+            @include _(width, 100%);
+        }
+
+        &--left {
+            @include _(border-left, 3px solid #1f445a);
+        }
+
+        &--right {
+            @include _(border-right, 3px solid #1f445a);
+        }
+
+        &--top &--left, 
+        &--top &--right {
+            @include _(border-top, 3px solid #1f445a);
+        }
+
+        &--bottom &--left, 
+        &--bottom &--right {
+            @include _(border-bottom, 3px solid #1f445a);
+        }
+
+        &--left, &--right {
+            @include _(width, 33%);
+            @include _(height, 100%);
+            @include _(box-sizing, border-box);
+        }
+    }
+
+    &__stats-number {
+        @include _(font-family, play);
+        @include _(font-weight, 600);
+        @include _(font-size, 30px);
+        @include _(color, #1f445a);
+    }
+
+    &__stats-name {
+        @include _(font-family, assistant);
+        @include _(font-size, 22px);
+        @include _(text-align, center);
+        @include _(margin-top, 20px);
+        @include _(color, #1f445a);
+        @include _(font-weight, 600);
+    }
+
+    &__stats-item {
+        @include _(cursor, pointer);
+        @include _(transition, transform 0.2s);
+        @include _(margin, 0 40px);
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
