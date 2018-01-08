@@ -1,0 +1,18 @@
+@import '../../sass-dass/exports';
+
+.home-clients {
+    @include _(height, 200px);
+    @include _(display, flex);
+    @include _(justify-content, center);
+    @include _(align-items, center);
+
+    &__logo {
+        @include _(cursor, pointer);
+        @include _(transition, 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out');
+
+        &:hover {
+            @include _(opacity, 0.7);
+            transform: scale(1.1);
+        }
+    }
+}
