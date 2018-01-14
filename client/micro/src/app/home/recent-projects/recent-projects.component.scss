@@ -38,6 +38,7 @@
         @include _(font-family, quicksand);
         @include _(color, #1f445a);
         @include _(transition, background-color 0.5s ease-in-out);
+        @include _(outline, none);
 
         &:last-child {
             @include _(border, none);

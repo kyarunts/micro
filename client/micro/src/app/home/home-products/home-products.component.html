@@ -1,8 +1,105 @@
-<div class="home-products" (mouseover)="stopAnimation()" (mouseleave)="startAnimation()">
+<div 
+    class="home-products"
+    (mouseover)="stopAnimation()" 
+    (mouseleave)="startAnimation()"
+>
     <div class="home-products__header">
         OUR PRODUCTS
     </div>
     <hr class="home-products__hr">
+    <div 
+        *ngIf="currentProduct === 'sandwichPanel'"
+        class="home-products__product-info-container"
+    >
+        <div class="home-products__product-information">
+            <h1 class="home-products__product-name">SANDWICH-PANELS</h1>
+            <p class="home-products__product-description">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi perspiciatis, similique veniam sint non dolores at iste animi, iure architecto. Nemo, in. Temporibus, inventore nemo. Ipsam deleniti harum placeat.
+            </p>
+            <div class="home-products__buttons">
+                <button 
+                    class="home-products__button home-products__button--primary"
+                    routerLink="/calculator"
+                >
+                    CALCULATE AND ORDER NOW
+                </button>
+                <button 
+                    class="home-products__button home-products__button--secondary"
+                    routerLink="/products"
+                >
+                    More info
+                </button>
+            </div>
+        </div>
+        <div>
+            <img
+                class="home-products__product-image home-products__product-image--sandwich-panel"
+                src="../../../assets/sandwich-panel.png"
+            >
+        </div>
+    </div>
+    <div 
+        *ngIf="currentProduct === 'thermalIsolation'"
+        class="home-products__product-info-container"
+    >
+        <div class="home-products__product-information">
+            <h1 class="home-products__product-name">THERMAL ISOLATION</h1>
+            <p class="home-products__product-description">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi perspiciatis, similique veniam sint non dolores at iste animi, iure architecto. Nemo, in. Temporibus, inventore nemo. Ipsam deleniti harum placeat.
+            </p>
+            <div class="home-products__buttons">
+                <button 
+                    class="home-products__button home-products__button--primary"
+                    routerLink="/calculator"
+                >
+                    CALCULATE AND ORDER NOW
+                </button>
+                <button 
+                    class="home-products__button home-products__button--secondary"
+                    routerLink="/products"
+                >
+                    More info
+                </button>
+            </div>
+        </div>
+        <div>
+            <img
+                class="home-products__product-image home-products__product-image--thermo-isolation"
+                src="https://images.ua.prom.st/655705941_w0_h0_penoplast.png"
+            >
+        </div>
+    </div>
+    <div
+        *ngIf="currentProduct === 'profiles'"
+        class="home-products__product-info-container"
+    >
+        <div class="home-products__product-information">
+            <h1 class="home-products__product-name">ALUMINIUM PROFILES</h1>
+            <p class="home-products__product-description">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi perspiciatis, similique veniam sint non dolores at iste animi, iure architecto. Nemo, in. Temporibus, inventore nemo. Ipsam deleniti harum placeat.
+            </p>
+            <div class="home-products__buttons">
+                <button 
+                    class="home-products__button home-products__button--primary"
+                    routerLink="/calculator"
+                >
+                    CALCULATE AND ORDER NOW
+                </button>
+                <button 
+                    class="home-products__button home-products__button--secondary"
+                    routerLink="/products"
+                >
+                    More info
+                </button>
+            </div>
+        </div>
+        <div>
+            <img
+                class="home-products__product-image home-products__product-image--profiles"
+                src="../../../assets/profiles.png"
+            >
+        </div>
+    </div>
     <div class="home-products__slider">
         <div
             *ngFor="let item of productIds; let i = index"
@@ -10,14 +107,19 @@
             (click)="changeProduct(i)"
             class="home-products__slider-item"
             [ngClass]="{'home-products__slider-item--active' : currentProduct === item}"
-        ></div>
+            >
+        </div>
     </div>
     <div 
         (click)="changeProduct(currentIndex - 1)"
         class="home-products__arrow home-products__arrow--left"
-    ></div>
+    >
+        <i class="home-products__arrow-icon home-products__arrow-icon--left"></i>
+    </div>
     <div 
         (click)="changeProduct(currentIndex + 1)"
         class="home-products__arrow home-products__arrow--right"
-    ></div>
+    >
+        <i class="home-products__arrow-icon home-products__arrow-icon--right"></i>
+    </div>
 </div>

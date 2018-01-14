@@ -2,6 +2,37 @@
 
 .footer {
     @include _(background-color, #476678);
-    @include _(height, 250px);
-}
+    @include _(height, 150px);
+    @include _(position, absolute);
+    @include _(width, 100%);
+    @include _(bottom, 0);
 
+    &__container {
+        @include _(height, 100%);
+        @include _(width, 100%);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, space-between);
+    }
+
+    &__copyright {
+        @include _(text-align, center);
+        @include _(font-family, assistant);
+        @include _(padding-bottom, 15px);
+        
+        & a {
+            @include _(color, #b3c0c7);
+            @include _(cursor, pointer);
+            @include _(text-decoration, none);
+        }
+    }
+
+    &__logo {
+        @include _(text-align, center);
+        @include _(padding-top, 15px);
+
+        & img {
+            @include _(height, 85px);
+        }
+    }
+}

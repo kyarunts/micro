@@ -20,6 +20,92 @@
         @include _(border, 2px solid #1f445a);
     }
 
+    &__product-info-container {
+        @include _(display, flex);
+        @include _(padding-left, 10%);
+
+    }
+
+    &__product-information {
+        @include _(flex-basis, 50%);
+        @include _(padding-top, 100px);
+    }
+
+    &__product-name {
+        @include _(color, #1f445a);
+        @include _(font-size, 32px);
+        @include _(font-family, play);
+        @include _(margin, 0 0 20px 0);
+    }
+
+    &__product-description {
+        @include _(color, #1f445a);
+        @include _(font-family, cantarell);
+        @include _(font-size, 22px);
+        @include _(margin, 0);
+    }
+
+    &__product-image {
+        &--sandwich-panel {
+            @include _(position, absolute);
+            @include _(top, 25px);
+            @include _(height, 85%);
+            @include _(right, 180px);
+        }
+
+        &--thermo-isolation {
+            @include _(position, absolute);
+            @include _(height, 57%);
+            @include _(right, 71px);
+            @include _(bottom, 110px);
+            @include _(transform, rotate(-18deg));
+        }
+
+        &--profiles {
+            @include _(position, absolute);
+            @include _(top, 40px);
+            @include _(height, 85%);
+            @include _(right, 150px);
+        }
+    }
+    
+    &__buttons {
+        @include _(margin-top, 40px);
+    }
+
+    &__button {
+        @include _(height, 50px);
+        @include _(padding, 0 30px);
+        @include _(border, none);
+        @include _(border-radius, 5px);
+        @include _(font-size, 16px);
+        @include _(font-family, quicksand);
+        @include _(color, #1f445a);
+        @include _(cursor, pointer);
+        @include _(outline, none);
+        @include _(box-sizing, border-box);
+        @include _(transition, all 0.2s linear);
+        @include _(font-weight, 600);
+
+        &:first-child {
+            @include _(margin-right, 20px);
+        }
+
+        &--primary {
+            @include _(background-color, #ffcc35);
+        }
+
+        &--secondary {
+            @include _(background-color, transparent);
+            @include _(border, 1px solid #1f445a);
+        }
+
+        &:hover {
+            @include _(background-color, #1f445a);
+            @include _(color, white);
+        }
+    }
+
     &__slider {
         @include _(display, flex);
         @include _(justify-content, center);
@@ -48,6 +134,9 @@
         @include _(position, absolute);
         @include _(top, 0);
         @include _(cursor, pointer);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, center);
         @include _(transition, background-color 0.2s ease-in-out);
         
         &:hover {
@@ -62,4 +151,20 @@
             @include _(right, 0);
         }
     }
+
+    &__arrow-icon {
+        @include _(border, solid #8094a0);
+        @include _(border-width, 0 3px 3px 0);
+        @include _(display, inline-block);
+        @include _(padding, 10px);
+
+        &--left {
+            transform: rotate(135deg);
+        }
+
+        &--right {
+            transform: rotate(-45deg);
+        }
+    }
+
 }

@@ -27,7 +27,7 @@ export class HomeProductsComponent implements OnInit {
                 this.currentIndex++;
             }
             this.currentProduct = this.productIds[this.currentIndex];
-        }, 1000);
+        }, 5000);
     }
     
     public stopAnimation() {

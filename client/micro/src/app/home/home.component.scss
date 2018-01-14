@@ -144,7 +144,8 @@
         @include _(cursor, pointer);
         @include _(transition, transform 0.2s);
         @include _(margin, 0 40px);
-
+        @include _(outline, none);
+        
         &:hover {
             transform: scale(1.1);
         }
