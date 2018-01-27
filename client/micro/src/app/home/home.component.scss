@@ -41,6 +41,63 @@
         }
     }
 
+    &__logo-container {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(align-items, center);
+        @include _(margin-top, 12vh);
+    }
+
+    &__logo {
+        @include _(height, 215px);
+    }
+
+    &__slogan {
+        @include _(font-family, cantarell);
+        @include _(font-size, 25px);
+        @include _(color, #2e3232);
+        @include _(margin-top, 20px);
+        @include _(font-weight, 600);
+    }
+
+    &__buttons {
+        @include _(display, flex);
+        @include _(margin-top, 25px);
+    }
+
+    &__button {
+        @include _(height, 50px);
+        @include _(padding, 0 30px);
+        @include _(border, none);
+        @include _(border-radius, 5px);
+        @include _(font-size, 19px);
+        @include _(font-family, quicksand);
+        @include _(color, #1f445a);
+        @include _(cursor, pointer);
+        @include _(outline, none);
+        @include _(box-sizing, border-box);
+        @include _(transition, all 0.2s linear);
+        @include _(font-weight, 600);
+
+        &:first-child {
+            @include _(margin-right, 20px);
+        }
+
+        &--primary {
+            @include _(background-color, #fcd12a);
+        }
+
+        &--secondary {
+            @include _(background-color, transparent);
+            @include _(border, 1px solid #1f445a);
+        }
+
+        &:hover {
+            @include _(background-color, #1f445a);
+            @include _(color, white);
+        }
+    }
+
     &__stats {
         @include _(height, 200px);
         @include _(width, 100%);
