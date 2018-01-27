@@ -7,6 +7,7 @@
     @include _(position, fixed);
     @include _(display, flex);
     @include _(flex-direction, column);
+    @include _(justify-content, center);
     @include _(z-index, 200);
 
     &__list {
@@ -66,7 +67,7 @@
 }
 
 .submenu {
-    @include _(background-color, rgba(31, 68, 90, 0.6));
+    @include _(background-color, rgba(31, 68, 90, 0.9));
     @include _(height, 100vh);
     @include _(width, 350px);
     @include _(position, fixed);
@@ -81,6 +82,74 @@
     @include _(justify-content, center);
     @include _(cursor, default);
     @include _(transition, all 1s ease-in-out);
+
+    &__item {
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(cursor, pointer);
+        @include _(transition, all 0.6s linear);
+        @include _(padding, 15px 30px);
+
+        &:hover {
+            @include _(background-color, #4b7086);
+        }
+    }
+
+    &__item-icon-container {
+        @include _(height, 20px);
+    }
+
+    &__item-icon {
+        @include _(height, 100%);
+        @include _(width, auto);
+    }
+
+    &__item-name {
+        @include _(text-align, center);
+        @include _(font-size, 22px);
+        @include _(color, #a6b5be);
+        @include _(margin-left, 15px);
+    }
+
+    &__calculator {
+        @include _(text-align, center);
+        @include _(position, absolute);
+        @include _(bottom, 20px);
+    }
+
+    &__calculator-icon-container {
+        @include _(height, 60px);
+    }
+
+    &__calculator-icon {
+        @include _(height, 100%);
+    }
+
+    &__calculator-text {
+        @include _(margin-top, 15px);
+        @include _(color, #a6b5be);
+        @include _(margin-bottom, 15px);
+    }
+
+    &__calculator-button {
+        @include _(height, 50px);
+        @include _(padding, 0 30px);
+        @include _(border, none);
+        @include _(border-radius, 5px);
+        @include _(font-size, 19px);
+        @include _(font-family, quicksand);
+        @include _(color, #1f445a);
+        @include _(cursor, pointer);
+        @include _(outline, none);
+        @include _(box-sizing, border-box);
+        @include _(transition, all 0.2s linear);
+        @include _(font-weight, 600);
+        @include _(background-color, #dbbb3f);
+
+        &:hover {
+            @include _(background-color, #fcd12a);
+        }
+    }
 }
 
 html, body {
