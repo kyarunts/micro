@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeProductsComponent implements OnInit {
     
-    private productIds: string[] = ['sandwichPanel', 'thermalIsolation', 'profiles'];
+    public productIds: string[] = ['sandwichPanel', 'thermalIsolation', 'profiles'];
     public currentProduct: string = 'sandwichPanel'
-    private currentIndex: number = 0;
+    public currentIndex: number = 0;
     private sliderAnimation: any;
 
     constructor() { }
