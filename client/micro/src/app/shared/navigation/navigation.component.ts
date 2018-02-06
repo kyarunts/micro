@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebElement } from 'selenium-webdriver';
 
 @Component({
     selector: 'app-navigation',
@@ -6,14 +7,35 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+    
+    public navigationItems: {name: string, routerLink: string}[] = [
+        { name: 'HOME PAGE', routerLink: '/home' },
+        { name: 'ABOUT US', routerLink: '/about' },
+        { name: 'PRODUCTS', routerLink: '/products' },
+        { name: 'CALCULATOR', routerLink: '/calculator' },
+        { name: 'PORTFOLIO', routerLink: '/portfolio' },
+        { name: 'PARTNERS', routerLink: '/partners' },
+        { name: 'INSTALLATION', routerLink: '/installation' },
+        { name: 'CONTACTS', routerLink: '/contacts' },
+    ];
+    public productsSubmenuItems: {}[] = [
+        { id: '0', name: 'Sandwich Panels', src: './assets/wall.svg', routerLink: '/products' },
+        { id: '1', name: 'Profiles', src: './assets/pro.svg', routerLink: '/products' },
+        { id: '2', name: 'Thermal Isolation', src: './assets/thermal.svg', routerLink: '/products' },
+        { id: '3', name: 'Assembling Parts', src: './assets/assembling.svg', routerLink: '/products' },
+        { id: '4', name: 'Metal Constructions', src: './assets/metal.svg', routerLink: '/products' },
+        { id: '5', name: 'Aluminium Sheets & Rods', src: './assets/aluminum.svg', routerLink: '/products' },
+
+    ]
+    public currentLanguage: number = 0;
+    public languages: string[] = ['hy', 'ru', 'eng'];
 
     constructor() { }
     
     ngOnInit() {
     }
-    
-    test(event: Event) {
-        console.log(event);
-        event.stopPropagation();
+
+    public changeLanguage(index: number): void {
+        this.currentLanguage = index;
     }
 }

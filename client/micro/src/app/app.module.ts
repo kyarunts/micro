@@ -22,6 +22,7 @@ import { CounterDirective } from './generics/counter.directive';
 import { RecentProjectsComponent } from './home/recent-projects/recent-projects.component';
 import { HomeProductsComponent } from './home/home-products/home-products.component';
 import { HomeClientsComponent } from './home/home-clients/home-clients.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HomeClientsComponent } from './home/home-clients/home-clients.component
     CounterDirective,
     RecentProjectsComponent,
     HomeProductsComponent,
-    HomeClientsComponent
+    HomeClientsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

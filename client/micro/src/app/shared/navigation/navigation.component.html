@@ -1,113 +1,48 @@
 <nav class="navigation">
-    <div class="navigation__logo">
-        <!-- <img src="logo1.png"> -->
-    </div>
+
     <ul class="navigation__list">
-        <li
-            routerLink="/home" 
-            class="navigation__item"
-            routerLinkActive="navigation__item--active"
-        >
-            HOME PAGE
-        </li>
         <li 
-            routerLink="/about" 
+            *ngFor="let item of navigationItems"
             class="navigation__item"
+            routerLink="{{item.routerLink}}"
             routerLinkActive="navigation__item--active"
+            [ngClass]="{'navigation__item--products': item.name === 'PRODUCTS'}"
         >
-            ABOUT US
+            {{item.name}}
         </li>
-        <li 
-            routerLink="/products" 
-            class="navigation__item"
-            routerLinkActive="navigation__item--active"
-        >
-            PRODUCTS
-            <div class="submenu">
-                
-                <div class="submenu__item">
-                    <div class="submenu__item-icon-container">
-                        <img src="./assets/wall.svg" class="submenu__item-icon">
-                    </div>
-                    <div class="submenu__item-name">Sandwich Panels</div>
+        <div class="submenu">
+            <div 
+                *ngFor="let item of productsSubmenuItems"
+                class="submenu__item"
+                [routerLink]="[item.routerLink, item.id]"
+                routerLinkActive="submenu__item--active"
+            >
+                <div class="submenu__item-icon-container">
+                    <img src="{{item.src}}" class="submenu__item-icon">
                 </div>
-                <div class="submenu__item">
-                    <div class="submenu__item-icon-container">
-                        <img src="./assets/pro.svg" class="submenu__item-icon">
-                    </div>
-                    <div class="submenu__item-name">Profiles</div>
-                </div>
-                <div class="submenu__item">
-                    <div class="submenu__item-icon-container">
-                        <img src="./assets/thermal.svg" class="submenu__item-icon">
-                    </div>
-                    <div class="submenu__item-name">Thermal Isolation</div>
-                </div>
-                <div class="submenu__item">
-                    <div class="submenu__item-icon-container">
-                        <img src="./assets/assembling.svg" class="submenu__item-icon">
-                    </div>
-                    <div class="submenu__item-name">Assembling Parts</div>
-                </div>
-                <div class="submenu__item">
-                    <div class="submenu__item-icon-container">
-                        <img src="./assets/metal.svg" class="submenu__item-icon">
-                    </div>
-                    <div class="submenu__item-name">Metal Constructions</div>
-                </div>
-                <div class="submenu__item">
-                    <div class="submenu__item-icon-container">
-                        <img src="./assets/aluminum.svg" class="submenu__item-icon">
-                    </div>
-                    <div class="submenu__item-name">Aluminium Sheets & Rods</div>
-                </div>
-                <div class="submenu__calculator">
-                    <!-- <div class="submenu__calculator-icon-container">
-                        <img class="submenu__calculator-icon" src="./assets/calculator.svg" alt="">
-                    </div> -->
-                    <button class="submenu__calculator-button">
-                        CALCULATE NOW
-                    </button>
-                    <div class="submenu__calculator-text">
-                        Use our calculator to find out what you need
-                    </div>
+                <div class="submenu__item-name">{{item.name}}</div>
+            </div>
+            <div class="submenu__calculator">
+                <button
+                    routerLink="/calculator"
+                    class="submenu__calculator-button"
+                >
+                    CALCULATE NOW
+                </button>
+                <div class="submenu__calculator-text">
+                    Use our calculator to find out what you need
                 </div>
             </div>
-        </li>
-        <li 
-            routerLink="/portfolio"
-            class="navigation__item"
-            routerLinkActive="navigation__item--active"
-        >
-            PORTFOLIO
-        </li>
-        <li 
-            routerLink="/partners" 
-            class="navigation__item"
-            routerLinkActive="navigation__item--active"
-        >
-            PARTNERS
-        </li>
-        <li 
-            routerLink="/installation" 
-            class="navigation__item"
-            routerLinkActive="navigation__item--active"
-        >
-            INSTALLATION
-        </li>
-        <li  
-            routerLink="/contacts" 
-            class="navigation__item"
-            routerLinkActive="navigation__item--active"
-        >
-            CONTACTS
-        </li>
+        </div>
     </ul>
-    <!-- <div class="navigation__addresses">
-        <span class="address__line">Goris, Syunik, RA</span>
-        <span class="address__line">Tatevatsi 78</span>
-        <span class="address__line">
-            <a class="address__link" href="tel:+37428422222">+374 284 22222</a>
-        </span>
-    </div> -->
+    <div class="navigation__language-bar">
+        <a 
+            *ngFor="let item of languages; let ind = index"
+            (click)="changeLanguage(ind)" 
+            [ngClass]="{'navigation__language--selected': currentLanguage === ind}"
+            class="navigation__language"
+        >
+            {{item}}
+        </a>
+    </div>
 </nav>
