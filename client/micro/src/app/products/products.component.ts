@@ -9,8 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsComponent implements OnInit, OnDestroy {
     public products;
+    public categories;
     public productId: number;
     private subscription: any;
+    private dataSubscription: any;
 
     constructor(
         private productsService: ProductsComponentService,
@@ -25,12 +27,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }
 
     private getData(): void {
-        this.productsService.getProducts().subscribe(
-            (data: any) => this.products = data
-        ) 
+        this.dataSubscription = this.productsService.getProducts().subscribe(
+            (data: any) => {
+                this.products = data['products'];
+                this.categories = data['categories'];
+            }
+        )
     }
+    
 
     ngOnDestroy() {
+        this.dataSubscription.unsubscribe();
         this.subscription.unsubscribe();
     }
 }
