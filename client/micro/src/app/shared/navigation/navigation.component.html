@@ -10,7 +10,10 @@
         >
             {{item.name}}
         </li>
-        <div class="submenu">
+        <div 
+            class="submenu"
+            [ngClass]="{'submenu--hidden': isSubmenuHidden}"
+        >
             <div 
                 *ngFor="let item of productsSubmenuItems"
                 class="submenu__item"

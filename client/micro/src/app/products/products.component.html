@@ -1,43 +1,75 @@
 <div class="products">
     <div class="products__header">
         <span class="products__header-title">
-            PRODUCTS
+            {{title}}
         </span>
     </div>
-    <div class="products__filters">
-        <div class="products__filter-container">
-            <div class="products__filter">
-                <div class="products__filter-separator products__filter-separator--right"></div>
-                <div class="products__filter-separator products__filter-separator--bottom"></div>
+
+    <div class="products__container">
+        <div class="products__filters-container">
+            <div 
+                class="products__filter-item"
+                routerLink="/products"
+                [ngClass]="{'products__filter-item--selected': !productId && productId !== 0}"
+            >
+                <span>
+                    All products
+                </span>
             </div>
-            <div class="products__filter">
-            
-            </div>
-            <div class="products__filter">
-            
-            </div>
-            <div class="products__filter">
-            
-            </div>
-            <div class="products__filter">
-            
-            </div>
-            <div class="products__filter">
-            
-            </div>
-            <div class="products__filter">
-            
-            </div>
-            <div class="products__filter">
-            
+            <div 
+                *ngFor="let item of categories"
+                class="products__filter-item"
+                [routerLink]="['/products', item.id]"
+                routerLinkActive="products__filter-item--selected"
+            >
+                <span>
+                    {{item.name}}
+                </span>
             </div>
         </div>
+        
+        <div class="products__items-container">
+            <app-product-details
+                *ngIf="productId || productId === 0"
+                [productId]="productId"
+            ></app-product-details>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="products__filters">
+        <div class="products__filter-container">
+            <div class="products__filter">
+            </div>
+        </div>
+    </div> -->
 </div>
 
 
-<app-product-details
-    *ngIf="productId || productId === 0"
-    [productId]="productId"
-></app-product-details>
+
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WebElement } from 'selenium-webdriver';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
     selector: 'app-navigation',
@@ -29,8 +29,20 @@ export class NavigationComponent implements OnInit {
     ]
     public currentLanguage: number = 0;
     public languages: string[] = ['hy', 'ru', 'eng'];
+    public isSubmenuHidden: boolean;
 
-    constructor() { }
+    constructor(private router: Router) {
+        router.events.subscribe((val) => {
+            if (val instanceof NavigationEnd) {
+                if (val.url.indexOf('products') > -1) {
+                    this.isSubmenuHidden = true;
+                }
+                else {
+                    this.isSubmenuHidden = false;
+                }
+            }
+        })
+    }
     
     ngOnInit() {
     }

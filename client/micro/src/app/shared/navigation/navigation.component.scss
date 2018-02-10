@@ -111,6 +111,10 @@
     @include _(cursor, default);
     @include _(transition, all 1s ease-in-out);
 
+    &--hidden {
+        @include _(display, none);
+    }
+    
     &__item {
         @include _(display, flex);
         @include _(align-items, center);

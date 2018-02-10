@@ -14,20 +14,103 @@
     &__header-title {
         @include _(font-size, 35px);
         @include _(font-family, quicksand);
+        @include _(text-transform, uppercase);
     }
 
-    &__filter-container {
+    &__container {
         @include _(display, flex);
-        @include _(max-width, 60vw);
-        @include _(flex-wrap, wrap);
-        @include _(margin, 0 auto);
-        @include _(justify-content, center);
+        @include _(padding, 35px);
     }
-    &__filter {
-        @include _(background-color, blue);
-        @include _(height, 150px);
-        @include _(width, 150px);
+
+    &__filters-container {
+        @include _(width, 270px);
+        @include _(height, 500px);
+        @include _(background-color, #f3f3fc);
+    }
+
+    &__items-container {
+        @include _(width, 600px);
+        @include _(height, 500px);
+    }
+
+    &__filter-item {
         @include _(position, relative);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(padding, 10px 0 10px 20px);
+        @include _(cursor, pointer);
+        @include _(outline, none);
+        @include _(color, #313131);
+
+        &:hover {
+            &:before {
+                content: '';
+                @include _(height, 100%);
+                @include _(width, 10px);
+                @include _(position, absolute);
+                @include _(left, 0);
+                @include _(background-color, #EBC137);
+            }
+        }
+
+        &--selected {
+            &:before {
+                content: '';
+                @include _(height, 100%);
+                @include _(width, 10px);
+                @include _(position, absolute);
+                @include _(left, 0);
+                @include _(background-color, #EBC137);
+            }
+        }
     }
+    // &__filter-container {
+    //     @include _(display, flex);
+    //     @include _(max-width, 80vw);
+    //     @include _(flex-wrap, wrap);
+    //     @include _(margin, 0 auto);
+    //     @include _(justify-content, center);
+    // }
+
+    // &__filter {
+    //     @include _(height, 100px);
+    //     @include _(width, 100px);
+    //     @include _(position, relative);
+    //     @include _(display, flex);
+    //     @include _(justify-content, center);
+    //     @include _(align-items, center);
+
+    //     &:before {
+    //         content: '';
+    //         @include _(position, absolute);
+    //         @include _(right, 0);
+    //         @include _(height, 60%);
+    //         @include _(width, 2px);
+    //         @include _(background-color, #476678);
+    //     }
+
+    //     &:last-child {
+    //         &:before {
+    //             content: none;
+    //         }
+    //     }
+    // }
+
+    // &__filter-separator {
+    //     @include _(position, absolute);
+    //     @include _(background-color, green);
+
+    //     &--right {
+    //         @include _(height, 60%);
+    //         @include _(width, 2px);
+    //         @include _(right, 0);
+    //     }
+
+    //     &--bottom {
+    //         @include _(height, 2px);
+    //         @include _(width, 60%);
+    //         @include _(bottom, 0);
+    //     }
+    // }
 
 }

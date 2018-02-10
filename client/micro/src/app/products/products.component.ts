@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductsComponentService } from 'app/products/products.component.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -8,21 +8,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-    public products;
-    public categories;
+    public title: string = "Products";
+    public products: Object[];
+    public categories: Object[];
     public productId: number;
     private subscription: any;
     private dataSubscription: any;
 
     constructor(
         private productsService: ProductsComponentService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ) { }
 
     ngOnInit() {
         this.getData();
         this.subscription = this.route.params.subscribe(params => {
             this.productId = +params['id'];
+            if (+params['id'] >= 0) {
+                this.title = `Products: ${params['id']}`;
+            } else {
+                this.title = "PRODUCTS"
+            }
         });
     }
 
