@@ -1,4 +1,5 @@
-<span>
-{{productId}} THIS IS THE PRODUCT ID
-</span>
-
+<div
+    *ngFor="let item of currentProducts"
+>
+    {{item.name}}
+</div>

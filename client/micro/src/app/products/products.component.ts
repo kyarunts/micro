@@ -11,7 +11,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
     public title: string = "Products";
     public products: Object[];
     public categories: Object[];
-    public productId: number;
+    public currentProducts: Object[];
+    public productId: string;
     private subscription: any;
     private dataSubscription: any;
 
@@ -24,13 +25,37 @@ export class ProductsComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.getData();
         this.subscription = this.route.params.subscribe(params => {
-            this.productId = +params['id'];
-            if (+params['id'] >= 0) {
-                this.title = `Products: ${params['id']}`;
-            } else {
-                this.title = "PRODUCTS"
-            }
+            this.productId = params['id'];
+            this.updateTitle(params['id']);
+            this.manageCurrentProducts(params['id'] || 'all');
         });
+    }
+
+    private updateTitle(paramsId: string): void {
+        if (+paramsId >= 0) {
+            let categoryName: string = this.getNameById(this.categories, paramsId)[0]['name'];
+            this.title = `Products: ${categoryName}`;
+        } else {
+            this.title = 'Products';
+        }
+        
+    }
+
+    private getNameById(array: Object[], id: string): Object[] {
+        return array.filter((item) => {
+            return item['id'] == id;
+        })
+    }
+
+    private manageCurrentProducts(categoryId: number | string): void {
+        if (categoryId === 'all') {
+            this.currentProducts = this.products;
+        } else {
+            this.currentProducts = this.products.filter((product) => {
+                return product['categoryId'] == categoryId;
+            });
+        }
+        console.log(this.currentProducts);
     }
 
     private getData(): void {

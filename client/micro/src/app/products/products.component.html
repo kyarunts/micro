@@ -30,8 +30,8 @@
         
         <div class="products__items-container">
             <app-product-details
-                *ngIf="productId || productId === 0"
                 [productId]="productId"
+                [currentProducts]="currentProducts"
             ></app-product-details>
         </div>
     </div>

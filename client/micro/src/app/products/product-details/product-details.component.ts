@@ -6,7 +6,8 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
     styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
-    @Input() productId: number;    
+    @Input() productId: string;
+    @Input() currentProducts: Object[];
     constructor() { }
     
     ngOnInit() {
