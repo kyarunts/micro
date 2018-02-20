@@ -25,7 +25,19 @@ export class ProductsComponentService {
         products: [
             { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
             { id: 1, categoryId: 1, name: 'Some Profile' },
-            { id: 2, categoryId: 2, name: 'Some Isolation Product' }
+            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
+            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
+            { id: 1, categoryId: 1, name: 'Some Profile' },
+            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
+            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
+            { id: 1, categoryId: 1, name: 'Some Profile' },
+            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
+            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
+            { id: 1, categoryId: 1, name: 'Some Profile' },
+            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
+            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
+            { id: 1, categoryId: 1, name: 'Some Profile' },
+            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
         ]
     };
 

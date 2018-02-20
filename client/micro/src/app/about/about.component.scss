@@ -1,0 +1,189 @@
+@import '../sass-dass/exports';
+
+.about {
+
+    @include _(background-color, #f5f6fa);
+    @include _(min-height, 100vh);
+
+    &__header {
+        @include _(background, url('https://images.unsplash.com/photo-1477764864052-f721644f01a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a754a96e98ab00500d44a743fc2449aa&auto=format&fit=crop&w=1350&q=80'));
+        @include _(background-size, cover);
+        @include _(background-attachment, fixed);
+    }
+
+    &__header-title {
+        @include _(color, white);
+    }
+
+    &__container {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(align-items, center); 
+        @include _(padding-top, 20px);
+    }
+
+    &__section {
+        @include _(border-radius, 5px);
+        @include _(width, 70%); 
+        @include _(padding, 30px 50px);
+        @include _(margin-bottom, 20px);
+        @include _(background-color, white);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    }
+
+    &__section-header {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(font-size, 30px);
+        @include _(font-family, play);
+        @include _(margin-bottom, 30px);
+
+        & div {
+            @include _(width, 35px);
+            @include _(margin, 0 20px);
+            @include _(height, 2px);
+            @include _(background-color, black);
+        }
+    }
+
+    &__section-text {
+        @include _(color, #3c3c3c);
+        @include _(line-height, 1.7);
+        @include _(font-size, 18px);
+        @include _(font-family, assistant);
+    }
+
+    &__story-picture {
+        background: url('https://images.unsplash.com/photo-1477764864052-f721644f01a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a754a96e98ab00500d44a743fc2449aa&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-attachment: fixed;
+        @include _(height, 200px);
+    }
+
+    &__products-block {
+        @include _(text-align, center);
+        @include _(margin-top, 15px);
+    }
+
+    &__products-explore {
+        @include _(font-family, quicksand);
+        @include _(font-size, 20px);
+    }
+    
+    &__products-items-container {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(margin-top, 20px);
+    }
+
+    &__products-item {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(align-items, center);
+        @include _(color, orange);
+        @include _(cursor, pointer);
+        @include _(margin, 0 25px);
+        @include _(outline, none);
+        
+        &:hover svg {
+            transform: rotate(20deg);
+        }
+    }
+
+    &__products-item-icon {
+        @include _(width, 50px);
+        @include _(height, 50px);
+        @include _(transition, transform .6s ease-in-out);
+    }
+
+    &__products-item-name {
+        @include _(font-size, 23px);
+        @include _(margin-top, 5px);
+        @include _(color, #3079a5);
+    }
+
+    &__services-container {
+        @include _(display, flex);
+        @include _(justify-content, space-around);
+    }
+
+    &__service {
+        @include _(width, 28%);
+        @include _(height, 500px);
+        @include _(box-shadow, 1px 1px 1px 1px #9db6c5);
+        @include _(border-radius, 8px);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, space-between);
+        @include _(cursor, pointer);
+        
+        &:hover .about__service-text {
+            @include _(padding-bottom, 30px);
+        }
+
+        &:hover .about__service-icon-container {
+            @include _(transform, scale(0.5));
+        }
+
+        &:hover .about__service-contact {
+            @include _(opacity, 1);
+            @include _(margin-top, 20px);
+        }
+    }
+
+    &__service-text {
+        @include _(text-align, center);
+        @include _(color, #0277bd);
+        @include _(padding, 10px);
+        @include _(font-size, 17px);
+        @include _(border-top, 1px solid #0277bd);
+        transition: padding-bottom .5s ease-in-out;
+    }
+
+    &__service-header {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(background-color, #0277bd);
+        @include _(color, white);
+        @include _(padding, 15px 0);
+        @include _(border-top-left-radius, 8px);
+        @include _(border-top-right-radius, 8px);
+        @include _(font-size, 23px);
+    }
+
+    &__service-icon-container {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(color, orange);
+        transition: transform .5s ease-in-out;
+    }
+
+    &__service-icon {
+        @include _(width, 120px);
+        @include _(height, 120px);
+    }
+
+    &__service-contact {
+        @include _(color, orange);
+        @include _(opacity, 0);
+        @include _(border, 1px solid orange);
+        @include _(border-radius, 6px);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, center);
+        @include _(padding, 10px);
+        @include _(font-weight, 600);
+        transition: all .5s ease-in-out;
+
+        &:hover {
+            @include _(background-color, orange);
+            @include _(color, white);
+        }
+    }
+}
+

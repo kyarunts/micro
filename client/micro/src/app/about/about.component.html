@@ -1,0 +1,153 @@
+<div class="about">
+    <div class="about__header page-header">
+        <span class="about__header-title page-title">
+            ABOUT US
+        </span>
+    </div>
+    <div class="about__container">
+        <div class="about__section">
+            <div class="about__section-header">
+                <div></div>
+                <span>
+                    Our Story
+                </span>
+                <div></div>
+            </div>
+            <div class="about__section-text">
+                <span>
+                    The BONUS BILDING company was created on the basis of the Goris Microengine factory in 2007, which is located in
+                    the Goris city . The main activity of the company is sandwich-panel production. The raw materials are being supplied from
+                    foreign countries. High quality raw material and the superb technologies provide an ability to deliver a high quality product
+                    to the market.
+                </span>
+            </div>
+            <div class="about__story-picture">
+            </div>
+        </div>
+
+        <div class="about__section">
+            <div class="about__section-header">
+                <div></div>
+                <span>
+                    What we do?
+                </span>
+                <div></div>
+            </div>
+            <div class="about__services-container about__section-text">
+                <div
+                    *ngFor="let service of services"
+                    class="about__service"
+                >
+                    <div class="about__service-header">
+                        {{service.title}}
+                    </div>
+                    <div class="about__service-icon-container">
+                        <svg
+                            *ngIf="service.title === 'Production'" 
+                            class="icon-toolbox about__service-icon"
+                        >
+                            <use xlink:href="#icon-toolbox"></use>
+                        </svg>
+                        <svg
+                            *ngIf="service.title === 'Construction'" 
+                            class="icon-construction about__service-icon"
+                        >
+                            <use xlink:href="#icon-construction"></use>
+                        </svg>
+                        <svg
+                            *ngIf="service.title === 'Design and Consulting'" 
+                            class="icon-sketch about__service-icon"
+                        >
+                            <use xlink:href="#icon-sketch"></use>
+                        </svg>
+                    </div>
+                    
+                    <div class="about__service-text">
+                        {{service.copy}}
+                        <div
+                            routerLink="/contacts/"
+                            class="about__service-contact"
+                        >
+                            Contact us for details
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <div class="about__section">
+            <div class="about__section-header">
+                <div></div>
+                <span>
+                    What we produce?
+                </span>
+                <div></div>
+            </div>
+            <div class="about__section-text">
+                <span>
+                    Sandwich-panels are being used in the construction of almost all the fields of buildings. Due to its versatility sandwich-panels
+                    are used for finishing of the exterior walls, partitions, roof finishing and etc.. The scope of use is not limited to construction
+                    of the roof, industrial buildings, shopping centers and cabins. Thanks to the simplicity and functionality of sandwich-panels
+                    the construction becomes oversimplified. This material does not require any additional finishing. The usage of sandwich-panels
+                    does not limit the imagination of the customer, as there is an alternative of color variety, textures and designs.
+                </span>
+                <div class="about__products-block">
+                    <span class="about__products-explore">
+                        Explore our products:
+                    </span>
+                    <div class="about__products-items-container">
+                        <div 
+                            class="about__products-item"
+                            routerLink="/products/0"
+                        >
+                            <svg class="icon-wall about__products-item-icon">
+                                <use xlink:href="#icon-wall"></use>
+                            </svg>
+                            <span class="about__products-item-name">
+                                Sandwich panels
+                            </span>
+                        </div>
+                        <div 
+                            class="about__products-item"
+                            routerLink="/products/1"
+                        >
+                            <svg class="icon-pro about__products-item-icon">
+                                <use xlink:href="#icon-pro"></use>
+                            </svg>
+                            <span class="about__products-item-name">
+                                Profiles
+                            </span>
+                        </div>
+                        <div 
+                            class="about__products-item"
+                            routerLink="/products/2"
+                        >
+                            <svg class="icon-thermal about__products-item-icon">
+                                <use xlink:href="#icon-thermal"></use>
+                            </svg>
+                            <span class="about__products-item-name">
+                                Thermal isolation
+                            </span>
+                        </div>
+                        <div 
+                            class="about__products-item"
+                            routerLink="/products"
+                        >
+                            <svg class="icon-more about__products-item-icon">
+                                <use xlink:href="#icon-more"></use>
+                            </svg>
+                            <span class="about__products-item-name">
+                                More...
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    
+</div>

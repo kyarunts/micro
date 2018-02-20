@@ -1,3 +1,5 @@
+@import '../src/app/sass-dass/_exports.scss';
+
 body {
     padding: 0;
     margin: 0;
@@ -7,4 +9,24 @@ body {
 svg {
     width: 100%;
     height: 100%;
+}
+
+.page-header {
+    @include _(height, 225px);
+    @include _(display, flex);
+    @include _(justify-content, center);
+    @include _(align-items, center);
+}
+
+.page-title {
+    @include _(font-size, 35px);
+    @include _(font-family, quicksand);
+    @include _(text-transform, uppercase);
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    height: 32px;
+    width: 32px;
+    display: inline-block; 
+    fill: currentColor; 
 }

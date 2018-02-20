@@ -2,19 +2,9 @@
 
 .products {
     &__header {
-        @include _(height, 225px);
         @include _(background, url('https://images.unsplash.com/photo-1493679349286-c570804c71ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5417ec4746cc239b6db75006b2bba96&auto=format&fit=crop&w=1351&q=80'));
-        @include _(background-attachment, fixed);
         @include _(background-size, cover);
-        @include _(display, flex);
-        @include _(justify-content, center);
-        @include _(align-items, center);
-    }
-
-    &__header-title {
-        @include _(font-size, 35px);
-        @include _(font-family, quicksand);
-        @include _(text-transform, uppercase);
+        @include _(background-attachment, fixed);
     }
 
     &__container {
@@ -23,14 +13,10 @@
     }
 
     &__filters-container {
+        @include _(flex, 0 0 auto);
         @include _(width, 270px);
         @include _(height, 500px);
         @include _(background-color, #f3f3fc);
-    }
-
-    &__items-container {
-        @include _(width, 600px);
-        @include _(height, 500px);
     }
 
     &__filter-item {
@@ -64,53 +50,5 @@
             }
         }
     }
-    // &__filter-container {
-    //     @include _(display, flex);
-    //     @include _(max-width, 80vw);
-    //     @include _(flex-wrap, wrap);
-    //     @include _(margin, 0 auto);
-    //     @include _(justify-content, center);
-    // }
-
-    // &__filter {
-    //     @include _(height, 100px);
-    //     @include _(width, 100px);
-    //     @include _(position, relative);
-    //     @include _(display, flex);
-    //     @include _(justify-content, center);
-    //     @include _(align-items, center);
-
-    //     &:before {
-    //         content: '';
-    //         @include _(position, absolute);
-    //         @include _(right, 0);
-    //         @include _(height, 60%);
-    //         @include _(width, 2px);
-    //         @include _(background-color, #476678);
-    //     }
-
-    //     &:last-child {
-    //         &:before {
-    //             content: none;
-    //         }
-    //     }
-    // }
-
-    // &__filter-separator {
-    //     @include _(position, absolute);
-    //     @include _(background-color, green);
-
-    //     &--right {
-    //         @include _(height, 60%);
-    //         @include _(width, 2px);
-    //         @include _(right, 0);
-    //     }
-
-    //     &--bottom {
-    //         @include _(height, 2px);
-    //         @include _(width, 60%);
-    //         @include _(bottom, 0);
-    //     }
-    // }
 
 }
