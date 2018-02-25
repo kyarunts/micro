@@ -49,10 +49,16 @@
         </div>
     </div>
     <div class="install__carusel">
-        <div class="install__carusel-arrow">
-            <svg class="icon-angle-left"><use xlink:href="#icon-angle-left"></use></svg>
+        <div
+            (mousedown)="mousedown('left')"
+            (mouseup)="mouseup()"
+            (mouseleave)="mouseup()"
+            (click)="scrollTo('left')"
+            class="install__carusel-arrow install__carusel-arrow--left"
+        >
+            <svg class="arrow-icon icon-angle-left"><use xlink:href="#icon-angle-left"></use></svg>
         </div>
-        <div class="install__images-container">
+        <div #carusel class="install__images-container">
             <div
                 *ngFor="let image of images"
                 [ngStyle]="{
@@ -63,10 +69,22 @@
                 }"
                 class="install__image"
             >
+                {{image.id}}
+                <div>
+                    <svg class="magnifier-icon icon-search-plus">
+                        <use xlink:href="#icon-search-plus"></use>
+                    </svg>
+                </div>
             </div>
         </div>
-        <div class="install__carusel-arrow">
-            <svg class="icon-angle-left"><use xlink:href="#icon-angle-left"></use></svg>
+        <div
+            (mousedown)="mousedown('right')"
+            (mouseup)="mouseup()"
+            (mouseleave)="mouseup()"
+            (click)="scrollTo('right')" 
+            class="install__carusel-arrow install__carusel-arrow--right"
+        >
+            <svg class="arrow-icon icon-angle-left"><use xlink:href="#icon-angle-right"></use></svg>
         </div>
     </div>
     

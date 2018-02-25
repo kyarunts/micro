@@ -59,21 +59,67 @@
         @include _(margin, 10px);
         @include _(border, 1px solid orange);
         @include _(cursor, pointer);
+        @include _(position, relative);
         -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        
+        & div {
+            @include _(display, flex);
+            @include _(justify-content, center);
+            @include _(align-items, center);
+            @include _(transition, all .4s ease-in-out);
+            @include _(opacity, 0);
+            @include _(position, absolute);
+            @include _(top, 0);
+            @include _(background-color, #b95e00);
+            @include _(height, 100%);
+            @include _(width, 100%);
+            @include _(color, white);
+        }
 
         &:hover {
-            transform: scale(1.03);
-            @include _(background-color, yellow);
+            & div {
+                @include _(opacity, .7);
+            }
         }
     }
 
     &__carusel {
         @include _(display, flex);
+        @include _(margin, 30px 0);
+    }
+
+    &__carusel-arrow {
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, center);
+        @include _(flex-basis, 10%);
+        @include _(cursor, pointer);
+
+        &:hover {
+            .arrow-icon {
+                transform: scale(1.4);
+            }    
+        } 
+
+        &--left {
+            @include _(border-right, 2px solid beige);
+        }
+        &--right {
+            @include _(border-left, 2px solid beige);
+        }
     }
 }
 
+.arrow-icon {
+    transition: transform .4s ease-in-out;
+}
+
+.magnifier-icon {
+    @include _(height, 45px);
+    @include _(width, 45px);
+}
 
 $boxWidth: 33px;
 $animationDuration: 15s;
