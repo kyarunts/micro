@@ -52,7 +52,7 @@
     &__section-text {
         @include _(color, #3c3c3c);
         @include _(line-height, 1.7);
-        @include _(font-size, 18px);
+        @include _(font-size, 22px);
         @include _(font-family, assistant);
     }
 

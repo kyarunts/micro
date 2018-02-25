@@ -1,0 +1,121 @@
+@import '../sass-dass/exports';
+
+.partners {
+    @include _(font-family, assistant);
+    @include _(background-color, #f5f5f5);
+    &__header {
+        @include _(background, url('https://media.npr.org/assets/img/2013/11/05/ink-pen-writing_wide-d542d29357c42b88f054af92dd4d6f292a697780.jpg'));
+        @include _(background-size, cover);
+        @include _(background-attachment, fixed);
+    }
+
+    &__header-text-container {
+        @include _(padding, 40px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+    }
+
+    &__header-text {
+        @include _(max-width, 70%);
+        @include _(font-size, 24px);
+        @include _(text-align, center);
+        @include _(color, #3c3c3c);
+    }
+
+    &__partners-container {
+        @include _(display, flex);
+        @include _(flex-wrap, wrap);
+        @include _(padding, 0 30px);
+        @include _(justify-content, center);
+    }
+    
+    &__partner {
+        @include _(flex-basis, 300px);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(align-items, center);
+        @include _(justify-content, space-around);
+        @include _(height, 350px);
+        @include _(margin, 10px);
+        @include _(background-color, white);
+        @include _(text-decoration, none);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        @include _(cursor, pointer);
+        @include _(transition, transform .3s ease-in-out);
+        @include _(position, relative);
+        &:hover {
+            @include _(transform, scale(0.97));
+        }
+    }
+
+    &__logo-container {
+        @include _(width, 85%);
+        @include _(flex-basis, 60%);
+    }
+
+    &__name-container {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, space-between);
+        @include _(align-items, center);
+    }
+
+    &__name {
+        @include _(font-size, 30px);
+        @include _(font-family, play);
+        @include _(margin-top, 20px);
+        @include _(padding, 0 15px);
+        @include _(text-align, center);
+        @include _(color, #1f445a);
+        @include _(margin-bottom, 10px);
+    }
+
+    &__url {
+        @include _(text-decoration, none);
+        @include _(color, #174394);
+    }
+
+    &__become-a-partner {
+        @include _(background-color, white);
+        @include _(margin-top, 30px);
+        @include _(padding-bottom, 25px);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, center);
+        @include _(flex-direction, column);
+    }
+
+    &__become-header {
+        @include _(margin, 20px);
+        @include _(font-size, 30px);
+        @include _(font-family, play);
+    }
+
+    &__become-contacts {
+        @include _(display, flex);
+        @include _(justify-content, center);
+    }
+
+    &__become-contact-block {
+        @include _(border, 2px solid orange);
+        @include _(height, 70px);
+        @include _(width, 300px);
+        @include _(margin, 20px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(font-size, 24px);
+        @include _(font-family, cantarell);
+        @include _(text-align, center);
+        @include _(box-sizing, border-box);
+        @include _(cursor, pointer);
+        @include _(transition, all .3s ease-in-out);
+
+        &:hover {
+            @include _(background-color, #ffb733);
+            @include _(opacity, .8);
+        }
+    }
+}

@@ -16,6 +16,10 @@
         @include _(flex, 0 0 auto);
         @include _(width, 270px);
         @include _(height, 500px);
+    }
+    
+    &__filters-inner-container {
+        @include _(top, 35px);
         @include _(background-color, #f3f3fc);
     }
 

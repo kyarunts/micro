@@ -1,0 +1,63 @@
+<div class="partners">
+    <div class="partners__header page-header">
+        <span class="partners__header-title page-title">
+            OUR PARTNERS
+        </span>
+    </div>
+
+    <div class="partners__header-text-container">
+        <span class="partners__header-text">
+            We are partnering with famous local and global companies in order to deliver 
+            the best products for us. We are in partnership with market changers as Pepsi,
+            Jermuk Group etc.
+        </span>
+    </div>
+
+    <div class="partners__partners-container">
+        <a 
+            *ngFor="let partner of partners"
+            class="partners__partner"     
+            [href]="partner.url"
+            target="_blank"       
+        >
+            <div class="partners__logo-container"
+                [ngStyle]="{
+                    'background': 'url(' + partner.logo + ')',
+                    'background-size': 'contain',
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center'
+                }"
+            >
+            </div>
+            <div class="partners__name-container">
+                <span class="partners__name">
+                    {{partner.name}}
+                </span>
+                <span class="partners__url">
+                    Visit the Website
+                </span>
+            </div>
+        </a>
+    </div>
+
+    <div class="partners__become-a-partner">
+        <span class="partners__become-header">
+            We are open for partnership! <br>
+            So become our next partner!
+        </span>
+        <div class="partners__become-contacts">
+            <div 
+                class="partners__become-contact-block"
+                routerLink="/contacts"
+            >
+                Just Call Us
+            </div>
+            <div 
+                class="partners__become-contact-block"
+                routerLink="/contacts"
+            >
+                Or Leave a Message
+            </div>
+        </div>
+    </div>
+</div>

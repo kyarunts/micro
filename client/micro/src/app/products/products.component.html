@@ -6,25 +6,27 @@
     </div>
 
     <div class="products__container">
-        <div class="products__filters-container">
-            <div 
-                class="products__filter-item"
-                routerLink="/products"
-                [ngClass]="{'products__filter-item--selected': !productId && productId !== 0}"
-            >
-                <span>
-                    All products
-                </span>
-            </div>
-            <div 
-                *ngFor="let item of categories"
-                class="products__filter-item"
-                [routerLink]="['/products', item.id]"
-                routerLinkActive="products__filter-item--selected"
-            >
-                <span>
-                    {{item.name}}
-                </span>
+        <div  class="products__filters-container">
+            <div #filters class="products__filters-inner-container">
+                <div 
+                    class="products__filter-item"
+                    routerLink="/products"
+                    [ngClass]="{'products__filter-item--selected': !productId && productId !== 0}"
+                >
+                    <span>
+                        All products
+                    </span>
+                </div>
+                <div 
+                    *ngFor="let item of categories"
+                    class="products__filter-item"
+                    [routerLink]="['/products', item.id]"
+                    routerLinkActive="products__filter-item--selected"
+                >
+                    <span>
+                        {{item.name}}
+                    </span>
+                </div>
             </div>
         </div>
         

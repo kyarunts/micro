@@ -1,0 +1,73 @@
+<div class="install">
+    <div class="install__header page-header">
+        <span class="install__header-title page-title">
+            INSTALLATION
+        </span>
+    </div>
+
+    <div class="install__container">
+        <div class="install__content-container">
+            <div class="install__icon-container">
+                <div class="install__icon">
+                    <svg id="loading" viewbox="0 0 100 80">
+                        <defs>
+                            <linearGradient id="gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#4383b8" />
+                                <stop offset="100%" stop-color="#4aa06c" />
+                            </linearGradient>
+                    
+                            <clipPath id="rects">
+                                <rect class="rect" id="rect1" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                                <rect class="rect" id="rect2" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                                <rect class="rect" id="rect3" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                                <rect class="rect" id="rect4" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                                <rect class="rect" id="rect5" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                                <rect class="rect" id="rect6" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                                <rect class="rect" id="rect7" x="0" y="0" width="30" height="30" rx="2" ry="2" />
+                            </clipPath>
+                        </defs>
+                        <rect id="container" transform="translate(50) scale(0.707, 0.707) rotate(45)" x="0" y="0" width="100" height="100" fill="url(#gradient)"
+                            clip-path="url(#rects)">
+                        </rect>
+                    </svg>
+                </div>
+            </div>
+            <span class="install__content">
+                Wall Panel Installation is a quick and easy construction process. It is possible in all weather conditions; wall sandwich-panels
+                are resistant to moisture, the sun and other influences. Installation neither require attachment of a large construction
+                and transportation equipment, nor the large number of employees. The sandwich-panel installation is possible even with the
+                two adjusters, due to its light weight. There is no need of any additional treatment after the installation, as far as it
+                has already a huge variety of coatings in various colors: color palette, metal, wood, plastic. Wall sandwich panels are used
+                in vertical, horizontal and inclined wall structures, which are successfully used in the construction of such buildings as:
+                car washes, warehouses, service stations, supermarkets, vegetable stores, freezers, residential buildings, industrial facilities
+                and other buildings. In addition, the wall sandwich-panels are used for the reconstruction and modernization of old buildings,
+                providing an insulation and giving them an aesthetic look. The use of sandwich-panels in any kind of construction or reconstruction
+                significantly speeds up and simplifies the process and reduces the expences. Sandwich panel with polystyrene is an ideal
+                material for building production halls and warehouses, factories for the production and processing of food pavilions, shops
+                and service facilities, cold stores, garage doors, vans, interior walls of office and etc.
+            </span>
+        </div>
+    </div>
+    <div class="install__carusel">
+        <div class="install__carusel-arrow">
+            <svg class="icon-angle-left"><use xlink:href="#icon-angle-left"></use></svg>
+        </div>
+        <div class="install__images-container">
+            <div
+                *ngFor="let image of images"
+                [ngStyle]="{
+                    'background': 'url(' + image.image + ')',
+                    'background-size': 'contain',
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center'
+                }"
+                class="install__image"
+            >
+            </div>
+        </div>
+        <div class="install__carusel-arrow">
+            <svg class="icon-angle-left"><use xlink:href="#icon-angle-left"></use></svg>
+        </div>
+    </div>
+    
+</div>

@@ -25,6 +25,7 @@ export class AboutComponent implements OnInit {
     constructor() { }
     
     ngOnInit() {
+        document.body.scrollIntoView(true);
     }
 
 }

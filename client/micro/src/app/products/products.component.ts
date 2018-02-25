@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 import { ProductsComponentService } from 'app/products/products.component.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
+    
+    @ViewChild('filters') filters: ElementRef;
     public title: string = "Products";
     public products: Object[];
     public categories: Object[];
@@ -19,16 +21,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
     constructor(
         private productsService: ProductsComponentService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private renderer: Renderer2
     ) { }
 
     ngOnInit() {
+        document.body.scrollIntoView(true);
+        this.subscribeToScroll();
         this.getData();
         this.subscription = this.route.params.subscribe(params => {
             this.productId = params['id'];
             this.updateTitle(params['id']);
             this.manageCurrentProducts(params['id'] || 'all');
         });
+    }
+
+    private subscribeToScroll(): void {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 225) {
+                this.renderer.setStyle(this.filters.nativeElement, 'position', 'fixed');
+            } else {
+                this.renderer.setStyle(this.filters.nativeElement, 'position', 'static');
+            }
+        })
     }
 
     private updateTitle(paramsId: string): void {
@@ -55,7 +70,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
                 return product['categoryId'] == categoryId;
             });
         }
-        console.log(this.currentProducts);
     }
 
     private getData(): void {
@@ -67,7 +81,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
         )
     }
     
-
     ngOnDestroy() {
         this.dataSubscription.unsubscribe();
         this.subscription.unsubscribe();

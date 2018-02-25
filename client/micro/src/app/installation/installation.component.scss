@@ -1,0 +1,207 @@
+@import '../sass-dass/exports';
+
+.install {
+    &__header {
+        @include _(background, url('https://images.unsplash.com/photo-1491186751821-59a0a1bd73f1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a7e07aae81f17dea0acab1a043501f0c&auto=format&fit=crop&w=1350&q=80'));
+        @include _(background-size, cover);
+        @include _(background-attachment, fixed);
+    }
+
+    &__container {
+        @include _(margin, 0 auto);
+        @include _(width, 70%);
+    }
+
+    &__content-container {
+        @include _(border-radius, 5px); 
+        @include _(padding, 30px 50px);
+        @include _(background-color, white);
+        @include _(margin-top, 20px);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    }
+
+    &__content {
+        @include _(color, #3c3c3c);
+        @include _(line-height, 1.7);
+        @include _(font-size, 22px);
+        @include _(font-family, assistant);
+    }
+
+    &__icon-container {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(padding, 20px);
+    }
+
+    &__icon {
+        @include _(width, 100px);
+        @include _(height, 80px);
+    }
+
+    &__images-container {
+        @include _(margin, 0 auto);
+        @include _(padding-top, 30px);
+        @include _(padding-bottom, 30px);
+        @include _(width, 85%);
+        @include _(display, flex);
+        @include _(flex-wrap, nowrap);
+        @include _(overflow-x, auto);
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    &__image {
+        @include _(flex, 0 0 auto);
+        @include _(width, 200px);
+        @include _(height, 200px);
+        @include _(margin, 10px);
+        @include _(border, 1px solid orange);
+        @include _(cursor, pointer);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+
+        &:hover {
+            transform: scale(1.03);
+            @include _(background-color, yellow);
+        }
+    }
+
+    &__carusel {
+        @include _(display, flex);
+    }
+}
+
+
+$boxWidth: 33px;
+$animationDuration: 15s;
+$animationStepDuration: $animationDuration / 7;
+
+@keyframes slide {
+  0% {
+    transform : translate(0, 0);
+  }
+  2% {
+    transform : translate($boxWidth, 0);
+  }
+
+  12.5% {
+    transform : translate($boxWidth, 0);
+  }
+  15.5% {
+    transform : translate(2*$boxWidth, 0);
+  }
+
+  25% {
+    transform : translate(2*$boxWidth, 0);
+  }
+  27% {
+    transform : translate(2*$boxWidth, $boxWidth);
+  }
+
+  37.5% {
+    transform : translate(2*$boxWidth, $boxWidth);
+  }
+  39.5% {
+    transform : translate($boxWidth, $boxWidth);
+  }
+
+  50% {
+    transform : translate($boxWidth, $boxWidth);
+  }
+  52% {
+    transform : translate($boxWidth, 2*$boxWidth);
+  }
+
+  62.5% {
+    transform : translate($boxWidth, 2*$boxWidth);
+  }
+  64.5% {
+    transform : translate(0, 2*$boxWidth);
+  }
+
+  75% {
+    transform : translate(0, 2*$boxWidth);
+  }
+  77% {
+    transform : translate(0, $boxWidth);
+  }
+
+  87.5% {
+    transform : translate(0, $boxWidth);
+  }
+  89.5% {
+    transform : translate(0, 0);
+  }
+
+  100% {
+    transform : translate(0, 0);
+  }
+}
+
+@keyframes gradient1 {
+  from {
+    stop-color : #4383b8;
+  }
+  50% {
+    stop-color: #8013b9;
+  }
+  to {
+    stop-color: #4383b8;
+  }
+}
+@keyframes gradient2 {
+  from {
+    stop-color : #4aa06c;
+  }
+  50% {
+    stop-color: #b22358;
+  }
+  to {
+    stop-color: #4aa06c;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+svg#loading {
+  #gradient > stop[offset="0%"] {
+    animation : gradient1 $animationDuration ease 0s infinite;
+  }
+  #gradient > stop[offset="100%"] {
+    animation : gradient2 $animationDuration ease 0s infinite;
+  }
+  .rect {
+    animation : slide $animationDuration ease infinite;
+  }
+  #rect1 {
+    animation-delay : -0 * $animationStepDuration;;
+  }
+  #rect2 {
+    animation-delay : -1 * $animationStepDuration;;
+  }
+  #rect3 {
+    animation-delay : -2 * $animationStepDuration;;
+  }
+  #rect4 {
+    animation-delay : -3 * $animationStepDuration;;
+  }
+  #rect5 {
+    animation-delay : -4 * $animationStepDuration;;
+  }
+  #rect6 {
+    animation-delay : -5 * $animationStepDuration;;
+  }
+  #rect7 {
+    animation-delay : -6 * $animationStepDuration;;
+  }
+}
