@@ -60,7 +60,7 @@
         </div>
         <div #carusel class="install__images-container">
             <div
-                *ngFor="let image of images"
+                *ngFor="let image of images; let i = index"
                 [ngStyle]="{
                     'background': 'url(' + image.image + ')',
                     'background-size': 'contain',
@@ -68,6 +68,7 @@
                     'background-position': 'center'
                 }"
                 class="install__image"
+                (click)="open(i)"
             >
                 {{image.id}}
                 <div>
@@ -89,3 +90,12 @@
     </div>
     
 </div>
+
+<app-modal
+    [id]="'imageViewer'"
+>
+    <app-image-viewer
+        [images]="images"
+        [currentIndex]="currentImageIndex"
+    ></app-image-viewer>
+</app-modal>

@@ -1,0 +1,9 @@
+@import '../../sass-dass/exports';
+
+.viewer {
+    @include _(height, 100%);
+    @include _(width, 100%);
+    @include _(display, flex);
+    @include _(justify-content, center);
+    @include _(align-items, center);
+}

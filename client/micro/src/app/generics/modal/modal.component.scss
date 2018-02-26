@@ -1,0 +1,42 @@
+@import '../../sass-dass/exports';
+
+.modal {
+
+    &__wrapper {
+        @include _(position, fixed);
+        @include _(width, 100vw);
+        @include _(height, 100vh);
+        @include _(top, 0);
+        @include _(left, 0);
+        @include _(z-index, 1000);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(background-color, rgba(112, 133, 140, .5));
+    }
+
+    &__container {
+        @include _(width, 80%);
+        @include _(height, 80%);
+        @include _(background-color, white);
+        @include _(border-radius, 5px);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    }
+
+    &__x-container {
+        @include _(display, flex);
+        @include _(justify-content, flex-end);
+        @include _(width, 100%);
+        @include _(padding-right, 15px);
+        @include _(padding-top, 15px);
+        @include _(color, #4f8096);
+        @include _(box-sizing, border-box);
+    }
+
+    &__x {
+        @include _(cursor, pointer);
+    }
+}
+

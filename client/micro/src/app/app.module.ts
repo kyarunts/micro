@@ -23,9 +23,12 @@ import { RecentProjectsComponent } from './home/recent-projects/recent-projects.
 import { HomeProductsComponent } from './home/home-products/home-products.component';
 import { HomeClientsComponent } from './home/home-clients/home-clients.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ModalComponent } from './generics/modal/modal.component';
+import { ModalService } from './generics/modal/modal.service';
+import { ImageViewerComponent } from './generics/image-viewer/image-viewer.component';
 
 @NgModule({
-  declarations: [
+    declarations: [
     AppComponent,
     HomeComponent,
     PartnersComponent,
@@ -43,7 +46,9 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
     RecentProjectsComponent,
     HomeProductsComponent,
     HomeClientsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ModalComponent,
+    ImageViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
   ],
   providers: [
     MicroHttpService,
-    ProductsComponentService
+    ProductsComponentService,
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

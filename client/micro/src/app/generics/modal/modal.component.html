@@ -1,0 +1,18 @@
+<div 
+    *ngIf="isOpen"
+>
+    <div
+        #wrapper
+        class="modal__wrapper"
+        (click)="wrapperClicked($event)"
+    >
+        <div class="modal__container">
+            <div class="modal__x-container">
+                <svg (click)="modalService.close(this.id)" class="modal__x icon-times">
+                    <use xlink:href="#icon-times"></use>
+                </svg>
+            </div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

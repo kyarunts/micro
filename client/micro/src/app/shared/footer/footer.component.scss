@@ -3,9 +3,7 @@
 .footer {
     @include _(background-color, #476678);
     @include _(height, 150px);
-    @include _(position, absolute);
     @include _(width, 100%);
-    @include _(bottom, 0);
 
     &__container {
         @include _(height, 100%);

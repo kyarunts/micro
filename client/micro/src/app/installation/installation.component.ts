@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
+import { ModalService } from './../generics/modal/modal.service';
+
 @Component({
     selector: 'app-installation',
     templateUrl: './installation.component.html',
@@ -8,6 +10,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class InstallationComponent implements OnInit {
 
     @ViewChild('carusel') carusel: ElementRef;
+    
+    public currentImageIndex: number = 0;
 
     public images: Object[] = [
         { id: '0', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg'},
@@ -37,7 +41,7 @@ export class InstallationComponent implements OnInit {
         { id: '4', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
     ]
     private timer: any;
-    constructor() { }
+    constructor(private modalService: ModalService) { }
     
     ngOnInit() {
         window.document.body.scrollIntoView(true);
@@ -67,5 +71,10 @@ export class InstallationComponent implements OnInit {
             clearInterval(this.timer);
             this.timer = null;
         }
+    }
+
+    public open(index: number): void {
+        this.currentImageIndex = index;
+        this.modalService.open('imageViewer');
     }
 }
