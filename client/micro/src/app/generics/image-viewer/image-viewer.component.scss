@@ -6,4 +6,6 @@
     @include _(display, flex);
     @include _(justify-content, center);
     @include _(align-items, center);
+    @include _(position, absolute);
+    @include _(top, 0);
 }

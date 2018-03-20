@@ -6,20 +6,28 @@ export class ModalService {
     public modals: ModalComponent[] = [];
 
     public register(modal: ModalComponent): void {
-        if (this.modals.indexOf(modal) === -1) {
-            this.modals.push(modal);
-        }
+        let modalInList = this.modals.filter(modalInList => modalInList.id === modal.id)[0];
+        if (!modalInList) this.modals.push(modal);
     }
 
     public open(modalId: string): void {
         let modal = this.modals.filter(modal => modal.id === modalId)[0];
-        if (modal) modal.isOpen = true;
-        document.body.classList.add('modal-open');
+        if (modal) {
+            modal.isOpen = true;
+            document.body.classList.add('modal-open');
+        }
     }
 
     public close(modalId: string): void {
         let modal = this.modals.filter(modal => modal.id === modalId)[0];
         if (modal) modal.isOpen = false;
         document.body.classList.remove('modal-open');
+    }
+
+    public remove(modalId: string) {
+        let modal = this.modals.filter(modal => modal.id === modalId)[0];
+        if (modal) {
+            this.modals.splice(this.modals.indexOf(modal), 1);
+        }
     }
 }

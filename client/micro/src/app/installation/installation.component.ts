@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 
 import { ModalService } from './../generics/modal/modal.service';
 
@@ -7,7 +7,7 @@ import { ModalService } from './../generics/modal/modal.service';
     templateUrl: './installation.component.html',
     styleUrls: ['./installation.component.scss']
 })
-export class InstallationComponent implements OnInit {
+export class InstallationComponent implements OnInit, OnDestroy {
 
     @ViewChild('carusel') carusel: ElementRef;
     
@@ -76,5 +76,11 @@ export class InstallationComponent implements OnInit {
     public open(index: number): void {
         this.currentImageIndex = index;
         this.modalService.open('imageViewer');
+    }
+
+    public ngOnDestroy() {
+        this.modalService.close('imageViewer');
+        this.modalService.remove('imageViewer');
+        console.log(this.modalService.modals);
     }
 }

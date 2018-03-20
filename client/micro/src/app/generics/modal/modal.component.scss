@@ -20,6 +20,7 @@
         @include _(height, 80%);
         @include _(background-color, white);
         @include _(border-radius, 5px);
+        @include _(position, relative);
         -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
@@ -33,6 +34,8 @@
         @include _(padding-top, 15px);
         @include _(color, #4f8096);
         @include _(box-sizing, border-box);
+        @include _(position, absolute);
+        @include _(z-index, 10000);
     }
 
     &__x {

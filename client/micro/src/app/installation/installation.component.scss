@@ -2,7 +2,7 @@
 
 .install {
     &__header {
-        @include _(background, url('https://images.unsplash.com/photo-1491186751821-59a0a1bd73f1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a7e07aae81f17dea0acab1a043501f0c&auto=format&fit=crop&w=1350&q=80'));
+        @include _(background, url('https://images.unsplash.com/photo-1519206514004-f7651d7ae271?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=51bbac03c6265f3f3683b5bb8de9fb6a&auto=format&fit=crop&w=1286&q=80'));
         @include _(background-size, cover);
         @include _(background-attachment, fixed);
     }
