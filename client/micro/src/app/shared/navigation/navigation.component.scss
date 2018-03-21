@@ -20,7 +20,7 @@
     }
 
     &__item {
-        @include _(border-top, 1px solid #bcc7d82b);
+        @include _(border-top, 1px solid rgba(187, 198, 215, 0.169));
         @include _(list-style, none);
         @include _(margin, 0);
         @include _(text-align, right);
@@ -44,7 +44,7 @@
         }
 
         &:last-child {
-            @include _(border-bottom, 1px solid #bcc7d82b);
+            @include _(border-bottom, 1px solid rgba(188, 199, 216, 0.169));
         }
         
         &:after {
