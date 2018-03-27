@@ -4,8 +4,21 @@
     @include _(height, 100%);
     @include _(width, 100%);
     @include _(display, flex);
-    @include _(justify-content, center);
+    @include _(justify-content, space-between);
     @include _(align-items, center);
     @include _(position, absolute);
     @include _(top, 0);
+
+    &__arrow-container {
+        @include _(flex-basis, 50px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+    }
+}
+
+.arrow-icon {
+    @include _(cursor, pointer);
+    &:hover {
+        transform: scale(1.1);
+    }
 }

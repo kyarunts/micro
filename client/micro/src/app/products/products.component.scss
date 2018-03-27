@@ -9,50 +9,119 @@
 
     &__container {
         @include _(display, flex);
-        @include _(padding, 35px);
+        @include _(padding, 30px);
+        @include _(background-color, #f7f7f7);
     }
 
     &__filters-container {
-        @include _(flex, 0 0 auto);
-        @include _(width, 270px);
-        @include _(height, 500px);
-    }
-    
-    &__filters-inner-container {
-        @include _(top, 35px);
-        @include _(background-color, #f3f3fc);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(flex-basis, 200px);
+        @include _(height, 400px);
     }
 
     &__filter-item {
-        @include _(position, relative);
+        @include _(padding, 25px 10px);
         @include _(display, flex);
+        @include _(justify-content, center);
         @include _(align-items, center);
-        @include _(padding, 10px 0 10px 20px);
+        @include _(text-align, center);
+        @include _(background-color, white);
+        @include _(border-top-left-radius, 8px);
+        @include _(border-bottom-left-radius, 8px);
         @include _(cursor, pointer);
         @include _(outline, none);
-        @include _(color, #313131);
+        @include _(opacity, 0.9);
+        @include _(position, relative);
+        @include _(margin-bottom, 4px);
 
-        &:hover {
-            &:before {
-                content: '';
-                @include _(height, 100%);
-                @include _(width, 10px);
-                @include _(position, absolute);
-                @include _(left, 0);
-                @include _(background-color, #EBC137);
-            }
+        &:last-child {  
+            @include _(border, none);
         }
 
         &--selected {
-            &:before {
-                content: '';
-                @include _(height, 100%);
-                @include _(width, 10px);
-                @include _(position, absolute);
-                @include _(left, 0);
-                @include _(background-color, #EBC137);
+            @include _(opacity, 1);
+            @include _(background-color, #e4ae00 !important);
+
+            &:after {
+                @include _(background-color, #e4ae00);
             }
+
+        }
+        
+        &:after {
+            content: '';
+            @include _(position, absolute);
+            @include _(right, -12px);
+            @include _(top, 0);
+            @include _(width, 12px);
+            height: 100%;
+            @include _(z-index, 10);
         }
     }
+
+    &__product-container {
+        @include _(position, relative);
+        @include _(flex-grow, 1);
+        @include _(background-color, white);
+        @include _(min-height, calc(100vh - 150px - 225px - 60px));
+        
+        &__border {
+            @include _(position, absolute);
+            @include _(width, 12px);
+            @include _(height, 100%);
+            @include _(background-color, #f7e6af);
+            @include _(opacity, 0.9);
+        }
+    }
+    // &__filters-container {
+    //     @include _(flex, 0 0 auto);
+    //     @include _(width, 270px);
+    //     @include _(height, 500px);
+    // }
+    
+    // &__filters-inner-container {
+    //     @include _(top, 35px);
+    //     @include _(background-color, #f3f3fc);
+    // }
+
+    // &__filter-item {
+    //     @include _(position, relative);
+    //     @include _(display, flex);
+    //     @include _(align-items, center);
+    //     @include _(padding, 10px 0 10px 20px);
+    //     @include _(cursor, pointer);
+    //     @include _(outline, none);
+    //     @include _(color, #313131);
+
+    //     &:hover {
+    //         &:before {
+    //             content: '';
+    //             @include _(height, 100%);
+    //             @include _(width, 10px);
+    //             @include _(position, absolute);
+    //             @include _(left, 0);
+    //             @include _(background-color, #EBC137);
+    //         }
+    //     }
+
+    //     &--selected {
+    //         &:before {
+    //             content: '';
+    //             @include _(height, 100%);
+    //             @include _(width, 10px);
+    //             @include _(position, absolute);
+    //             @include _(left, 0);
+    //             @include _(background-color, #EBC137);
+    //         }
+    //     }
+    // }
+
+    // &__sandwich-panel-container {
+    //     @include _(height, 300px);
+    //     @include _(background-color, yellow);
+    //     @include _(border-radius, 5px);
+    //     @include _(margin, 20px 35px 20px 35px);
+    // }
 
 }

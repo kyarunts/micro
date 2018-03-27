@@ -5,8 +5,8 @@
         </span>
     </div>
 
-    <div class="install__container">
-        <div class="install__content-container">
+    <div class="install__container page-container">
+        <div class="install__content-container section">
             <div class="install__icon-container">
                 <div class="install__icon">
                     <svg id="loading" viewbox="0 0 100 80">
@@ -32,7 +32,14 @@
                     </svg>
                 </div>
             </div>
-            <span class="install__content">
+            <div class="section-header">
+                <div></div>
+                <span>
+                    How sandwich panels are installed?
+                </span>
+                <div></div>
+            </div>
+            <span class="install__content section-text">
                 Wall Panel Installation is a quick and easy construction process. It is possible in all weather conditions; wall sandwich-panels
                 are resistant to moisture, the sun and other influences. Installation neither require attachment of a large construction
                 and transportation equipment, nor the large number of employees. The sandwich-panel installation is possible even with the
@@ -70,7 +77,6 @@
                 class="install__image"
                 (click)="open(i)"
             >
-                {{image.id}}
                 <div>
                     <svg class="magnifier-icon icon-search-plus">
                         <use xlink:href="#icon-search-plus"></use>

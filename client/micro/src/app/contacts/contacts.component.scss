@@ -1,0 +1,9 @@
+@import '../sass-dass/exports';
+
+.contacts {
+    &__header {
+        @include _(background, url('https://images.unsplash.com/photo-1477764864052-f721644f01a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a754a96e98ab00500d44a743fc2449aa&auto=format&fit=crop&w=1350&q=80'));
+        @include _(background-size, cover);
+        @include _(background-attachment, fixed);
+    }
+}

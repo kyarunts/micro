@@ -1,4 +1,19 @@
+
 <div class="viewer">
+    <div class="viewer__arrow-container">
+        <div *ngIf="currentIndex !== 0">
+            <svg (click)="changeCurrent('decrement')" class="arrow-icon icon-angle-left">
+                <use xlink:href="#icon-angle-left"></use>
+            </svg>
+        </div>
+    </div>
     <img [src]="images[currentIndex].image" alt="">
+    <div class="viewer__arrow-container">
+        <div *ngIf="currentIndex !== images.length - 1">
+            <svg (click)="changeCurrent('increment')" class="arrow-icon icon-angle-left">
+                <use xlink:href="#icon-angle-right"></use>
+            </svg>
+        </div>
+    </div>
 </div>
 

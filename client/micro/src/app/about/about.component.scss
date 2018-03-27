@@ -15,47 +15,6 @@
         @include _(color, white);
     }
 
-    &__container {
-        @include _(display, flex);
-        @include _(flex-direction, column);
-        @include _(align-items, center); 
-        @include _(padding-top, 20px);
-    }
-
-    &__section {
-        @include _(border-radius, 5px);
-        @include _(width, 70%); 
-        @include _(padding, 30px 50px);
-        @include _(margin-bottom, 20px);
-        @include _(background-color, white);
-        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
-        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
-        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
-    }
-
-    &__section-header {
-        @include _(display, flex);
-        @include _(justify-content, center);
-        @include _(align-items, center);
-        @include _(font-size, 30px);
-        @include _(font-family, play);
-        @include _(margin-bottom, 30px);
-
-        & div {
-            @include _(width, 35px);
-            @include _(margin, 0 20px);
-            @include _(height, 2px);
-            @include _(background-color, black);
-        }
-    }
-
-    &__section-text {
-        @include _(color, #3c3c3c);
-        @include _(line-height, 1.7);
-        @include _(font-size, 22px);
-        @include _(font-family, assistant);
-    }
-
     &__story-picture {
         background: url('https://images.unsplash.com/photo-1477764864052-f721644f01a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a754a96e98ab00500d44a743fc2449aa&auto=format&fit=crop&w=1350&q=80');
         background-size: cover;

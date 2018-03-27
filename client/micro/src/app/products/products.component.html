@@ -4,6 +4,9 @@
             {{title}}
         </span>
     </div>
+    <!-- <div class="products__sandwich-panel-container">
+    
+    </div>
 
     <div class="products__container">
         <div  class="products__filters-container">
@@ -31,6 +34,7 @@
         </div>
         
         <div class="products__items-container">
+            
             <app-product-details
                 [productId]="productId"
                 [currentProducts]="currentProducts"
@@ -38,38 +42,30 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ -->
     <!-- <div class="products__filters">
         <div class="products__filter-container">
             <div class="products__filter">
             </div>
         </div>
     </div> -->
+
+
+    <div class="products__container">
+        <div class="products__filters-container">
+            <div
+                *ngFor="let item of categories"
+                [routerLink]="['/products', item.id]"
+                routerLinkActive="products__filter-item--selected"
+                class="products__filter-item"
+            >
+                {{item.name}}    
+            </div>
+        </div>
+        <div class="products__product-container">
+            <div class="products__product-container__border"></div>
+        </div>
+    </div>
 </div>
 
 

@@ -34,3 +34,44 @@ svg {
     display: inline-block; 
     fill: currentColor; 
 }
+
+.page-container {
+    @include _(display, flex);
+    @include _(flex-direction, column);
+    @include _(align-items, center); 
+    @include _(padding-top, 20px);
+}
+
+.section {
+    @include _(border-radius, 5px);
+    @include _(width, 70%); 
+    @include _(padding, 30px 50px);
+    @include _(margin-bottom, 20px);
+    @include _(background-color, white);
+    -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+}
+
+.section-header {
+    @include _(display, flex);
+    @include _(justify-content, center);
+    @include _(align-items, center);
+    @include _(font-size, 30px);
+    @include _(font-family, play);
+    @include _(margin-bottom, 30px);
+
+    & div {
+        @include _(width, 35px);
+        @include _(margin, 0 20px);
+        @include _(height, 2px);
+        @include _(background-color, black);
+    }
+}
+
+.section-text {
+    @include _(color, #3c3c3c);
+    @include _(line-height, 1.7);
+    @include _(font-size, 22px);
+    @include _(font-family, assistant);
+}

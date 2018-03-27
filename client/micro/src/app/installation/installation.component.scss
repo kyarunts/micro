@@ -7,28 +7,6 @@
         @include _(background-attachment, fixed);
     }
 
-    &__container {
-        @include _(margin, 0 auto);
-        @include _(width, 70%);
-    }
-
-    &__content-container {
-        @include _(border-radius, 5px); 
-        @include _(padding, 30px 50px);
-        @include _(background-color, white);
-        @include _(margin-top, 20px);
-        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
-        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
-        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
-    }
-
-    &__content {
-        @include _(color, #3c3c3c);
-        @include _(line-height, 1.7);
-        @include _(font-size, 22px);
-        @include _(font-family, assistant);
-    }
-
     &__icon-container {
         @include _(display, flex);
         @include _(justify-content, center);
