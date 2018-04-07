@@ -16,10 +16,29 @@
                 <div></div>
             </div>
             <div class="contacts__address">
-                <div>
-                    <svg class="icon-locationn">
-                        <use xlink:href="#icon-locationn"></use>
-                    </svg>
+                <div class="contacts__address-item">
+                    <div class="contacts__address-icon">
+                        <svg class="icon-locationn">
+                            <use xlink:href="#icon-locationn"></use>
+                        </svg>
+                    </div>
+                    <p class="section-text contacts__address-line">
+                        Republic of Armenia<br>
+                        Syunik region, town Goris<br>
+                        Grigor Narekatsi 1
+                    </p>
+                </div>
+                <div class="contacts__address-item">
+                    <div class="contacts__address-icon">
+                        <svg class="icon-locationn">
+                            <use xlink:href="#icon-locationn"></use>
+                        </svg>
+                    </div>
+                    <p class="section-text contacts__address-line">
+                        Republic of Armenia<br>
+                        Yerevan, Azatutyun 27<br>
+                        'Yeraz' business center, 6th floor
+                    </p>
                 </div>
             </div>
         </section>
@@ -32,6 +51,38 @@
                 </span>
                 <div></div>
             </div>
+            <div class="contacts__phones">
+                <a class="contacts__phone-item">
+                    <div class="contacts__phone-icon">
+                        <svg class="icon-locationn">
+                            <use xlink:href="#icon-phone"></use>
+                        </svg>
+                    </div>
+                    <a href="" class="contacts__phone-number">
+                        +374-284-22401
+                    </a>
+                </a>
+                <a class="contacts__phone-item">
+                    <div class="contacts__phone-icon">
+                        <svg class="icon-locationn">
+                            <use xlink:href="#icon-phone"></use>
+                        </svg>
+                    </div>
+                    <a href="" class="contacts__phone-number">
+                        +374-94-022401
+                    </a>
+                </a>
+                <a class="contacts__phone-item">
+                    <div class="contacts__phone-icon">
+                        <svg class="icon-locationn">
+                            <use xlink:href="#icon-at-sign"></use>
+                        </svg>
+                    </div>
+                    <a href="" class="contacts__phone-number">
+                        email@bonusbuilding.com
+                    </a>
+                </a>
+            </div>
         </section>
 
         <section class="contacts__section section">
@@ -41,6 +92,68 @@
                     Write us directly
                 </span>
                 <div></div>
+            </div>
+            <div *ngIf="showForm" class="contacts__send-email-form">
+                <label for="contacter-name">Your name</label>
+                <input 
+                    [(ngModel)]="formObject['name']" 
+                    type="text" 
+                    id="contacter-name"
+                    (input)="validateOnInput('name')"
+                    [ngClass]="{'error-input' : formErrors['name']}"
+                >
+                <div *ngIf="formErrors['name']" class="contacts__error">
+                    Fill in your name
+                </div>
+                
+                <label for="contacter-email">Your email address</label>
+                <input 
+                    [(ngModel)]="formObject['email']" 
+                    type="input" 
+                    id="contacter-email"
+                    (input)="validateOnInput('email')"
+                    [ngClass]="{'error-input': formErrors['email']}"
+                >
+                <div *ngIf="formErrors['email']" class="contacts__error">
+                    Fill in a valid email address
+                </div>
+                
+
+                <label for="contacter-message">Message</label>
+                <textarea 
+                    [(ngModel)]="formObject['message']" 
+                    name="contacter-message" 
+                    id="contacter-message" 
+                    cols="30" 
+                    rows="10"
+                    (input)="validateOnInput('message')"
+                    [ngClass]="{'error-input': formErrors['message']}"
+                ></textarea>
+                <div *ngIf="formErrors['message']" class="contacts__error">
+                    Fill in your message
+                </div>
+                <button 
+                    (click)="validate()"
+                    class="contacts__send-message"
+                >
+                    <div class="contacts__button-icon">
+                        <svg class="icon-something">
+                            <use xlink:href="#icon-paper-plane-o"></use>
+                        </svg>
+                    </div>
+                    <span>
+                        SEND MESSAGE
+                    </span>
+                </button>
+            </div>
+            <div *ngIf="!showForm" class="contacts__email-sent">
+                <div class="contacts__email-sent-icon">
+                    <svg class="icon-checked">
+                        <use xlink:href="#icon-check-circle-o"></use>
+                    </svg>
+                </div>
+                <p>Thank you!<br>Your email has been sent.<br>We will contact you if needed</p>
+                <a (click)="showForm = true">Send another message</a>
             </div>
         </section>
     </div>

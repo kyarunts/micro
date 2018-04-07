@@ -4,7 +4,7 @@
     @include _(font-family, assistant);
     @include _(background-color, #f5f5f5);
     &__header {
-        @include _(background, url('https://media.npr.org/assets/img/2013/11/05/ink-pen-writing_wide-d542d29357c42b88f054af92dd4d6f292a697780.jpg'));
+        // @include _(background, url('https://media.npr.org/assets/img/2013/11/05/ink-pen-writing_wide-d542d29357c42b88f054af92dd4d6f292a697780.jpg'));
         @include _(background-size, cover);
         @include _(background-attachment, fixed);
     }

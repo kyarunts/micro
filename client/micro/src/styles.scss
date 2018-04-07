@@ -75,3 +75,30 @@ svg {
     @include _(font-size, 22px);
     @include _(font-family, assistant);
 }
+
+input {
+    @include _(height, 35px);
+}
+
+input, textarea {
+    @include _(padding-left, 10px);
+    @include _(border, 1px solid #20445a);
+    @include _(border-radius, 4px);
+    @include _(outline, none);
+    @include _(font-size, 16px);
+    @include _(color, #20445a);
+    @include _(margin-bottom, 12px);
+    @include _(font-family, cantarell);
+}
+
+textarea {
+    @include _(height, 80px);
+    @include _(resize, none);
+}
+
+label {
+    @include _(font-size, 15px);
+    @include _(margin-bottom, 5px);
+    @include _(color, #20445a);
+    @include _(font-family, assistant);
+}
