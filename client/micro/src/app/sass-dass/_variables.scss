@@ -1,7 +1,9 @@
 $mapBreakpoints: (
     desktop-view: (start: 1024px, end: null),
     tablet-view: (start: 550px, end: 1023px),
-	mobile-view: (start: null, end: 549px),
+    mobile-view: (start: null, end: 549px),
+    
+    mobile-tablet-view: (start: null, end: 1023px),
 );
 
 $mapVariables: (

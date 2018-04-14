@@ -1,0 +1,10 @@
+@import './sass-dass/exports';
+
+.application-container {
+    @include _(margin-left, 350px);
+    @include _(min-height, 100vh);
+
+    @include breakpoint(mobile-tablet-view) {
+        @include _(margin-left, 0);
+    }
+}

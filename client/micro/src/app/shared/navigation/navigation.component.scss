@@ -9,6 +9,10 @@
     @include _(flex-direction, column);
     @include _(justify-content, center);
     @include _(z-index, 200);
+    
+    @include breakpoint(mobile-tablet-view) {
+        @include _(display, none);
+    }
 
     &__list {
         @include _(padding, 0);
@@ -17,6 +21,11 @@
         @include _(flex-direction, column);
         @include _(justify-content, center);
         @include _(margin, 0);
+
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex, 0 0 70%);
+            @include _(width, 100%);
+        }
     }
 
     &__item {
@@ -46,22 +55,29 @@
         &:last-child {
             @include _(border-bottom, 1px solid rgba(188, 199, 216, 0.169));
         }
-        
-        &:after {
-            content: '';
-            @include _(position, absolute);
-            @include _(top, 0);
-            @include _(right, 100%);
-            @include _(width, 100%);
-            @include _(height, 100%);
-            @include _(box-sizing, border-box);
-            @include _(background-color, #808086);
-            @include _(opacity, 0.1);
-            @include _(transition, transform 300ms ease-in 100ms);    
+        @include breakpoint(desktop-view) {
+            &:after {
+                content: '';
+                @include _(position, absolute);
+                @include _(top, 0);
+                @include _(right, 100%);
+                @include _(width, 100%);
+                @include _(height, 100%);
+                @include _(box-sizing, border-box);
+                @include _(background-color, #808086);
+                @include _(opacity, 0.1);
+                @include _(transition, transform 300ms ease-in 100ms);    
+            }
+    
+            &:hover:after {
+                @include _(transform, translateX(100%));
+            }
         }
 
-        &:hover:after {
-            @include _(transform, translateX(100%));
+        @include breakpoint(mobile-tablet-view) {
+            @include _(justify-content, center);
+            @include _(padding-right, 0);
+            @include _(padding-left, 0);
         }
     }
 
@@ -197,4 +213,103 @@
 html, body {
     margin: 0;
     padding: 0;
+}
+
+.nav-mobile {
+    @include _(position, absolute);
+    @include _(z-index, 1000);
+    @include _(top, 0);
+    @include _(left, 0);
+    @include breakpoint(desktop-view) {
+        @include _(display, none);
+    }
+
+    &__hamburger {
+        @include _(padding-top, 20px);
+        @include _(padding-left, 20px);
+        @include _(position, absolute);
+        & > div {
+            @include _(width, 40px);
+            @include _(height, 3px);
+            @include _(background-color, white);
+            @include _(margin-bottom, 10px);
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-transition: .25s ease-in-out;
+            -moz-transition: .25s ease-in-out;
+            -o-transition: .25s ease-in-out;
+            transition: .25s ease-in-out;
+        }
+    }
+
+    &__container {
+        @include _(width, 100vw);
+        @include _(height, 100vh);
+        @include _(background-color, #1f445a);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(flex-direction, column);
+        @include _(color, white);
+    }
+}
+
+#nav-icon4 {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;    
+}
+
+#nav-icon4 div:nth-child(1) {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon4 div:nth-child(2) {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon4 div:nth-child(3) {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon4.open div:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+  margin-bottom: 11px !important;
+}
+
+#nav-icon4.open div:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#nav-icon4.open div:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
+  margin-bottom: 11px !important;
 }

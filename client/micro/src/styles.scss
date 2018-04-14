@@ -6,6 +6,10 @@ body {
     font-family: "Helvetica Neue",helvetica,sans-serif;
 }
 
+.navOpened {
+    @include _(overflow, hidden);
+}
+
 .modal-open {
     overflow: hidden;
 }
@@ -60,7 +64,7 @@ svg {
     @include _(font-size, 30px);
     @include _(font-family, play);
     @include _(margin-bottom, 30px);
-
+    @include _(text-align, center);
     & div {
         @include _(width, 35px);
         @include _(margin, 0 20px);
@@ -72,8 +76,14 @@ svg {
 .section-text {
     @include _(color, #3c3c3c);
     @include _(line-height, 1.7);
-    @include _(font-size, 22px);
     @include _(font-family, assistant);
+    @include breakpoint(desktop-view) {
+        @include _(font-size, 22px);
+    }
+    @include breakpoint(mobile-tablet-view) {
+        @include _(font-size, 16px);
+        @include _(text-align, center);
+    }
 }
 
 input {

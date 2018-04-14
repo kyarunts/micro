@@ -4,7 +4,7 @@
     @include _(font-family, assistant);
     @include _(background-color, #f5f5f5);
     &__header {
-        // @include _(background, url('https://media.npr.org/assets/img/2013/11/05/ink-pen-writing_wide-d542d29357c42b88f054af92dd4d6f292a697780.jpg'));
+        background: url('../../assets/partners.png');
         @include _(background-size, cover);
         @include _(background-attachment, fixed);
     }
@@ -20,6 +20,11 @@
         @include _(font-size, 24px);
         @include _(text-align, center);
         @include _(color, #3c3c3c);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(width, 100%);
+            @include _(max-width, 100vw);
+            @include _(font-size, 1.2em);
+        }
     }
 
     &__partners-container {
@@ -89,13 +94,22 @@
 
     &__become-header {
         @include _(margin, 20px);
-        @include _(font-size, 30px);
         @include _(font-family, play);
+        @include breakpoint(desktop-view) {
+            @include _(font-size, 24px);
+        }
+        @include breakpoint(mobile-tablet-view) {
+            @include _(font-size, 1.2em);
+            @include _(text-align, center);
+        }
     }
 
     &__become-contacts {
         @include _(display, flex);
         @include _(justify-content, center);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex-direction, column);
+        }
     }
 
     &__become-contact-block {

@@ -37,13 +37,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }
 
     private subscribeToScroll(): void {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY >= 225) {
-                this.renderer.setStyle(this.filters.nativeElement, 'position', 'fixed');
-            } else {
-                this.renderer.setStyle(this.filters.nativeElement, 'position', 'static');
-            }
-        })
+        // window.addEventListener('scroll', () => {
+        //     if (window.scrollY >= 225) {
+        //         this.renderer.setStyle(this.filters.nativeElement, 'position', 'fixed');
+        //     } else {
+        //         this.renderer.setStyle(this.filters.nativeElement, 'position', 'static');
+        //     }
+        // })
     }
 
     private updateTitle(paramsId: string): void {

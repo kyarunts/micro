@@ -37,6 +37,9 @@
         @include _(justify-content, center);
         @include _(align-items, center);
         @include _(margin-top, 20px);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex-wrap, wrap);
+        }
     }
 
     &__products-item {
@@ -48,6 +51,10 @@
         @include _(margin, 0 25px);
         @include _(outline, none);
         
+        @include breakpoint(mobile-tablet-view) {
+            @include _(margin, 5px 0);
+            @include _(flex-basis, 50%);
+        }
         &:hover svg {
             transform: rotate(20deg);
         }
@@ -68,7 +75,10 @@
     &__services-container {
         @include _(display, flex);
         @include _(justify-content, space-around);
-    }
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex-direction, column);
+        }
+    } 
 
     &__service {
         @include _(width, 28%);
@@ -79,18 +89,26 @@
         @include _(flex-direction, column);
         @include _(justify-content, space-between);
         @include _(cursor, pointer);
-        
-        &:hover .about__service-text {
-            @include _(padding-bottom, 30px);
+
+        @include breakpoint(mobile-tablet-view) {
+            @include _(width, 100%);
+            @include _(height, auto);
+            @include _(margin-bottom, 15px);
         }
 
-        &:hover .about__service-icon-container {
-            @include _(transform, scale(0.5));
-        }
-
-        &:hover .about__service-contact {
-            @include _(opacity, 1);
-            @include _(margin-top, 20px);
+        @include breakpoint(desktop-view) {
+            &:hover .about__service-text {
+                @include _(padding-bottom, 30px);
+            }
+    
+            &:hover .about__service-icon-container {
+                @include _(transform, scale(0.5));
+            }
+    
+            &:hover .about__service-contact {
+                @include _(opacity, 1);
+                @include _(margin-top, 20px);
+            }
         }
     }
 
@@ -120,16 +138,22 @@
         @include _(justify-content, center);
         @include _(color, orange);
         transition: transform .5s ease-in-out;
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding, 10px 0);
+        }
     }
 
     &__service-icon {
         @include _(width, 120px);
         @include _(height, 120px);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(width, 70px);
+            @include _(height, 70px);
+        }
     }
 
     &__service-contact {
         @include _(color, orange);
-        @include _(opacity, 0);
         @include _(border, 1px solid orange);
         @include _(border-radius, 6px);
         @include _(display, flex);
@@ -138,10 +162,14 @@
         @include _(padding, 10px);
         @include _(font-weight, 600);
         transition: all .5s ease-in-out;
-
+        
         &:hover {
             @include _(background-color, orange);
             @include _(color, white);
+        }
+        
+        @include breakpoint(desktop-view) {
+            @include _(opacity, 0);
         }
     }
 }

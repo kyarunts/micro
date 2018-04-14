@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
     
+    public mobileNavOpen: boolean = false;
     public navigationItems: {name: string, routerLink: string}[] = [
         { name: 'HOME PAGE', routerLink: '/home' },
         { name: 'ABOUT US', routerLink: '/about' },
@@ -34,6 +35,8 @@ export class NavigationComponent implements OnInit {
     constructor(private router: Router) {
         router.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {
+                this.mobileNavOpen = false;
+                document.body.classList.remove('navOpened');
                 if (val.url.indexOf('products') > -1) {
                     this.isSubmenuHidden = true;
                 }
@@ -49,5 +52,14 @@ export class NavigationComponent implements OnInit {
 
     public changeLanguage(index: number): void {
         this.currentLanguage = index;
+    }
+
+    public navMobileClickHandler() {
+        this.mobileNavOpen = !this.mobileNavOpen;
+        if (this.mobileNavOpen) {
+            document.body.classList.add('navOpened')
+        } else {
+            document.body.classList.remove('navOpened')
+        }
     }
 }

@@ -2,11 +2,11 @@
 
 .products {
     &__header {
-        // @include _(background, url('https//:images.unsplash.com/photo-1493679349286-c570804c71ec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e5417ec4746cc239b6db75006b2bba96&auto=format&fit=crop&w=1351&q=80'));
-        @include _(background-size, cover);
-        @include _(background-attachment, fixed);
-    }
-
+        background: url('../../assets/contacts-background.png');
+        background-size: cover;
+        background-attachment: fixed;
+    } 
+    
     &__container {
         @include _(display, flex);
         @include _(padding, 30px);
@@ -37,16 +37,12 @@
 
         &:last-child {  
             @include _(border, none);
+            @include _(margin-bottom, 0);
         }
 
         &--selected {
             @include _(opacity, 1);
-            @include _(background-color, #e4ae00 !important);
-
-            &:after {
-                @include _(background-color, #e4ae00);
-            }
-
+            @include _(background-color, #ffdf73 !important);
         }
         
         &:after {
@@ -70,7 +66,7 @@
             @include _(position, absolute);
             @include _(width, 12px);
             @include _(height, 100%);
-            @include _(background-color, #f7e6af);
+            @include _(background-color, #ffdf73);
             @include _(opacity, 0.9);
         }
     }

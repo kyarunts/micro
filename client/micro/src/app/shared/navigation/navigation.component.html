@@ -49,3 +49,26 @@
         </a>
     </div>
 </nav>
+
+<nav class="nav-mobile">
+    <div 
+        id="nav-icon4" 
+        (click)="navMobileClickHandler()" 
+        class="nav-mobile__hamburger"
+        [ngClass]="{'open': mobileNavOpen}"
+    >
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div *ngIf="mobileNavOpen" class="nav-mobile__container">
+        <ul class="navigation__list">
+            <li
+                *ngFor="let item of navigationItems" 
+                class="navigation__item" 
+                routerLink="{{item.routerLink}}" 
+                routerLinkActive="navigation__item--active"
+            >{{item.name}}</li>
+        </ul>
+    </div>
+</nav>

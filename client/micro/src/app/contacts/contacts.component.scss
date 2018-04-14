@@ -14,6 +14,13 @@
         @include _(color, white);
         & div {
             @include _(width, 60vw);
+            @include breakpoint(mobile-tablet-view) {
+                @include _(width, 100%);
+                @include _(text-align, center);
+            }
+        }
+        @include breakpoint(mobile-tablet-view) {
+            @include _(height, 30vh);
         }
     }
 
@@ -27,6 +34,9 @@
 
     &__footer {
         @include _(height, 45vh);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(display, none);
+        }
     }
 
     &__address-block-container {
@@ -39,7 +49,6 @@
 
     &__address-block {
         @include _(width, 60vw);
-        @include _(height, 450px);
         @include _(background-color, white);
         @include _(position, absolute);
         @include _(top, -100px);
@@ -47,6 +56,12 @@
         -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         @include _(display, flex);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex-direction, column);
+            @include _(width, 100vw);
+            @include _(height, auto);
+            @include _(position, static);
+        }
     }
 
     &__form {
@@ -59,12 +74,19 @@
         @include _(background-color, #1f445a);
         @include _(flex-basis, 40%);
         @include _(color, #cccccc);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding-right, 20px);
+            @include _(align-items, center);
+            @include _(text-align, center);
+        }
     }
-    
     &__info,
     &__form {
         & h2 {
             @include _(align-self, flex-start);
+            @include breakpoint(mobile-tablet-view) {
+                @include _(align-self, center);
+            }
         }
         & a {
             @include _(text-decoration, none);
@@ -86,6 +108,9 @@
     &__form-block {
         @include _(display, flex);
         @include _(flex-direction, column);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding-bottom, 30px);
+        }
     }
 
     &__icon {
@@ -154,6 +179,10 @@
                 @include _(height, 100%);
                 @include _(width, 100%);
             }
+        }
+
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding-bottom, 30px);
         }
 
     }
