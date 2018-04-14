@@ -2,99 +2,105 @@
 
 .contacts {
     &__header {
-        background: url('https://images.unsplash.com/photo-1477764864052-f721644f01a8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a754a96e98ab00500d44a743fc2449aa&auto=format&fit=crop&w=1350&q=80');
+        background: url('../../assets/contacts-background.png');
+        @include _(height, 60vh);
+        @include _(position, relative);
         @include _(background-size, cover);
-        @include _(background-attachment, fixed);
-    }
-
-    &__address {
         @include _(display, flex);
-        @include _(justify-content, center);   
-    }
-
-    &__address-item {
-        @include _(flex-basis, 40%);
-        @include _(padding, 10px 15px);
-        @include _(margin-top, 10px);
-        @include _(margin-right, 10px);
-        &:last-child {
-            @include _(margin-right, 0);
-        }
-        @include _(border, 1px solid #20445a);
-        @include _(border-radius, 4px);
-        @include _(display, flex);
-        @include _(align-items, center);
         @include _(flex-direction, column);
-    }
-
-    &__address-icon {
-        @include _(width, 40px);
-        @include _(height, 40px);
-        @include _(color, orange);
-        @include _(flex, 0 0 auto);
-        & svg {
-            @include _(width, 100%);
-            @include _(height, 100%);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(font-family, play);
+        @include _(color, white);
+        & div {
+            @include _(width, 60vw);
         }
     }
 
-    &__address-line {
-        @include _(flex, 1 1 auto);
-        @include _(text-align, center);
+    &__header-title {
+        @include _(font-size, 30px);
     }
 
-    &__phones {
+    &__header-subtitle {
+        @include _(color, #073956);
+    }
+
+    &__footer {
+        @include _(height, 45vh);
+    }
+
+    &__address-block-container {
+        @include _(background-color, green);
         @include _(display, flex);
         @include _(justify-content, center);
-        @include _(margin-top, 10px);
+        @include _(align-items, center);
+        @include _(position, relative);
+    }
+
+    &__address-block {
+        @include _(width, 60vw);
+        @include _(height, 450px);
+        @include _(background-color, white);
+        @include _(position, absolute);
+        @include _(top, -100px);
+         -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        @include _(display, flex);
+    }
+
+    &__form {
+        @include _(flex-basis, 60%);
+        @include _(color, #1f445a);
+        @include _(padding-right, 20px);
     }
     
-    &__phone-item {
-        @include _(padding, 15px 22px);
-        @include _(border, 1px solid #20445a);
-        @include _(border-radius, 4px);
-        @include _(display, flex);
-        @include _(flex-direction, column);
-        @include _(align-items, center);
-        @include _(margin-right, 10px);
-        @include _(cursor, pointer);
-        &:last-child {
-            @include _(margin-right, 0);
-        }
+    &__info {
+        @include _(background-color, #1f445a);
+        @include _(flex-basis, 40%);
+        @include _(color, #cccccc);
     }
-
-    &__phone-icon {
-        @include _(width, 40px);
-        @include _(height, 40px);
-        @include _(color, orange);
-        @include _(flex, 0 0 auto);
-        & svg {
+    
+    &__info,
+    &__form {
+        & h2 {
+            @include _(align-self, flex-start);
+        }
+        & a {
+            @include _(text-decoration, none);
+            @include _(color, #cccccc);
+        }
+        & p {
+            @include _(margin, 6px 0 10px 0);
+        }
+        & hr {
             @include _(width, 100%);
-            @include _(height, 100%);
+            @include _(opacity, 0.4);
         }
-    }
-
-    &__phone-number {
-        @include _(text-decoration, none);
-        @include _(color, #20445a);
-        @include _(font-size, 24px);
-        @include _(font-family, play);
-        @include _(margin-top, 10px);
-    }
-
-    &__send-email-form {
+        @include _(padding-left, 20px);
         @include _(display, flex);
         @include _(flex-direction, column);
-        @include _(padding, 0 10%);
+        @include _(font-family, cantarell);
+    }
+
+    &__form-block {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+    }
+
+    &__icon {
+        @include _(padding-top, 7px);
     }
 
     &__send-message {
+        @include _(padding-top, 40px);
         @include _(height, 40px);
-        @include _(background-color, orange);
+        @include _(background-color, #476678);
         @include _(color, white);
         @include _(border-radius, 5px);
         @include _(font-size, 22px);
         @include _(font-family, cantarell);
+        @include _(margin-top, 10px);
         @include _(border, none);
         @include _(outline, none);
         @include _(cursor, pointer);
@@ -103,6 +109,9 @@
         @include _(align-items, center);
         @include _(align-self, center);
         @include _(padding, 0 15px);
+        &:hover {
+            @include _(background-color, #1f445a);
+        }
     }
 
     &__button-icon {
@@ -116,7 +125,7 @@
     }
 
     &__error {
-        @include _(color, red);
+        @include _(color, #ad2626);
         @include _(font-size, 12px);
         @include _(margin-top, -5px);
     }
@@ -126,24 +135,21 @@
         @include _(flex-direction, column);
         @include _(justify-content, center);
         @include _(align-items, center);
-        @include _(font-size, 22px);
+        @include _(flex, 1 1 auto);
         @include _(line-height, 30px);
-        @include _(font-family, cantarell);
-        @include _(color, #20445a);
         
         & p {
             @include _(text-align, center);
         }
 
         & a {
-            @include _(color, orange);
             @include _(cursor, pointer);
+            @include _(color, #159a20);
         }
 
         &-icon {
             @include _(height, 40px);
             @include _(width, 40px);
-            @include _(color, #159c15);
             svg {
                 @include _(height, 100%);
                 @include _(width, 100%);
@@ -154,5 +160,5 @@
 }
 
 .error-input {
-    @include _(border, 1px solid red);
+    @include _(border, 1px solid #ad2626);
 }
