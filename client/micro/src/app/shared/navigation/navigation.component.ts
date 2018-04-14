@@ -55,6 +55,7 @@ export class NavigationComponent implements OnInit {
     }
 
     public navMobileClickHandler() {
+        document.body.scrollIntoView();
         this.mobileNavOpen = !this.mobileNavOpen;
         if (this.mobileNavOpen) {
             document.body.classList.add('navOpened')

@@ -13,6 +13,18 @@
         @include _(flex-basis, 50px);
         @include _(display, flex);
         @include _(justify-content, center);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(position, absolute);
+            &:last-child {
+                @include _(right, 0);
+            }
+        }
+    }
+
+    & img {
+        @include breakpoint(mobile-tablet-view) {
+            @include _(width, 100%);
+        }
     }
 }
 

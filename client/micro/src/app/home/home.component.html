@@ -37,16 +37,13 @@
                 </button>
             </div>
         </div>
-        <div class="main__stats">
+        <div class="main__stats main__stats--desktop">
             <div class="main__stats-description">
                 <span class="main__stats-title">Who We Are</span>
                 <hr class="main__stats-hr">
                 <span class="main__stats-copy">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
                 </span>
-            </div>
-            <div class="main__stats-separator">
-
             </div>
             <div class="main__stats-icons">
                 <div class="main__stats-item" routerLink="/about">
@@ -133,6 +130,77 @@
         </div>
     </div>
 </section>
+<div class="main__stats main__stats--mobile">
+    <div class="main__stats-description">
+        <span class="main__stats-title">Who We Are</span>
+        <hr class="main__stats-hr">
+        <span class="main__stats-copy">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
+        </span>
+    </div>
+    <div class="main__stats-icons">
+        <div class="main__stats-item" routerLink="/about">
+            <div class="main__stats-icon">
+                <div class="main__stats-icon--top">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="10" [time]="2">
+                </span>
+                <div class="main__stats-icon--bottom">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+            </div>
+            <div class="main__stats-name">years</div>
+        </div>
+        <div class="main__stats-item" routerLink="/portfolio">
+            <div class="main__stats-icon">
+                <div class="main__stats-icon--top">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="100" [time]="2">
+                </span>
+                <div class="main__stats-icon--bottom">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+            </div>
+            <div class="main__stats-name">projects</div>
+        </div>
+        <div class="main__stats-item" routerLink="/partners">
+            <div class="main__stats-icon">
+                <div class="main__stats-icon--top">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="50" [time]="2">
+                </span>
+                <div class="main__stats-icon--bottom">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+            </div>
+            <div class="main__stats-name">partners</div>
+        </div>
+        <div class="main__stats-item" routerLink="/products">
+            <div class="main__stats-icon">
+                <div class="main__stats-icon--top">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="40" [time]="2">
+                </span>
+                <div class="main__stats-icon--bottom">
+                    <div class="main__stats-icon--left"></div>
+                    <div class="main__stats-icon--right"></div>
+                </div>
+            </div>
+            <div class="main__stats-name">products</div>
+        </div>
+    </div>
+</div>
 <section>
     <app-recent-projects></app-recent-projects>
 </section>

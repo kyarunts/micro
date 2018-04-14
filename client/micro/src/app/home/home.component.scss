@@ -17,6 +17,9 @@
         @include _(display, flex);
         @include _(padding, 20px);
         @include _(justify-content, flex-end);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(display, none);
+        }
     }
 
     &__contacts-item {
@@ -46,10 +49,18 @@
         @include _(flex-direction, column);
         @include _(align-items, center);
         @include _(margin-top, 12vh);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(margin-top, 0);
+            @include _(padding-top, 24vh);
+        }
     }
 
     &__logo {
         @include _(height, 215px);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(width, 70%);
+            @include _(height, auto);
+        }
     }
 
     &__slogan {
@@ -58,16 +69,23 @@
         @include _(color, #2e3232);
         @include _(margin-top, 20px);
         @include _(font-weight, 600);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(text-align, center);
+            @include _(font-size, 18px);
+            @include _(padding, 0 20px);
+        }
     }
 
     &__buttons {
         @include _(display, flex);
         @include _(margin-top, 25px);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex-direction, column);
+        }
     }
 
     &__button {
         @include _(height, 50px);
-        @include _(padding, 0 30px);
         @include _(border, none);
         @include _(border-radius, 5px);
         @include _(font-size, 19px);
@@ -78,9 +96,14 @@
         @include _(box-sizing, border-box);
         @include _(transition, all 0.2s linear);
         @include _(font-weight, 600);
-
-        &:first-child {
-            @include _(margin-right, 20px);
+        @include breakpoint(desktop-view) {
+            @include _(padding, 0 30px);
+            &:first-child {
+                @include _(margin-right, 20px);
+            }
+        }
+        @include breakpoint(mobile-tablet-view) {
+            @include _(margin-bottom, 10px);
         }
 
         &--primary {
@@ -99,7 +122,7 @@
     }
 
     &__stats {
-        @include _(height, 200px);
+        @include _(padding, 10px 0);
         @include _(width, 100%);
         @include _(background-color, rgba(255, 255, 255, 0.3));
         @include _(position, absolute);
@@ -107,18 +130,38 @@
         @include _(display, flex);
         @include _(justify-content, center);
         @include _(align-items, center);
-    }
+        @include breakpoint(mobile-view) {
+            @include _(flex-direction, column);
+        }
 
-    &__stats-separator {
-        @include _(background-color, rgba(31, 68, 90, 0.2));
-        @include _(width, 2px);
-        @include _(height, 78%);
-        @include _(margin, 0 40px);
+        &--desktop {
+            @include breakpoint(mobile-view) {
+                @include _(display, none);
+            }
+        }
+
+        &--mobile {
+            @include _(display, none);
+            @include breakpoint(mobile-view) {
+                @include _(display, flex);
+                @include _(position, static);
+                @include _(background-color, #f1f1f1);
+            }
+        }
     }
 
     &__stats-description {
         @include _(color, #1f445a);
         @include _(flex-basis, 30%);
+        @include _(padding-left, 20px);
+        @include _(padding-right, 20px);
+        @include breakpoint(mobile-view) {
+            @include _(display, flex);
+            @include _(flex-direction, column);
+            @include _(align-items, center);
+            @include _(margin-bottom, 20px);
+            @include _(text-align, center);
+        }
     }
 
     &__stats-title {
@@ -139,6 +182,11 @@
 
     &__stats-icons {
         @include _(display, flex);
+        @include _(flex, 1 1 auto);
+        @include _(justify-content, space-around);
+        @include breakpoint(mobile-view) {
+            @include _(width, 100%);
+        }
     }
 
     &__stats-icon {
@@ -200,7 +248,6 @@
     &__stats-item {
         @include _(cursor, pointer);
         @include _(transition, transform 0.2s);
-        @include _(margin, 0 40px);
         @include _(outline, none);
         
         &:hover {
