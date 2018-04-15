@@ -57,10 +57,12 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	enquiries: 'enquiries',
     users: 'users',
-    products: 'products'
+    partners: 'partners',
+    projects: 'projects',
+    categories: 'categories'
 });
 
-keystone.set('admin path' , 'admin');
+keystone.set('admin path', 'admin');
 // Start Keystone to connect to your database and initialise the web server
 
 

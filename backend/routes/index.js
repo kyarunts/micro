@@ -21,7 +21,9 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-
+var apiPartners = require('./api/partner');
+var apiProjects = require('./api/project');
+var apiCategories = require('./api/category');
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -33,6 +35,12 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
+    
+    //apis
+    app.get('/api/partners', apiPartners.getPartners);
+    app.get('/api/projects', apiProjects.getProjects);
+    app.get('/api/categories', apiCategories.getCategories);
+    
     // Views
 	app.get('**', routes.views.index);
 	app.all('/contact', routes.views.contact);
