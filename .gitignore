@@ -5,6 +5,8 @@ backend/dist
 /dist
 /tmp
 /out-tsc
+backend/public*
+/public
 
 # dependencies
 backend/node_modules
