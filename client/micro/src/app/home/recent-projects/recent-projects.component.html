@@ -1,9 +1,32 @@
 <div class="projects">
     <div class="projects__header">
         RECENT PROJECTS
+        <hr class="projects__hr">
     </div>
-    <hr class="projects__hr">
-    <div class="projects__container">
+    <div class="projects__project-container">
+        <div class="projects__sidebar">
+            <div 
+                *ngFor="let project of projects; let i = index"
+                (click)="setActive(i)"
+                class="projects__item"
+                [ngClass]="{'projects__item--active': currentProjectIndex === i}"
+            >
+                {{project.name}} <br>
+                <span>{{project.description}}</span>
+            </div>
+        </div>
+        <div 
+            class="projects__image-container"
+        >
+            <img src="{{projects[currentProjectIndex].mainImageUrl}}" alt="">
+            <div class="projects__action">
+                <button
+                    [routerLink]="['/portfolio/' + projects[currentProjectIndex].id]"
+                >EXPLORE DETAILS</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="projects__container">
         <div class="projects__list">
             <div 
                 id="jermukGroup" 
@@ -54,7 +77,7 @@
         <div class="projects__item-image">
             <img
                 *ngIf="activeProject === 'baseMetals'" 
-                src="https://i2.wp.com/www.info-360.com/wp-content/uploads/2017/04/10-marla-house-250-sq-yds-house-modern-house-design-architecture-urban-factory-4.jpg?fit=960%2C540"
+                src=""
             >
             <img 
                 *ngIf="activeProject === 'jermukGroup'"
@@ -65,5 +88,5 @@
                 src="http://www.abc.net.au/news/image/4754534-3x2-940x627.jpg"
             >
         </div>
-    </div>
+    </div> -->
 </div>

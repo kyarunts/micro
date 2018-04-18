@@ -16,7 +16,6 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { AdminComponent } from './admin/admin.component';
 import { MicroHttpService } from './micro-http.service';
 import { ProductsComponentService } from 'app/products/products.component.service';
-import { HttpModule } from '@angular/http';
 import { FooterComponent } from './shared/footer/footer.component';
 import { IconsComponent } from './generics/icons/icons.component';
 import { CounterDirective } from './generics/counter.directive';
@@ -27,41 +26,43 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { ModalComponent } from './generics/modal/modal.component';
 import { ModalService } from './generics/modal/modal.service';
 import { ImageViewerComponent } from './generics/image-viewer/image-viewer.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { TextShortenerPipe } from './generics/text-shortener.pipe';
 @NgModule({
     declarations: [
-    AppComponent,
-    HomeComponent,
-    PartnersComponent,
-    PortfolioComponent,
-    ProductsComponent,
-    AboutComponent,
-    ContactsComponent,
-    InstallationComponent,
-    CalculatorComponent,
-    NavigationComponent,
-    AdminComponent,
-    FooterComponent,
-    IconsComponent,
-    CounterDirective,
-    RecentProjectsComponent,
-    HomeProductsComponent,
-    HomeClientsComponent,
-    ProductDetailsComponent,
-    ModalComponent,
-    ImageViewerComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpModule,
-    FormsModule    
-  ],
-  providers: [
-    MicroHttpService,
-    ProductsComponentService,
-    ModalService
-  ],
-  bootstrap: [AppComponent]
+        AppComponent,
+        HomeComponent,
+        PartnersComponent,
+        PortfolioComponent,
+        ProductsComponent,
+        AboutComponent,
+        ContactsComponent,
+        InstallationComponent,
+        CalculatorComponent,
+        NavigationComponent,
+        AdminComponent,
+        FooterComponent,
+        IconsComponent,
+        CounterDirective,
+        RecentProjectsComponent,
+        HomeProductsComponent,
+        HomeClientsComponent,
+        ProductDetailsComponent,
+        ModalComponent,
+        ImageViewerComponent,
+        TextShortenerPipe
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+    ],
+    providers: [
+        MicroHttpService,
+        ProductsComponentService,
+        ModalService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

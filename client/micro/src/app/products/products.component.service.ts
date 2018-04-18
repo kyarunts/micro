@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MicroHttpService } from '../micro-http.service';
 import { ProductsObject } from './products.data';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { RequestOptionsArgs } from '@angular/http';
 import { ENVIRONMENT } from '../globals';
 
@@ -46,8 +46,8 @@ export class ProductsComponentService {
             case 'test-mock-data':
                 return Observable.of(this.MockForProducts);
             default:
-                return this.http.get(this.url, query)
-                    .map((products: ProductsObject[]) => products)
+                // return this.http.get(this.url, query)
+                //     .map((products: ProductsObject[]) => products)
         }
     }
 }

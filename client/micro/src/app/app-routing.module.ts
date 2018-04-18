@@ -55,6 +55,10 @@ const routes: Routes = [
         component: ProductsComponent
     },
     {
+        path: 'portfolio/:id',
+        component: PortfolioComponent  
+    },
+    {
         path: '**',
         redirectTo: '/home',
         pathMatch: 'full'

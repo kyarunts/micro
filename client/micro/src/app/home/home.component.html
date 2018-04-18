@@ -202,11 +202,17 @@
     </div>
 </div>
 <section>
-    <app-recent-projects></app-recent-projects>
+    <app-recent-projects
+        [projects]="homeData.projects"
+    ></app-recent-projects>
 </section>
 <section>
-    <app-home-products></app-home-products>
+    <app-home-products
+        [products]="homeData.products"
+    ></app-home-products>
 </section>
 <section>
-    <app-home-clients></app-home-clients>
+    <app-home-clients
+        [partners]="homeData.partners"
+    ></app-home-clients>
 </section>

@@ -1,78 +1,226 @@
 @import '../../sass-dass/exports';
 
 .projects {
-    @include _(height, 600px);
-    @include _(padding, 50px);
-    @include _(box-sizing, border-box);
+    @include _(display, flex);
+    @include _(flex-direction, column);
 
     &__header {
         @include _(font-size, 27px);
         @include _(font-family, play);
         @include _(color, #1f445a);
         @include _(font-weight, 600);
+        @include _(padding, 50px 50px 20px 50px);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding, 50px 20px 20px 20px);
+        }
     }
 
     &__hr {
         @include _(width, 121px);
-        @include _(margin, 10px 0 40px 0);
+        @include _(margin-left, 0);
+        @include _(margin-top, 10px);
         @include _(border, 2px solid #1f445a);
     }
 
-    &__container {
+    &__project-container {
         @include _(display, flex);
-    }
-
-    &__list {
-        @include _(width, 30%);
-    }
-
-    &__item {
-        @include _(height, 100px);
-        @include _(border-bottom, 1px solid #e3e6e6);
-        @include _(box-sizing, border-box);
-        @include _(display, flex);
+        @include _(padding, 0 50px);
+        @include _(margin-bottom, 20px);
         @include _(flex-direction, column);
-        @include _(justify-content, center);
-        @include _(align-items, center);
-        @include _(cursor, pointer);
-        @include _(font-family, quicksand);
-        @include _(color, #1f445a);
-        @include _(transition, background-color 0.5s ease-in-out);
-        @include _(outline, none);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding, 0 20px);
+        }
+    }
 
-        &:last-child {
+    &__sidebar {
+        @include _(display, flex);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(flex-direction, column);
+        }
+    }
+
+    &__image-container {
+        @include _(position, relative);
+
+        & img {
+            @include _(width, 100%);
+        }
+    }
+
+    &__action {
+        @include _(position, absolute);
+        @include _(background-color, rgba(239, 241, 243, 0.6));
+        @include _(padding, 20px);
+        @include _(bottom, 3px);
+        @include _(width, 100%);
+        @include _(display, flex);
+        @include _(justify-content, flex-end);
+        @include _(box-sizing, border-box);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding, 5px 10px);
+        }
+
+        & button {
+            @include _(display, flex);
             @include _(border, none);
-        }
-
-        &--active {
-            @include _(background-color, #ffcc35);
-            @include _(box-shadow, 5px 4px 9px 0px rgba(0,0,0,0.75));
-            @include _(border-bottom, none);
-        }
-
-        &:hover {
-            @include _(background-color, #ffcc35);
-
-            &:not(.projects__item--active) {
-                @include _(opacity, 0.7);
+            @include _(justify-content, center);
+            @include _(align-items, center);
+            @include _(box-sizing, border-box);
+            @include _(padding, 20px 60px);
+            @include _(font-size, 20px);
+            @include _(background-color, #fdd22a);
+            @include _(color, #20445a);
+            @include _(border-radius, 6px);
+            @include _(outline, none);
+            @include _(cursor, pointer);
+            @include _(font-weight, 600);
+            @include _(transition, all 0.4s);
+            @include _(font-family, play);
+            @include breakpoint(mobile-tablet-view) {
+                @include _(padding, 15px 30px);
+                @include _(font-size, 14px);
+            }
+            &:hover {
+                @include _(background-color, #20445a);
+                @include _(color, white);
             }
         }
     }
 
-    &__item-description {
-        @include _(font-size, 14px);
-        @include _(margin-top, 8px);
+    &__item {
+        @include _(display, flex);
+        @include _(flex, 1 1 auto);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(box-sizing, border-box);
+        @include _(padding, 30px 10px);
+        @include _(cursor, pointer);
+        @include _(text-align, center);
+        @include _(flex-wrap, wrap);
         @include _(font-family, cantarell);
-    }
+        @include _(font-size, 18px);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding, 15px 10px);
+        }
 
-    &__item-image {
-        @include _(width, 70%);
-        @include _(max-height, 400px);
-        @include _(box-shadow, 5px 4px 9px 0px rgba(0,0,0,0.75));
+        &:nth-child(even) {
+            @include _(background-color, #eff1f3);
+        }
 
-        & img {
-            @include _(width, 100%);
-            @include _(height, 100%);
+        &:nth-child(odd) {
+            @include _(background-color, #f9f9f9);
+        }
+        & span {
+            @include _(margin-top, 10px);
+            @include _(flex-basis, 100%);
+        }
+        
+        &--active {
+            @include _(background-color, #20445a !important);
+            @include _(color, white);
         }
     }
+    
 }
+
+// .projects {
+//     @include _(box-sizing, border-box);
+    
+//     @include breakpoint(desktop-view) {
+//         @include _(padding, 50px);
+//     }
+
+//     @include breakpoint(mobile-tablet-view) {
+//         @include _(padding, 20px);
+//     }
+
+//     &__header {
+//         @include _(font-size, 27px);
+//         @include _(font-family, play);
+//         @include _(color, #1f445a);
+//         @include _(font-weight, 600);
+//     }
+
+//     &__hr {
+//         @include _(width, 121px);
+//         @include _(margin, 10px 0 40px 0);
+//         @include _(border, 2px solid #1f445a);
+//     }
+
+//     &__container {
+//         @include _(display, flex);
+//          @include breakpoint(mobile-tablet-view) {
+//             @include _(flex-direction, column);
+//         }
+//     }
+
+//     &__list {
+//         @include _(width, 30%);
+//         @include breakpoint(mobile-tablet-view) {
+//             @include _(display, flex);
+//             @include _(width, 100%);
+//             @include _(flex-wrap, wrap);
+//         }
+//     }
+
+//     &__item {
+//         @include _(height, 100px);
+//         @include _(border-bottom, 1px solid #e3e6e6);
+//         @include _(box-sizing, border-box);
+//         @include _(display, flex);
+//         @include _(flex-direction, column);
+//         @include _(justify-content, center);
+//         @include _(align-items, center);
+//         @include _(cursor, pointer);
+//         @include _(font-family, quicksand);
+//         @include _(color, #1f445a);
+//         @include _(transition, background-color 0.5s ease-in-out);
+//         @include _(outline, none);
+//         @include _(text-align, center);
+//         @include _(padding, 0 5px);
+
+//         &:last-child {
+//             @include _(border, none);
+//         }
+
+//         &--active {
+//             @include _(background-color, #ffcc35);
+//             @include _(box-shadow, 5px 4px 9px 0px rgba(0,0,0,0.75));
+//             @include _(border-bottom, none);
+//         }
+
+//         &:hover {
+//             @include _(background-color, #ffcc35);
+
+//             &:not(.projects__item--active) {
+//                 @include _(opacity, 0.7);
+//             }
+//         }
+
+//         @include breakpoint(mobile-tablet-view) {
+//             @include _(flex-basis, 50%);
+//         }
+//     }
+
+//     &__item-description {
+//         @include _(font-size, 14px);
+//         @include _(margin-top, 8px);
+//         @include _(font-family, cantarell);
+//     }
+
+//     &__item-image {
+//         @include _(box-shadow, 5px 4px 9px 0px rgba(0,0,0,0.75));
+        
+//         & img {
+//             @include _(width, 100%);
+//             @include _(height, 100%);
+//         }
+//         @include breakpoint(desktop-view) {
+//             @include _(max-height, 400px);
+//             @include _(width, 70%);
+//         }
+//         @include breakpoint(mobile-tablet-view) {
+//             @include _(width, 100%);
+//         }
+//     }
+// }

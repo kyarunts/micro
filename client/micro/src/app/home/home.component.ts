@@ -1,16 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service';
+import { HomeDataInterface } from './home.constants';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    providers: [HomeService],
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    public homeData: HomeDataInterface;
 
-  ngOnInit() {
-      document.body.scrollIntoView(true);
-  }
+    constructor(
+        private homeHttp: HomeService
+    ) { }
+
+    ngOnInit() {
+        document.body.scrollIntoView(true);
+        this.homeHttp.getHomeData()
+            .subscribe(data => {
+                this.homeData = data;
+            });
+    }
 
 }

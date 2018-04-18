@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HomeProductsInterface } from '../home.constants';
+import { ProjectInterface } from '../../interfaces';
 
 @Component({
     selector: 'app-recent-projects',
@@ -6,16 +8,17 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./recent-projects.component.scss']
 })
 export class RecentProjectsComponent implements OnInit {
-
-    public activeProject: string = 'jermukGroup';
+    @Input() public projects: ProjectInterface[];
+    public currentProjectIndex: number = 0;
     
     constructor() { }
 
     ngOnInit() {
+        console.log(this.projects);
     }
 
-    public setActive(id: string) {
-        this.activeProject = id;
+    public setActive(index: number): void {
+        this.currentProjectIndex = index;
     }
 
 }

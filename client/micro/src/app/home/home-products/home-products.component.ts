@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HomeProductsInterface } from '../home.constants';
 
 @Component({
     selector: 'app-home-products',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeProductsComponent implements OnInit {
     
-    public productIds: string[] = ['sandwichPanel', 'thermalIsolation', 'profiles'];
-    public currentProduct: string = 'sandwichPanel'
-    public currentIndex: number = 0;
+    @Input() public products: HomeProductsInterface[];
+    public currentProductIndex: number = 0;
     private sliderAnimation: any;
 
     constructor() { }
@@ -19,15 +19,14 @@ export class HomeProductsComponent implements OnInit {
     }
 
     public startAnimation() {
-        this.sliderAnimation = setInterval(() => {
-            if (this.currentIndex === this.productIds.length - 1) {
-                this.currentIndex = 0;
-            }
-            else {
-                this.currentIndex++;
-            }
-            this.currentProduct = this.productIds[this.currentIndex];
-        }, 5000);
+        // this.sliderAnimation = setInterval(() => {
+        //     if (this.currentProductIndex === this.products.length - 1) {
+        //         this.currentProductIndex = 0;
+        //     }
+        //     else {
+        //         this.currentProductIndex++;
+        //     }
+        // }, 5000);
     }
     
     public stopAnimation() {
@@ -35,15 +34,14 @@ export class HomeProductsComponent implements OnInit {
     }
     
     public changeProduct(index: number) {
-        if (index > this.productIds.length - 1) {
-            this.currentIndex = 0;
+        if (index > this.products.length - 1) {
+            this.currentProductIndex = 0;
         }
         else if (index < 0) {
-            this.currentIndex = this.productIds.length - 1;
+            this.currentProductIndex = this.products.length - 1;
         }
         else {
-            this.currentIndex = index;
+            this.currentProductIndex = index;
         }
-        this.currentProduct = this.productIds[this.currentIndex];
     }
 }

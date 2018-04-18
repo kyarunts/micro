@@ -1,118 +1,131 @@
 @import '../../sass-dass/exports';
 
 .home-products {
-    @include _(height, 600px);
-    @include _(padding, 50px);
+    @include _(display, flex);
+    @include _(flex-direction, column);
     @include _(box-sizing, border-box);
     @include _(background, linear-gradient(45deg, rgba(255,249,249,1) 0%,rgba(234,238,239,1) 100%));
-    @include _(position, relative);
-
+    
     &__header {
+        @include _(padding, 50px 50px 20px 50px);
         @include _(font-size, 27px);
         @include _(font-family, play);
         @include _(color, #1f445a);
         @include _(font-weight, 600);
+        @include breakpoint(mobile-tablet-view) {
+            @include _(padding, 50px 20px 20px 20px);
+        }
     }
 
     &__hr {
         @include _(width, 121px);
-        @include _(margin, 10px 0 40px 0);
+        @include _(margin-top, 10px);
         @include _(border, 2px solid #1f445a);
+        @include _(margin-left, 0);
     }
 
-    &__product-info-container {
+    &__product-container {
         @include _(display, flex);
-        @include _(padding-left, 10%);
+        @include _(justify-content, space-between);
 
+        @include breakpoint(mobile-view) {
+            @include _(flex-direction, column);
+        }
     }
 
-    &__product-information {
+    &__arrow {
+        @include _(padding, 0 10px);
+        @include _(cursor, pointer);
+        @include _(display, flex);
+        @include _(flex, 1 1 auto);
+        @include _(align-items, center);
+        &:hover {
+            @include _(background-color, rgba(255, 255, 255, 0.8));
+        }
+        @include breakpoint(mobile-view) {
+            @include _(display, none);
+        }
+    }
+
+    &__description {
         @include _(flex-basis, 50%);
-        @include _(padding-top, 100px);
+        @include _(padding, 0 15px);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, center);
+
+        @include breakpoint(mobile-view) {
+            @include _(align-items, center);
+            @include _(text-align, center);
+            @include _(margin-bottom, 20px);
+        }
     }
 
-    &__product-name {
+    &__name {
         @include _(color, #1f445a);
         @include _(font-size, 32px);
         @include _(font-family, play);
         @include _(margin, 0 0 20px 0);
+        @include breakpoint(mobile-view) {
+            @include _(font-size, 22px);
+        }
     }
 
-    &__product-description {
+     &__details {
         @include _(color, #1f445a);
         @include _(font-family, cantarell);
-        @include _(font-size, 22px);
         @include _(margin, 0);
-    }
-
-    &__product-image {
-        &--sandwich-panel {
-            @include _(position, absolute);
-            @include _(top, 25px);
-            @include _(height, 85%);
-            @include _(right, 180px);
+        @include breakpoint(tablet-desktop-view) {
+            @include _(font-size, 22px);
         }
 
-        &--thermo-isolation {
-            @include _(position, absolute);
-            @include _(height, 57%);
-            @include _(right, 71px);
-            @include _(bottom, 110px);
-            @include _(transform, rotate(-18deg));
-        }
-
-        &--profiles {
-            @include _(position, absolute);
-            @include _(top, 40px);
-            @include _(height, 85%);
-            @include _(right, 150px);
+        @include breakpoint(mobile-view) {
+            @include _(font-size, 18px);
         }
     }
-    
+
     &__buttons {
-        @include _(margin-top, 40px);
-    }
-
-    &__button {
-        @include _(height, 50px);
-        @include _(padding, 0 30px);
-        @include _(border, none);
-        @include _(border-radius, 5px);
-        @include _(font-size, 16px);
-        @include _(font-family, quicksand);
-        @include _(color, #1f445a);
-        @include _(cursor, pointer);
-        @include _(outline, none);
-        @include _(box-sizing, border-box);
-        @include _(transition, all 0.2s linear);
-        @include _(font-weight, 600);
-
-        &:first-child {
-            @include _(margin-right, 20px);
-        }
-
-        &--primary {
-            @include _(background-color, #ffcc35);
-        }
-
-        &--secondary {
+        @include _(margin-top, 20px);
+        & button {
+            @include _(height, 50px);
+            @include _(padding, 0 30px);
+            @include _(border, none);
+            @include _(border-radius, 5px);
+            @include _(font-size, 16px);
+            @include _(font-family, quicksand);
+            @include _(color, #1f445a);
+            @include _(cursor, pointer);
+            @include _(outline, none);
+            @include _(box-sizing, border-box);
+            @include _(transition, all 0.2s linear);
+            @include _(font-weight, 600);
             @include _(background-color, transparent);
             @include _(border, 1px solid #1f445a);
+            &:hover {
+                @include _(background-color, #1f445a);
+                @include _(color, white);
+            }
         }
+    }
 
-        &:hover {
-            @include _(background-color, #1f445a);
-            @include _(color, white);
+    &__image-container {
+        @include _(flex-basis, 40%);
+        @include _(height, 400px);
+        @include _(background-size, contain);
+        @include _(background-repeat, no-repeat);
+        @include _(background-position, center);
+        @include breakpoint(mobile-view) {
+            @include _(height, 240px);
         }
     }
 
     &__slider {
         @include _(display, flex);
         @include _(justify-content, center);
-        @include _(align-items, center);
-        @include _(position, absolute);
-        @include _(bottom, 15px);
-        @include _(left, 50%);
+        @include _(padding, 10px 0);
+        @include breakpoint(mobile-view) {
+            @include _(display, none);
+        }
     }
 
     &__slider-item {
@@ -128,43 +141,23 @@
         }
     }
 
-    &__arrow {
-        @include _(width, 60px);
-        @include _(height, 100%);
-        @include _(position, absolute);
-        @include _(top, 0);
-        @include _(cursor, pointer);
+    &__next-previous-container {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(padding, 20px);
+        @include breakpoint(tablet-desktop-view) {
+            @include _(display, none);
+        }
+        @include _(color, #1f445a);
+    }
+
+    &__next-previous {
         @include _(display, flex);
         @include _(align-items, center);
-        @include _(justify-content, center);
-        @include _(transition, background-color 0.2s ease-in-out);
-        
-        &:hover {
-            @include _(background-color, rgba(255, 255, 255, 0.3));
-        }
-
-        &--left {
-            @include _(left, 0);
-        }
-
-        &--right {
-            @include _(right, 0);
-        }
+        @include _(padding, 0 30px);
+        @include _(cursor, pointer);
+        @include _(text-transform, uppercase);
+        @include _(font-size, 16px);
+        @include _(font-family, play);
     }
-
-    &__arrow-icon {
-        @include _(border, solid #8094a0);
-        @include _(border-width, 0 3px 3px 0);
-        @include _(display, inline-block);
-        @include _(padding, 10px);
-
-        &--left {
-            transform: rotate(135deg);
-        }
-
-        &--right {
-            transform: rotate(-45deg);
-        }
-    }
-
 }

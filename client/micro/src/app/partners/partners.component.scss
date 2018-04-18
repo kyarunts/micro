@@ -126,7 +126,8 @@
         @include _(box-sizing, border-box);
         @include _(cursor, pointer);
         @include _(transition, all .3s ease-in-out);
-
+        @include _(outline, none);
+        
         &:hover {
             @include _(background-color, #ffb733);
             @include _(opacity, .8);
