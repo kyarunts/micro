@@ -1,0 +1,37 @@
+<app-icons></app-icons>
+<app-loader *ngIf="!isReady">
+</app-loader>
+
+<div class="portfolio" *ngIf="isReady">
+    <div class="portfolio__header page-header">
+        <span class="portfolio__header-title page-title">
+            OUR PORTFOLIO
+        </span>
+    </div>
+    <div class="portfolio__projects-container">
+        <ng-container *ngFor="let project of projects">
+            <div class="portfolio__project-block">
+                <div 
+                    class="portfolio__project-image-container"
+                >
+                </div>
+                <div class="portfolio__project-info-container">
+                    <div class="portfolio__project-name">
+                        {{project.name}}
+                    </div>
+                    <div class="portfolio__project-description">
+                        {{project.description}}
+                    </div>
+                </div>
+                <div class="portfolio__project-actions-container">
+                    <span>
+                        see more
+                    </span>
+                    <svg class="icon-something">
+                        <use xlink:href="#icon-more"></use>
+                    </svg>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

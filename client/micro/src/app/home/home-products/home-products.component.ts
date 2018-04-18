@@ -19,14 +19,14 @@ export class HomeProductsComponent implements OnInit {
     }
 
     public startAnimation() {
-        // this.sliderAnimation = setInterval(() => {
-        //     if (this.currentProductIndex === this.products.length - 1) {
-        //         this.currentProductIndex = 0;
-        //     }
-        //     else {
-        //         this.currentProductIndex++;
-        //     }
-        // }, 5000);
+        this.sliderAnimation = setInterval(() => {
+            if (this.currentProductIndex === this.products.length - 1) {
+                this.currentProductIndex = 0;
+            }
+            else {
+                this.currentProductIndex++;
+            }
+        }, 5000);
     }
     
     public stopAnimation() {

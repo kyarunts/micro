@@ -56,7 +56,7 @@ export const HomeDataMock: HomeDataInterface = {
     partners: [],
     projects: [
         {
-            id: '1',
+            _id: '1',
             name: 'Jermuk Group Factory',
             name_hy: 'string',
             name_ru: '',
@@ -68,7 +68,7 @@ export const HomeDataMock: HomeDataInterface = {
             appearsOnHomePage: true
         },
         {
-            id: '1',
+            _id: '1',
             name: 'Jermuk Group Factory',
             name_hy: 'string',
             name_ru: '',
@@ -80,7 +80,7 @@ export const HomeDataMock: HomeDataInterface = {
             appearsOnHomePage: true
         },
         {
-            id: '1',
+            _id: '1',
             name: 'Jermuk Group Factory',
             name_hy: 'string',
             name_ru: '',

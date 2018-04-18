@@ -30,6 +30,7 @@ import { ModalComponent } from './generics/modal/modal.component';
 import { ModalService } from './generics/modal/modal.service';
 import { ImageViewerComponent } from './generics/image-viewer/image-viewer.component';
 import { TextShortenerPipe } from './generics/text-shortener.pipe';
+import { LoaderComponent } from './generics/loader/loader.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,7 +53,8 @@ import { TextShortenerPipe } from './generics/text-shortener.pipe';
         ProductDetailsComponent,
         ModalComponent,
         ImageViewerComponent,
-        TextShortenerPipe
+        TextShortenerPipe,
+        LoaderComponent
     ],
     imports: [
         BrowserModule,

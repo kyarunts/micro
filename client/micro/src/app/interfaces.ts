@@ -10,7 +10,7 @@ export interface PartnerInterface {
 }
 
 export interface ProjectInterface {
-    id: string;
+    _id: string;
     name: string;
     name_hy: string;
     name_ru: string;
