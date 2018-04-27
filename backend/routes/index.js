@@ -24,6 +24,8 @@ var importRoutes = keystone.importer(__dirname);
 var apiPartners = require('./api/partner');
 var apiProjects = require('./api/project');
 var apiCategories = require('./api/category');
+var mailSender = require('./api/email');
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -40,7 +42,7 @@ exports = module.exports = function (app) {
     app.get('/api/partners', apiPartners.getPartners);
     app.get('/api/projects', apiProjects.getProjects);
     app.get('/api/categories', apiCategories.getCategories);
-    
+    app.post('/api/sendEmail', mailSender.sendEmail);
     // Views
 	app.get('**', routes.views.index);
 	app.all('/contact', routes.views.contact);
