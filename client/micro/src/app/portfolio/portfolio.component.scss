@@ -2,7 +2,9 @@
 
 .portfolio {
     &__header {
-        @include _(background, green);
+        background: url('http://www.lboro.ac.uk/media/wwwlboroacuk/external/content/schoolsanddepartments/abce/photos/homepagefeatures/stemlab-home.jpg');
+        @include _(background-size, cover);
+        @include _(background-position, center);
     }
 
     &__projects-container {
@@ -45,7 +47,6 @@
     }
 
     &__project-image-container {
-        background-image: url('https://www.sap.com/dam/application/imagelibrary/photos/273000/273371.jpg.adapt.450_255.false.false.false.false.jpg');
         @include _(background-size, cover);
         @include _(background-position, center);
         @include breakpoint(tablet-desktop-view) {
