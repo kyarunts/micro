@@ -8,6 +8,7 @@ var handlers = {
     const productsRequest = Product.find()
       .sort('-appearsOnHomePage')
       .limit(3)
+      .populate('category')
       .exec();
     const partnersRequest = Partner.find()
       .sort('-appearsOnHomePage')
