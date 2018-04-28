@@ -59,7 +59,8 @@ keystone.set('nav', {
     users: 'users',
     partners: 'partners',
     projects: 'projects',
-    categories: 'categories'
+    categories: 'categories',
+    products: 'products'
 });
 
 keystone.set('admin path', 'admin');
