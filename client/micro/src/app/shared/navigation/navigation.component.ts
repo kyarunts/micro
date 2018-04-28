@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ProductsComponentService } from '../../products/products.component.service';
 
 @Component({
@@ -22,13 +23,14 @@ export class NavigationComponent implements OnInit {
     ];
     public productsSubmenuItems: {}[];
 
-    public currentLanguage: number = 0;
-    public languages: string[] = ['hy', 'ru', 'eng'];
+    public currentLanguage: number = 2;
+    public languages: string[] = ['hy', 'ru', 'en'];
     public isSubmenuHidden: boolean;
 
     constructor(
         private router: Router,
-        private httpService: ProductsComponentService
+        private httpService: ProductsComponentService,
+        private translateService: TranslateService
     ) {
         router.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {
@@ -52,6 +54,8 @@ export class NavigationComponent implements OnInit {
 
     public changeLanguage(index: number): void {
         this.currentLanguage = index;
+        this.translateService.use(this.languages[index]);
+
     }
 
     public navMobileClickHandler() {
