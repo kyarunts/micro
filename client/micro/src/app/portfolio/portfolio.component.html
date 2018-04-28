@@ -9,11 +9,11 @@
         </span>
     </div>
     <div class="portfolio__projects-container">
-        <ng-container *ngFor="let project of projects">
-            <div class="portfolio__project-block">
+        <ng-container *ngFor="let project of projects; let i = index">
+            <div class="portfolio__project-block" (click)="openModal(i)">
                 <div 
                     class="portfolio__project-image-container"
-                    [ngStyle]="{'background-image': project.imageUrls}"
+                    [ngStyle]="{'background-image': 'url(' + project.mainImageUrl.url + ')'}"
                 >
                 </div>
                 <div class="portfolio__project-info-container">
@@ -24,7 +24,7 @@
                         {{project.description}}
                     </div>
                 </div>
-                <div class="portfolio__project-actions-container">
+                <div class="portfolio__project-actions-container" *ngIf="project.imageUrls.length">
                     <span>
                         see more
                     </span>
@@ -36,3 +36,12 @@
         </ng-container>
     </div>
 </div>
+
+<app-modal
+    [id]="'projectImageViewer'"
+>
+    <app-image-viewer
+        *ngIf="isModalReady"
+        [images]="images"
+    ></app-image-viewer>
+</app-modal>

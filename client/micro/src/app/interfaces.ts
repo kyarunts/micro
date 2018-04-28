@@ -17,8 +17,8 @@ export interface ProjectInterface {
     description: string;
     description_hy: string;
     description_ru: string;
-    imageUrls: string[];
-    mainImageUrl: string;
+    imageUrls: Object[];
+    mainImageUrl: Object;
     appearsOnHomePage: boolean;
 }
 

@@ -81,6 +81,5 @@ export class InstallationComponent implements OnInit, OnDestroy {
     public ngOnDestroy() {
         this.modalService.close('imageViewer');
         this.modalService.remove('imageViewer');
-        console.log(this.modalService.modals);
     }
 }
