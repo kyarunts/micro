@@ -6,48 +6,27 @@ import { ProductsObject } from './products.data';
 import { Observable } from 'rxjs/Observable';
 import { RequestOptionsArgs } from '@angular/http';
 import { ENVIRONMENT } from '../globals';
+import 'rxjs/add/observable/forkJoin';
 
 @Injectable()
 export class ProductsComponentService {
-    private url: string = '/api/products';
-
+    private productsUrl: string = '/api/products';
+    private categoriesUrl: string = '/api/categories';
     constructor(private http: MicroHttpService) {}
     
-    private MockForProducts = {
-        categories: [
-            {id: 0, name:'Sandwich Panels'},
-            {id: 1, name:'Profiles'},
-            {id: 2, name:'Thermal Isolation'},
-            {id: 3, name: 'Assembling Parts'},
-            {id: 4, name: 'Metal Constructions'},
-            {id: 5, name: 'Aluminium Sheets & Rods'}
-        ],
-        products: [
-            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
-            { id: 1, categoryId: 1, name: 'Some Profile' },
-            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
-            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
-            { id: 1, categoryId: 1, name: 'Some Profile' },
-            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
-            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
-            { id: 1, categoryId: 1, name: 'Some Profile' },
-            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
-            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
-            { id: 1, categoryId: 1, name: 'Some Profile' },
-            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
-            { id: 0, categoryId: 0, name: 'Sandwich Panel Extended' },
-            { id: 1, categoryId: 1, name: 'Some Profile' },
-            { id: 2, categoryId: 2, name: 'Some Isolation Product' },
-        ]
-    };
+    public getProducts(): Observable<any> {
+        return this.http.get(this.categoriesUrl);
+        // SHOULD BE THIS.PRODUCTSURL
+    }
 
-    public getProducts(query: Object = null): Observable<any> {
-        switch (ENVIRONMENT) {
-            case 'test-mock-data':
-                return Observable.of(this.MockForProducts);
-            default:
-                // return this.http.get(this.url, query)
-                //     .map((products: ProductsObject[]) => products)
-        }
+    public getCategories(): Observable<any> {
+        return this.http.get(this.categoriesUrl);
+    }
+
+    public forkJoin(): Observable<any> {
+        return Observable.forkJoin([
+            this.getProducts(),
+            this.getCategories(),
+        ]);
     }
 }

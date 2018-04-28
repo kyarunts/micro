@@ -21,14 +21,20 @@
         }
     }
 
-    & img {
-        @include _(max-width, 100%);
-        @include breakpoint(mobile-tablet-view) {
-            @include _(width, 100%);
-        }
-        @include breakpoint(desktop-view) {
-            @include _(width, 80%);
-        }
+    &__image-wrapper {
+        @include _(width, 100%);
+        @include _(height, 100%);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+    }
+
+    &__image-container {
+        @include _(background-position, center);
+        @include _(background-size, contain);
+        @include _(background-repeat, no-repeat);
+        @include _(width, 80%);
+        @include _(height, 80%);
     }
 }
 

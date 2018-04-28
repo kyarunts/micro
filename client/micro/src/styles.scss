@@ -30,6 +30,11 @@ svg {
     @include _(font-size, 35px);
     @include _(font-family, quicksand);
     @include _(text-transform, uppercase);
+    @include _(text-align, center);
+    @include breakpoint(mobile-view) {
+        @include _(padding, 0 10px);
+        @include _(font-size, 26px);
+    }
 }
 
 [class^="icon-"], [class*=" icon-"] {

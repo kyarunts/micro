@@ -60,6 +60,9 @@
     &__project-info-container {
         @include _(overflow, scroll);
         @include _(padding, 20px 20px);
+        @include _(overflow, hidden);
+        @include _(overflow-y, auto);
+        @include _(flex, 1 1 auto);
     }
 
     &__project-name {

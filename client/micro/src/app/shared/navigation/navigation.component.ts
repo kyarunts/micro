@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { ProductsComponentService } from '../../products/products.component.service';
 
 @Component({
     selector: 'app-navigation',
@@ -19,20 +20,16 @@ export class NavigationComponent implements OnInit {
         { name: 'INSTALLATION', routerLink: '/installation' },
         { name: 'CONTACTS', routerLink: '/contacts' },
     ];
-    public productsSubmenuItems: {}[] = [
-        { id: '0', name: 'Sandwich Panels', src: './assets/wall.svg', routerLink: '/products' },
-        { id: '1', name: 'Profiles', src: './assets/pro.svg', routerLink: '/products' },
-        { id: '2', name: 'Thermal Isolation', src: './assets/thermal.svg', routerLink: '/products' },
-        { id: '3', name: 'Assembling Parts', src: './assets/assembling.svg', routerLink: '/products' },
-        { id: '4', name: 'Metal Constructions', src: './assets/metal.svg', routerLink: '/products' },
-        { id: '5', name: 'Aluminium Sheets & Rods', src: './assets/aluminum.svg', routerLink: '/products' },
+    public productsSubmenuItems: {}[];
 
-    ]
     public currentLanguage: number = 0;
     public languages: string[] = ['hy', 'ru', 'eng'];
     public isSubmenuHidden: boolean;
 
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private httpService: ProductsComponentService
+    ) {
         router.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {
                 this.mobileNavOpen = false;
@@ -48,6 +45,9 @@ export class NavigationComponent implements OnInit {
     }
     
     ngOnInit() {
+        this.httpService.getCategories().subscribe(data => {
+            this.productsSubmenuItems = data;
+        })
     }
 
     public changeLanguage(index: number): void {

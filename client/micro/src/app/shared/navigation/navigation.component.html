@@ -17,7 +17,7 @@
             <div 
                 *ngFor="let item of productsSubmenuItems"
                 class="submenu__item"
-                [routerLink]="[item.routerLink, item.id]"
+                [routerLink]="['/products', item._id]"
                 routerLinkActive="submenu__item--active"
             >
                 <div class="submenu__item-icon-container">

@@ -7,7 +7,13 @@
             </svg>
         </div>
     </div>
-    <img [src]="images[currentIndex].image" alt="">
+    <div class="viewer__image-wrapper">
+        <div 
+            class="viewer__image-container" 
+            [ngStyle]="{'background-image': 'url(' + images[currentIndex].image + ')'}">
+        </div>
+    </div>
+    <!-- <img [src]="images[currentIndex].image" alt=""> -->
     <div class="viewer__arrow-container">
         <div *ngIf="currentIndex !== images.length - 1">
             <svg (click)="changeCurrent('increment')" class="arrow-icon icon-angle-left">
