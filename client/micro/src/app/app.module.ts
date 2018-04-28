@@ -31,6 +31,9 @@ import { ModalService } from './generics/modal/modal.service';
 import { ImageViewerComponent } from './generics/image-viewer/image-viewer.component';
 import { TextShortenerPipe } from './generics/text-shortener.pipe';
 import { LoaderComponent } from './generics/loader/loader.component';
+import { ContactsService } from './contacts/contacts.service';
+import { PartnersService } from './partners/partners.service';
+import { AboutService } from './about/about.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -72,7 +75,10 @@ import { LoaderComponent } from './generics/loader/loader.component';
     providers: [
         MicroHttpService,
         ProductsComponentService,
-        ModalService
+        ModalService,
+        ContactsService, 
+        PartnersService,
+        AboutService
     ],
     bootstrap: [AppComponent]
 })

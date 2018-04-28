@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AboutService } from './about.service';
 
 @Component({
     selector: 'app-about',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+    public isReady: boolean = false;
+    public categories: any[];
     public services: Object[] = [
         {
             title: 'Production',  
@@ -22,10 +25,16 @@ export class AboutComponent implements OnInit {
         },
 
     ]
-    constructor() { }
+
+    constructor(private httpService: AboutService) { }
     
     ngOnInit() {
         document.body.scrollIntoView(true);
+        this.httpService.getCategories().subscribe(data => {
+            this.categories = data.slice(0, 3);
+            console.log(this.categories);
+            this.isReady = true;
+        });
     }
 
 }

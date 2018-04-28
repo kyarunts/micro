@@ -1,5 +1,8 @@
 <app-icons></app-icons>
-<div class="about">
+<app-loader *ngIf="!isReady">
+</app-loader>
+
+<div class="about" *ngIf="isReady">
     <div class="about__header page-header">
         <span class="about__header-title page-title">
             ABOUT US
@@ -99,37 +102,16 @@
                         Explore our products:
                     </span>
                     <div class="about__products-items-container">
-                        <div 
+                        <div
+                            *ngFor="let category of categories"
                             class="about__products-item"
-                            routerLink="/products/0"
+                            [routerLink]="'/products/' + category._id"
                         >
                             <svg class="icon-wall about__products-item-icon">
                                 <use xlink:href="#icon-wall"></use>
                             </svg>
                             <span class="about__products-item-name">
-                                Sandwich panels
-                            </span>
-                        </div>
-                        <div 
-                            class="about__products-item"
-                            routerLink="/products/1"
-                        >
-                            <svg class="icon-pro about__products-item-icon">
-                                <use xlink:href="#icon-pro"></use>
-                            </svg>
-                            <span class="about__products-item-name">
-                                Profiles
-                            </span>
-                        </div>
-                        <div 
-                            class="about__products-item"
-                            routerLink="/products/2"
-                        >
-                            <svg class="icon-thermal about__products-item-icon">
-                                <use xlink:href="#icon-thermal"></use>
-                            </svg>
-                            <span class="about__products-item-name">
-                                Thermal isolation
+                                {{category.name}}
                             </span>
                         </div>
                         <div 

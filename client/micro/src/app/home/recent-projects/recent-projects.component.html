@@ -12,13 +12,13 @@
                 [ngClass]="{'projects__item--active': currentProjectIndex === i}"
             >
                 {{project.name}} <br>
-                <span>{{project.description}}</span>
+                <span>{{project.description | textShortener:40}}</span>
             </div>
         </div>
         <div 
             class="projects__image-container"
         >
-            <img src="{{projects[currentProjectIndex].mainImageUrl}}" alt="">
+            <img src="{{projects[currentProjectIndex].mainImageUrl.url}}" alt="">
             <div class="projects__action">
                 <button
                     [routerLink]="['/portfolio']"

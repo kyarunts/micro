@@ -24,11 +24,11 @@
                     {{product.name}}
                 </div>
                 <div class="home-products__details">
-                    {{product.description | textShortener}}
+                    {{product.description | textShortener:240}}
                 </div>
                 <div class="home-products__buttons">
                     <button
-                        [routerLink]="['/products/' + product.categoryId]"
+                        [routerLink]="['/products/' + product.category._id]"
                     >
                         More Info
                     </button>
