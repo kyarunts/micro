@@ -1,0 +1,11 @@
+@import '../sass-dass/exports';
+
+.calculator {
+    &__header {
+        background: url('../../assets/contacts-background.png');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    
+}

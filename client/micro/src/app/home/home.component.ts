@@ -9,7 +9,7 @@ import { HomeDataInterface } from './home.constants';
     providers: [HomeService],
 })
 export class HomeComponent implements OnInit {
-
+    public isReady: boolean = false;
     public homeData: HomeDataInterface;
 
     constructor(
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
         this.homeHttp.getHomeData()
             .subscribe(data => {
                 this.homeData = data;
+                this.isReady = true;
             });
     }
 

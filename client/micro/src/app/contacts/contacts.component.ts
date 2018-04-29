@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactsService } from './contacts.service';
 
 @Component({
     selector: 'app-contacts',
@@ -20,7 +21,7 @@ export class ContactsComponent implements OnInit {
         message: false,
     }
 
-    constructor() { }
+    constructor(private httpService: ContactsService) { }
 
     ngOnInit() {
     }
@@ -39,12 +40,12 @@ export class ContactsComponent implements OnInit {
             this.formErrors['message'] = true;
         }
         if (!this.formErrors['name'] && !this.formErrors['email'] && !this.formErrors['message']) {
-            console.log('should be sent');
-            this.showForm = false;
-            this.formObject['name'] = '';
-            this.formObject['email'] = '';
-            this.formObject['message'] = '';
-            
+            this.httpService.sentEmail(this.formObject).subscribe(data => {
+                this.showForm = false;
+                this.formObject['name'] = '';
+                this.formObject['email'] = '';
+                this.formObject['message'] = '';
+            });
         }
     }
 

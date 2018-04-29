@@ -1,4 +1,8 @@
-<div class="partners">
+<app-icons></app-icons>
+<app-loader *ngIf="!isReady">
+</app-loader>
+
+<div class="partners" *ngIf="isReady">
     <div class="partners__header page-header">
         <span class="partners__header-title page-title">
             OUR PARTNERS
@@ -17,12 +21,12 @@
         <a 
             *ngFor="let partner of partners"
             class="partners__partner"     
-            [href]="partner.url"
+            [href]="partner.websiteUrl"
             target="_blank"       
         >
             <div class="partners__logo-container"
                 [ngStyle]="{
-                    'background': 'url(' + partner.logo + ')',
+                    'background': 'url(' + partner.iconUrl.url + ')',
                     'background-size': 'contain',
                     'background-repeat': 'no-repeat',
                     'background-position': 'center'

@@ -7,16 +7,11 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class HomeService {
-    private homeUrl: string = '/api/home'
+    private homeUrl: string = '/api/homeItems'
 
     constructor(private microHttp: MicroHttpService) {}
 
     public getHomeData(): Observable<HomeDataInterface> {
-        switch (ENVIRONMENT) {
-            case 'test-mock-data':
-                return Observable.of(HomeDataMock);
-            default:
-                return this.microHttp.get(this.homeUrl);
-        }
+        return this.microHttp.get(this.homeUrl);
     }
 }

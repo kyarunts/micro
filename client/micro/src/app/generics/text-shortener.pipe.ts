@@ -4,7 +4,7 @@ import { PipeTransform, Pipe } from "@angular/core";
     name: 'textShortener'
 })
 export class TextShortenerPipe implements PipeTransform {
-    public transform(text: string) {
-        return text.slice(0, 240) + '...';
+    public transform(text: string, count) {
+        return text.slice(0, count) + '...';
     }
 }

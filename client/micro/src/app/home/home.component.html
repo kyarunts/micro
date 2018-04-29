@@ -1,218 +1,224 @@
-<section class="main">
-    <div class="main__overlay">
-        <div class="main__contacts">
-            <a class="main__contacts-item">
-                <img src="./assets/phone.png" alt="">
-                <span>+374 284 22401</span>
-            </a>
-            <a class="main__contacts-item">
-                <img src="./assets/phone.png" alt="">
-                <span>+374 94 022 401</span>
-            </a>
-            <a class="main__contacts-item" routerLink="/contacts">
-                <img src="./assets/email.png" alt="">
-                <span>write us</span>
-            </a>
+<app-icons></app-icons>
+<app-loader *ngIf="!isReady">
+</app-loader>
+
+<ng-container *ngIf="isReady">
+    <section class="main">
+        <div class="main__overlay">
+            <div class="main__contacts">
+                <a class="main__contacts-item">
+                    <img src="./assets/phone.png" alt="">
+                    <span>+374 284 22401</span>
+                </a>
+                <a class="main__contacts-item">
+                    <img src="./assets/phone.png" alt="">
+                    <span>+374 94 022 401</span>
+                </a>
+                <a class="main__contacts-item" routerLink="/contacts">
+                    <img src="./assets/email.png" alt="">
+                    <span>write us</span>
+                </a>
+            </div>
+            <div class="main__logo-container">
+                <img 
+                    src="./assets/logo.png"
+                    class="main__logo"
+                > 
+                <span class="main__slogan">
+                    {{ 'slogan' | translate }}
+                </span>
+                <div class="main__buttons">
+                    <button 
+                        class="main__button main__button--primary"
+                        routerLink="/products"
+                    >
+                        VIEW ALL PRODUCTS
+                    </button>
+                    <button 
+                        class="main__button main__button--secondary"
+                        routerLink="/about"
+                    >
+                        Learn more
+                    </button>
+                </div>
+            </div>
+            <div class="main__stats main__stats--desktop">
+                <div class="main__stats-description">
+                    <span class="main__stats-title">Who We Are</span>
+                    <hr class="main__stats-hr">
+                    <span class="main__stats-copy">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
+                    </span>
+                </div>
+                <div class="main__stats-icons">
+                    <div class="main__stats-item" routerLink="/about">
+                        <div class="main__stats-icon">
+                            <div class="main__stats-icon--top">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                            <span 
+                                class="main__stats-number"
+                                [bbdCounter]=""
+                                [maxNumber]="10"
+                                [time]="2" 
+                            >
+                            </span>
+                            <div class="main__stats-icon--bottom">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                        </div>
+                        <div class="main__stats-name">years</div>
+                    </div>
+                    <div class="main__stats-item" routerLink="/portfolio">
+                        <div class="main__stats-icon">
+                            <div class="main__stats-icon--top">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                            <span 
+                                class="main__stats-number"
+                                [bbdCounter]=""
+                                [maxNumber]="100"
+                                [time]="2" 
+                            >
+                            </span>
+                            <div class="main__stats-icon--bottom">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                        </div>
+                        <div class="main__stats-name">projects</div>
+                    </div>
+                    <div class="main__stats-item" routerLink="/partners">
+                        <div class="main__stats-icon">
+                            <div class="main__stats-icon--top">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                            <span 
+                                class="main__stats-number"
+                                [bbdCounter]=""
+                                [maxNumber]="50"
+                                [time]="2" 
+                            >
+                            </span>
+                            <div class="main__stats-icon--bottom">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                        </div>
+                        <div class="main__stats-name">partners</div>
+                    </div>
+                    <div class="main__stats-item" routerLink="/products">
+                        <div class="main__stats-icon">
+                            <div class="main__stats-icon--top">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                            <span 
+                                class="main__stats-number"
+                                [bbdCounter]=""
+                                [maxNumber]="40"
+                                [time]="2" 
+                            >
+                            </span>
+                            <div class="main__stats-icon--bottom">
+                                <div class="main__stats-icon--left"></div>
+                                <div class="main__stats-icon--right"></div>
+                            </div>
+                        </div>
+                        <div class="main__stats-name">products</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="main__logo-container">
-            <img 
-                src="./assets/logo.png"
-                class="main__logo"
-            > 
-            <span class="main__slogan">
-                We are producing best sandwich-panels in the region
+    </section>
+    <div class="main__stats main__stats--mobile">
+        <div class="main__stats-description">
+            <span class="main__stats-title">Who We Are</span>
+            <hr class="main__stats-hr">
+            <span class="main__stats-copy">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
             </span>
-            <div class="main__buttons">
-                <button 
-                    class="main__button main__button--primary"
-                    routerLink="/products"
-                >
-                    VIEW ALL PRODUCTS
-                </button>
-                <button 
-                    class="main__button main__button--secondary"
-                    routerLink="/about"
-                >
-                    Learn more
-                </button>
-            </div>
         </div>
-        <div class="main__stats main__stats--desktop">
-            <div class="main__stats-description">
-                <span class="main__stats-title">Who We Are</span>
-                <hr class="main__stats-hr">
-                <span class="main__stats-copy">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
-                </span>
+        <div class="main__stats-icons">
+            <div class="main__stats-item" routerLink="/about">
+                <div class="main__stats-icon">
+                    <div class="main__stats-icon--top">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
+                    </div>
+                    <span class="main__stats-number" [bbdCounter]="" [maxNumber]="10" [time]="2">
+                    </span>
+                    <div class="main__stats-icon--bottom">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
+                    </div>
+                </div>
+                <div class="main__stats-name">years</div>
             </div>
-            <div class="main__stats-icons">
-                <div class="main__stats-item" routerLink="/about">
-                    <div class="main__stats-icon">
-                        <div class="main__stats-icon--top">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
-                        <span 
-                            class="main__stats-number"
-                            [bbdCounter]=""
-                            [maxNumber]="10"
-                            [time]="2" 
-                        >
-                        </span>
-                        <div class="main__stats-icon--bottom">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
+            <div class="main__stats-item" routerLink="/portfolio">
+                <div class="main__stats-icon">
+                    <div class="main__stats-icon--top">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
                     </div>
-                    <div class="main__stats-name">years</div>
-                </div>
-                <div class="main__stats-item" routerLink="/portfolio">
-                    <div class="main__stats-icon">
-                        <div class="main__stats-icon--top">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
-                        <span 
-                            class="main__stats-number"
-                            [bbdCounter]=""
-                            [maxNumber]="100"
-                            [time]="2" 
-                        >
-                        </span>
-                        <div class="main__stats-icon--bottom">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
+                    <span class="main__stats-number" [bbdCounter]="" [maxNumber]="100" [time]="2">
+                    </span>
+                    <div class="main__stats-icon--bottom">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
                     </div>
-                    <div class="main__stats-name">projects</div>
                 </div>
-                <div class="main__stats-item" routerLink="/partners">
-                    <div class="main__stats-icon">
-                        <div class="main__stats-icon--top">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
-                        <span 
-                            class="main__stats-number"
-                            [bbdCounter]=""
-                            [maxNumber]="50"
-                            [time]="2" 
-                        >
-                        </span>
-                        <div class="main__stats-icon--bottom">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
+                <div class="main__stats-name">projects</div>
+            </div>
+            <div class="main__stats-item" routerLink="/partners">
+                <div class="main__stats-icon">
+                    <div class="main__stats-icon--top">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
                     </div>
-                    <div class="main__stats-name">partners</div>
-                </div>
-                <div class="main__stats-item" routerLink="/products">
-                    <div class="main__stats-icon">
-                        <div class="main__stats-icon--top">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
-                        <span 
-                            class="main__stats-number"
-                            [bbdCounter]=""
-                            [maxNumber]="40"
-                            [time]="2" 
-                        >
-                        </span>
-                        <div class="main__stats-icon--bottom">
-                            <div class="main__stats-icon--left"></div>
-                            <div class="main__stats-icon--right"></div>
-                        </div>
+                    <span class="main__stats-number" [bbdCounter]="" [maxNumber]="50" [time]="2">
+                    </span>
+                    <div class="main__stats-icon--bottom">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
                     </div>
-                    <div class="main__stats-name">products</div>
                 </div>
+                <div class="main__stats-name">partners</div>
+            </div>
+            <div class="main__stats-item" routerLink="/products">
+                <div class="main__stats-icon">
+                    <div class="main__stats-icon--top">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
+                    </div>
+                    <span class="main__stats-number" [bbdCounter]="" [maxNumber]="40" [time]="2">
+                    </span>
+                    <div class="main__stats-icon--bottom">
+                        <div class="main__stats-icon--left"></div>
+                        <div class="main__stats-icon--right"></div>
+                    </div>
+                </div>
+                <div class="main__stats-name">products</div>
             </div>
         </div>
     </div>
-</section>
-<div class="main__stats main__stats--mobile">
-    <div class="main__stats-description">
-        <span class="main__stats-title">Who We Are</span>
-        <hr class="main__stats-hr">
-        <span class="main__stats-copy">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
-        </span>
-    </div>
-    <div class="main__stats-icons">
-        <div class="main__stats-item" routerLink="/about">
-            <div class="main__stats-icon">
-                <div class="main__stats-icon--top">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="10" [time]="2">
-                </span>
-                <div class="main__stats-icon--bottom">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-            </div>
-            <div class="main__stats-name">years</div>
-        </div>
-        <div class="main__stats-item" routerLink="/portfolio">
-            <div class="main__stats-icon">
-                <div class="main__stats-icon--top">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="100" [time]="2">
-                </span>
-                <div class="main__stats-icon--bottom">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-            </div>
-            <div class="main__stats-name">projects</div>
-        </div>
-        <div class="main__stats-item" routerLink="/partners">
-            <div class="main__stats-icon">
-                <div class="main__stats-icon--top">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="50" [time]="2">
-                </span>
-                <div class="main__stats-icon--bottom">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-            </div>
-            <div class="main__stats-name">partners</div>
-        </div>
-        <div class="main__stats-item" routerLink="/products">
-            <div class="main__stats-icon">
-                <div class="main__stats-icon--top">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-                <span class="main__stats-number" [bbdCounter]="" [maxNumber]="40" [time]="2">
-                </span>
-                <div class="main__stats-icon--bottom">
-                    <div class="main__stats-icon--left"></div>
-                    <div class="main__stats-icon--right"></div>
-                </div>
-            </div>
-            <div class="main__stats-name">products</div>
-        </div>
-    </div>
-</div>
-<section>
-    <app-recent-projects
-        [projects]="homeData.projects"
-    ></app-recent-projects>
-</section>
-<section>
-    <app-home-products
-        [products]="homeData.products"
-    ></app-home-products>
-</section>
-<section>
-    <app-home-clients
-        [partners]="homeData.partners"
-    ></app-home-clients>
-</section>
+    <section>
+        <app-recent-projects
+            [projects]="homeData.projects"
+        ></app-recent-projects>
+    </section>
+    <section>
+        <app-home-products
+            [products]="homeData.products"
+        ></app-home-products>
+    </section>
+    <section>
+        <app-home-clients
+            [partners]="homeData.partners"
+        ></app-home-clients>
+    </section>
+</ng-container>

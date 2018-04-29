@@ -14,7 +14,6 @@ export class RecentProjectsComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        console.log(this.projects);
     }
 
     public setActive(index: number): void {
