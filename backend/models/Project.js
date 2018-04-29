@@ -12,8 +12,8 @@ Project.add({
     description: { type: Types.Text, initial: true, required: true },
     description_hy: { type: Types.Text, initial: true, required: true },
     description_ru: { type: Types.Text, initial: true, required: true },
-    mainImageUrl: {type: Types.CloudinaryImage, initial: true},
-    imageUrls: {type: Types.CloudinaryImages, initial: true},
+    mainImageUrl: {type: Types.CloudinaryImage, initial: true, required: true},
+    imageUrls: {type: Types.CloudinaryImages, initial: true, required: true},
     appearsOnHomePage: {type: Types.Boolean, initial:true, label: 'Show on home'}
 });
 
