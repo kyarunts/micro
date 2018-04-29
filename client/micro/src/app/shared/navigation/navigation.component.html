@@ -21,7 +21,11 @@
                 routerLinkActive="submenu__item--active"
             >
                 <div class="submenu__item-icon-container">
-                    <img src="{{item.src}}" class="submenu__item-icon">
+                    <svg class="icon-wall submenu__icon">
+                        <use
+                            attr.xlink:href="{{item.iconName}}"
+                        ></use>
+                    </svg>
                 </div>
                 <div class="submenu__item-name">{{item.name}}</div>
             </div>
@@ -30,10 +34,10 @@
                     routerLink="/calculator"
                     class="submenu__calculator-button"
                 >
-                    CALCULATE NOW
+                    ORDER NOW
                 </button>
                 <div class="submenu__calculator-text">
-                    Use our calculator to find out what you need
+                    Request an order directly from our website
                 </div>
             </div>
         </div>

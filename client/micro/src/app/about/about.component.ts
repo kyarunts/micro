@@ -32,7 +32,6 @@ export class AboutComponent implements OnInit {
         document.body.scrollIntoView(true);
         this.httpService.getCategories().subscribe(data => {
             this.categories = data.slice(0, 3);
-            console.log(this.categories);
             this.isReady = true;
         });
     }

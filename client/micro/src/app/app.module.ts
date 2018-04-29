@@ -25,7 +25,6 @@ import { CounterDirective } from './generics/counter.directive';
 import { RecentProjectsComponent } from './home/recent-projects/recent-projects.component';
 import { HomeProductsComponent } from './home/home-products/home-products.component';
 import { HomeClientsComponent } from './home/home-clients/home-clients.component';
-import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ModalComponent } from './generics/modal/modal.component';
 import { ModalService } from './generics/modal/modal.service';
 import { ImageViewerComponent } from './generics/image-viewer/image-viewer.component';
@@ -54,7 +53,6 @@ import { CalculatorService } from './calculator/calculator.service';
         RecentProjectsComponent,
         HomeProductsComponent,
         HomeClientsComponent,
-        ProductDetailsComponent,
         ModalComponent,
         ImageViewerComponent,
         TextShortenerPipe,

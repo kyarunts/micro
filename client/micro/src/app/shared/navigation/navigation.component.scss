@@ -150,13 +150,14 @@
 
     &__item-icon-container {
         @include _(height, 20px);
+        @include _(width, 20px);
+        @include _(color, #a6b5be);
     }
 
-    &__item-icon {
+    &__icon {
+        @include _(width, 100%);
         @include _(height, 100%);
-        @include _(width, auto);
     }
-
     &__item-name {
         @include _(text-align, center);
         @include _(font-size, 22px);
@@ -168,6 +169,7 @@
         @include _(text-align, center);
         @include _(position, absolute);
         @include _(bottom, 20px);
+        @include _(width, 100%);
     }
 
     &__calculator-icon-container {

@@ -108,7 +108,9 @@
                             [routerLink]="'/products/' + category._id"
                         >
                             <svg class="icon-wall about__products-item-icon">
-                                <use xlink:href="#icon-wall"></use>
+                                <use 
+                                    attr.xlink:href="{{category.iconName}}"
+                                ></use>
                             </svg>
                             <span class="about__products-item-name">
                                 {{category.name}}

@@ -131,6 +131,10 @@
         @include _(border-top-left-radius, 8px);
         @include _(border-top-right-radius, 8px);
         @include _(font-size, 23px);
+        @include _(text-align, center);
+        @include breakpoint(desktop-view) {
+            @include _(min-height, 80px);
+        }
     }
 
     &__service-icon-container {
@@ -144,8 +148,10 @@
     }
 
     &__service-icon {
-        @include _(width, 120px);
-        @include _(height, 120px);
+        @include _(width, 70%);
+        @include _(height, 70%);
+        @include _(max-width, 100px);
+        @include _(max-height, 100px);
         @include breakpoint(mobile-tablet-view) {
             @include _(width, 70px);
             @include _(height, 70px);

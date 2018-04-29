@@ -2,6 +2,7 @@
 
 .products {
     @include _(background-color, #fbfbfb);
+    @include _(min-height, calc(100vh - 150px));
 
     &__header {
         background: url('../../assets/contacts-background.png');
@@ -68,18 +69,118 @@
     }
 
     &__product-wrapper {
-        @include _(padding, 20px);
         @include _(display, flex);
         @include _(justify-content, center);
         @include _(align-items, center);
     }
     
     &__product-container {
-        @include _(width, 90%);
-        @include _(background-color, white);
-        @include _(min-height, 40vh);
+        @include _(width, 100%);
+        @include _(display, flex);
+        @include _(flex-wrap, wrap);
+        @include _(justify-content, center);
+        @include breakpoint(mobile-view) {
+            @include _(flex-direction, column);
+        }
+    }
+    
+    &__product {
         -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        transition: all 0.3s linear;
+        @include _(cursor, pointer);
+        @include _(display, flex);
+        @include _(flex-direction, column);
+
+        @include breakpoint(desktop-view) {
+            @include _(margin, 15px);
+            @include _(flex-basis, 300px);
+        }
+        
+        @include breakpoint(tablet-view) {
+            @include _(flex-basis, 250px);
+            @include _(margin, 8px);
+        }
+
+        @include breakpoint(mobile-view) {
+            @include _(flex-direction, row);
+            @include _(height, 50vw);
+            @include _(margin, 10px);
+        }
+
+        &:hover {
+            transform: scale(0.96);
+            .products__product-image-overlay {
+                opacity: 0.7;
+            }
+            .products__product-name {
+                @include _(color, #ffc900);
+            }
+        }
+    }
+    
+    &__product-image-container {
+        @include _(background-size, cover !important);
+        @include _(background-repeat, no-repeat !important);
+        @include _(background-position, center !important);
+        @include breakpoint(desktop-view) {
+            @include _(height, 300px);
+        }
+        @include breakpoint(tablet-view) {
+            @include _(height, 250px);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(flex-basis, 50vw);
+            @include _(min-width, 50vw);
+        }
+    }
+    
+    &__product-image-overlay {
+        @include _(height, 100%);
+        @include _(width, 100%);
+        @include _(background-color, #6acfff);
+        @include _(opacity, 0);
+        transition: all 0.3s linear;
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+
+        & button {
+            @include _(height, 50px);
+            @include _(padding, 0 30px);
+            @include _(border, none);
+            @include _(border-radius, 5px);
+            @include _(font-size, 16px);
+            @include _(font-family, quicksand);
+            @include _(color, #17262f);
+            @include _(cursor, pointer);
+            @include _(outline, none);
+            @include _(box-sizing, border-box);
+            @include _(transition, all 0.2s linear);
+            @include _(font-weight, 600);
+            @include _(background-color, transparent);
+            @include _(border, 1px solid #17262f);
+        }
+    }
+
+    &__product-name {
+        @include _(text-align, center);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(padding, 25px);
+        @include _(font-family, cantarell);
+        @include _(text-transform, uppercase);
+        @include _(font-size, 20px);
+        @include _(color, #ab9131);
+        @include _(font-weight, 600);
+        @include _(background-color, #17262f);
+        transition: all 0.3s linear;
+        @include breakpoint(mobile-view) {
+            @include _(width, 100%);
+            @include _(font-size, 14px);
+            @include _(padding, 5px);
+        }
     }
 }

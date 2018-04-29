@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { PartnersComponent } from './partners/partners.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProductsComponent } from './products/products.component';
-import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { InstallationComponent } from './installation/installation.component';
@@ -56,7 +55,7 @@ const routes: Routes = [
     },
     {
         path: 'portfolio/:id',
-        component: PortfolioComponent  
+        component: PortfolioComponent
     },
     {
         path: '**',
