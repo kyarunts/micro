@@ -1,6 +1,8 @@
 @import '../sass-dass/exports';
 
 .products {
+    @include _(background-color, #fbfbfb);
+
     &__header {
         background: url('../../assets/contacts-background.png');
         background-size: cover;
@@ -63,5 +65,21 @@
             @include _(color, #EBC137);
             @include _(background-color, #1f445a);
         }
+    }
+
+    &__product-wrapper {
+        @include _(padding, 20px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+    }
+    
+    &__product-container {
+        @include _(width, 90%);
+        @include _(background-color, white);
+        @include _(min-height, 40vh);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
     }
 }

@@ -12,11 +12,11 @@ import 'rxjs/add/observable/forkJoin';
 export class ProductsComponentService {
     private productsUrl: string = '/api/products';
     private categoriesUrl: string = '/api/categories';
+
     constructor(private http: MicroHttpService) {}
     
     public getProducts(): Observable<any> {
-        return this.http.get(this.categoriesUrl);
-        // SHOULD BE THIS.PRODUCTSURL
+        return this.http.get(this.productsUrl);
     }
 
     public getCategories(): Observable<any> {
