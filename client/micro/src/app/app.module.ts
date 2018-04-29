@@ -34,6 +34,7 @@ import { LoaderComponent } from './generics/loader/loader.component';
 import { ContactsService } from './contacts/contacts.service';
 import { PartnersService } from './partners/partners.service';
 import { AboutService } from './about/about.service';
+import { CalculatorService } from './calculator/calculator.service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -78,7 +79,8 @@ import { AboutService } from './about/about.service';
         ModalService,
         ContactsService, 
         PartnersService,
-        AboutService
+        AboutService,
+        CalculatorService
     ],
     bootstrap: [AppComponent]
 })
