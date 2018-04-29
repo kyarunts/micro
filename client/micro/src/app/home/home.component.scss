@@ -64,6 +64,7 @@
     }
 
     &__slogan {
+        @include _(text-align, center);
         @include _(font-family, cantarell);
         @include _(font-size, 25px);
         @include _(color, #2e3232);

@@ -21,5 +21,15 @@
         </div>
     </div>
 
+    <div class="products__product-wrapper">
+        <div class="products__product-container">
+            <div 
+                class="products__product"
+                *ngFor="let product of categoryProducts"
+            >
+                {{product.name}}
+            </div>
+        </div>
+    </div>
 
 </div>

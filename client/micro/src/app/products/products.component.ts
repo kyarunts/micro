@@ -9,8 +9,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 })
 export class ProductsComponent {
     
-    public products: any;
-    public categories: any;
+    public products: any[];
+    public categories: any[];
     public isReady: boolean = false;
     public selectedCategoryId: string;
 
@@ -19,6 +19,12 @@ export class ProductsComponent {
         private route: ActivatedRoute,
         private router: Router,
     ) { }
+
+    public get categoryProducts() {
+        return this.products.filter(product => {
+            return product['category']['_id'] === this.selectedCategoryId;
+        })
+    }
 
     ngOnInit() {
         document.body.scrollIntoView(true);
@@ -43,4 +49,5 @@ export class ProductsComponent {
     public selectCategory(id: string) {
         this.selectedCategoryId = id;
     }
+    
 }
