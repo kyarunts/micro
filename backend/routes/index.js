@@ -25,7 +25,10 @@ var apiPartners = require('./api/partner');
 var apiProjects = require('./api/project');
 var apiCategories = require('./api/category');
 var apiProducts = require('./api/product');
+var apiProductitemtypes = require('./api/productitemtype');
+var apiProductItems = require('./api/productItem');
 var homeItems = require('./api/home');
+var orderHandler = require('./api/order');
 var mailSender = require('./api/email');
 
 // Common Middleware
@@ -47,9 +50,13 @@ exports = module.exports = function (app) {
     app.post('/api/sendEmail', mailSender.sendEmail);
     app.get('/api/products', apiProducts.getProducts);
     app.get('/api/homeItems', homeItems.getItemsForHomePage);
+    app.get('/api/productItemtypes', apiProductitemtypes.getProductItemTypes);
+    app.get('/api/productItems', apiProductItems.getProductItems);
+    app.post('/api/newOrder', orderHandler.createOrder);
+
     // Views
+  app.get('/orders', middleware.requireUser, routes.views.orders);
 	app.get('**', routes.views.index);
-	app.all('/contact', routes.views.contact);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

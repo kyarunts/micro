@@ -23,7 +23,6 @@ keystone.init({
 	'custom engine': handlebars.create({
 		layoutsDir: 'templates/views/layouts',
 		partialsDir: 'templates/views/partials',
-		defaultLayout: 'default',
 		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs',
 	}).engine,
@@ -59,12 +58,13 @@ keystone.set('nav', {
     partners: 'partners',
     projects: 'projects',
     categories: 'categories',
-    products: 'products'
+    products: 'products',
+    orders: 'orders',
+    productitemtypes: 'productitemtypes',
+    productitems: 'productitems'
 });
 
 keystone.set('admin path', 'admin');
-// Start Keystone to connect to your database and initialise the web server
-
 
 if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
 	console.log('----------------------------------------'
