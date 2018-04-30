@@ -22,7 +22,13 @@ export class ProductsComponent {
 
     public get categoryProducts() {
         return this.products.filter(product => {
-            return product['category']['_id'] === this.selectedCategoryId;
+            return product['category']['_id'] === this.selectedCategoryId && product['type'] === 'product';
+        })
+    }
+
+    public get specs() {
+        return this.products.filter(product => {
+            return product['category']['_id'] === this.selectedCategoryId && product['type'] === 'spec';
         })
     }
 
