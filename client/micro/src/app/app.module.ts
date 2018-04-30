@@ -34,6 +34,7 @@ import { ContactsService } from './contacts/contacts.service';
 import { PartnersService } from './partners/partners.service';
 import { AboutService } from './about/about.service';
 import { CalculatorService } from './calculator/calculator.service';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -56,7 +57,8 @@ import { CalculatorService } from './calculator/calculator.service';
         ModalComponent,
         ImageViewerComponent,
         TextShortenerPipe,
-        LoaderComponent
+        LoaderComponent,
+        ProductDetailsComponent
     ],
     imports: [
         BrowserModule,

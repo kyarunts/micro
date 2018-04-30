@@ -31,6 +31,7 @@
         @include _(color, #1f445a);
         @include _(font-family, assistant);
         @include _(cursor, pointer);
+        @include _(outline, none);
         transition: all 0.3s;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -182,5 +183,79 @@
             @include _(font-size, 14px);
             @include _(padding, 5px);
         }
+    }
+
+    &__specs-container {
+        @include _(margin, 30px 30px 0 30px);
+        @include _(padding-top, 20px);
+        @include _(padding-bottom, 20px);
+        @include _(border-top, 1px solid #d6d4d4);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(flex-wrap, wrap);
+    }
+
+    &__spec {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(border, 1px solid #20445a);
+        @include _(border-radius, 20px);
+        @include _(padding, 10px 20px);
+        @include _(margin, 10px);
+        @include _(cursor, pointer);
+        @include _(color, #20445a);
+        transition: all 0.3s linear;
+
+        &:hover {
+            @include _(background-color, #20445a);
+            @include _(color, white);
+        }
+    }
+
+    &__spec-title {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(font-family, play);
+        @include _(font-weight, 600);
+        @include _(text-transform, uppercase);
+        
+        @include breakpoint(desktop-view) {
+            @include _(font-size, 26px);
+        }
+
+        @include breakpoint(tablet-view) {
+            @include _(font-size, 20px);
+        }
+
+        @include breakpoint(mobile-view) {
+            @include _(font-size, 18px);
+        }
+    }
+
+    &__icon-container {
+        @include _(padding-right, 20px);
+        
+        @include breakpoint(desktop-view) {
+            @include _(width, 50px);
+            @include _(height, 50px);
+        }
+
+        @include breakpoint(tablet-view) {
+            @include _(width, 40px);
+            @include _(height, 40px);
+        }
+
+        @include breakpoint(mobile-view) {
+            @include _(width, 30px);
+            @include _(height, 30px);
+        }
+    }
+
+    &__icon {
+        @include _(width, 100%);
+        @include _(height, 100%);
     }
 }

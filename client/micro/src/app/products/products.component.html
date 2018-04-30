@@ -8,50 +8,70 @@
         </span>
     </div>
 
-    <div class="products__filter-menu-container">
-        <div class="products__filter-menu">
-            <div 
-                class="products__filter-item"
-                [ngClass]="{'products__filter-item--selected': selectedCategoryId === category._id}"
-                *ngFor="let category of categories"
-                (click)="selectCategory(category._id)"
-            >
-                {{category.name}}
+    <ng-container *ngIf="!isProductSelected">
+        <div class="products__filter-menu-container">
+            <div class="products__filter-menu">
+                <div 
+                    class="products__filter-item"
+                    [ngClass]="{'products__filter-item--selected': selectedCategoryId === category._id}"
+                    *ngFor="let category of categories"
+                    (click)="selectCategory(category._id)"
+                    [routerLink]="['/products/' + category._id]"
+                >
+                    {{category.name}}
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="products__product-wrapper">
-        <div class="products__product-container">
-            <div 
-                class="products__product"
-                *ngFor="let product of categoryProducts"
-                
-            >
-                <div
-                    class="products__product-image-container"
-                    [ngStyle]="{'background': 'url(' + product.mainImage.url + ')' }"
+        <div class="products__product-wrapper">
+            <div class="products__product-container">
+                <div 
+                    class="products__product"
+                    *ngFor="let product of categoryProducts"
+                    (click)="selectProduct(product._id)"
                 >
-                    <div class="products__product-image-overlay">
-                        <button>
-                            view more
-                        </button>
+                    <div
+                        class="products__product-image-container"
+                        [ngStyle]="{'background': 'url(' + product.mainImage.url + ')' }"
+                    >
+                        <div class="products__product-image-overlay">
+                            <button>
+                                view more
+                            </button>
+                        </div>
+                    </div>
+                    <div class="products__product-name">
+                        {{product.name}}
                     </div>
                 </div>
-                <div class="products__product-name">
-                    {{product.name}}
+            </div>
+        </div>
+    
+        <div class="products__specs-container"
+            *ngIf="specs.length"
+        >
+            <div 
+                class="products__spec"
+                *ngFor="let spec of specs"
+                (click)="selectProduct(spec._id)"
+            >
+                <div class="products__icon-container">
+                    <svg class="icon-product products__icon">
+                        <use 
+                            attr.xlink:href="{{(spec.type === 'spec' ? '#icon-setting' : '#icon-catalog')}}"
+                        ></use>
+                    </svg>
+                </div>
+                <div class="products__spec-title">
+                    {{spec.name}}
                 </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 
-    <div class="products__specs-container">
-        <div 
-            class="products__spec"
-            *ngFor="let spec of specs"
-        >
-            {{spec.name}}
-        </div>
-    </div>
-
+    <app-product-details
+        *ngIf="isProductSelected"
+        [selectedProduct]="selectedProduct"
+        (back)="isProductSelected = false"
+    ></app-product-details>
 </div>

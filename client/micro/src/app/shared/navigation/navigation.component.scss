@@ -107,6 +107,14 @@
         &--selected {
             @include _(color, #EBC137);
         }
+
+        &--mobile {
+            @include _(margin, 0 10px !important);
+        }
+    }
+
+    &__mobile-language-bar {
+        @include _(margin-top, 10px);
     }
 }
 

@@ -15,7 +15,7 @@ export class NavigationComponent implements OnInit {
         { name: 'HOME PAGE', routerLink: '/home' },
         { name: 'ABOUT US', routerLink: '/about' },
         { name: 'PRODUCTS', routerLink: '/products' },
-        { name: 'CALCULATOR', routerLink: '/calculator' },
+        { name: 'ORDER NOW', routerLink: '/calculator' },
         { name: 'PORTFOLIO', routerLink: '/portfolio' },
         { name: 'PARTNERS', routerLink: '/partners' },
         { name: 'INSTALLATION', routerLink: '/installation' },
@@ -55,7 +55,8 @@ export class NavigationComponent implements OnInit {
     public changeLanguage(index: number): void {
         this.currentLanguage = index;
         this.translateService.use(this.languages[index]);
-
+        this.mobileNavOpen = false;
+        document.body.classList.remove('navOpened');
     }
 
     public navMobileClickHandler() {

@@ -1,0 +1,19 @@
+<app-icons></app-icons>
+<div class="product-details">
+    <div class="product-details__navigation">
+        <a (click)="back.emit(true)" class="product-details__back">
+            <div class="product-details__icon-container">
+                <svg class="arrow-icon icon-angle-left">
+                    <use xlink:href="#icon-angle-left"></use>
+                </svg>
+            </div>
+            Back to <span> {{' ' + selectedProduct.category.name}}</span>
+        </a>
+    </div>
+    <div class="product-details__name">
+        {{selectedProduct.name}}
+    </div>
+    <div>
+        
+    </div>
+</div>

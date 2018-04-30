@@ -13,6 +13,8 @@ export class ProductsComponent {
     public categories: any[];
     public isReady: boolean = false;
     public selectedCategoryId: string;
+    public selectedProduct: any;
+    public isProductSelected: boolean = false;
 
     constructor(
         private productsService: ProductsComponentService,
@@ -28,7 +30,8 @@ export class ProductsComponent {
 
     public get specs() {
         return this.products.filter(product => {
-            return product['category']['_id'] === this.selectedCategoryId && product['type'] === 'spec';
+            return product['category']['_id'] === this.selectedCategoryId && 
+                product['type'] !== 'product';
         })
     }
 
@@ -37,6 +40,7 @@ export class ProductsComponent {
         this.getData();
         this.route.params.subscribe(params => {
             this.selectedCategoryId = params['id'];
+            this.isProductSelected = false;
         });
     }
 
@@ -54,6 +58,15 @@ export class ProductsComponent {
 
     public selectCategory(id: string) {
         this.selectedCategoryId = id;
+        this.isProductSelected = false;
+    }
+
+    public selectProduct(id: string) {
+        this.selectedProduct = this.products.filter((product) => {
+            return product['_id'] === id;
+        })[0];
+        this.isProductSelected = true;
+        console.log(this.selectedProduct);
     }
     
 }

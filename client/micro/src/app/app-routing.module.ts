@@ -10,6 +10,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { InstallationComponent } from './installation/installation.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { AdminComponent } from 'app/admin/admin.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
 
 const routes: Routes = [
     {
@@ -23,7 +24,11 @@ const routes: Routes = [
     
     {
         path: 'products',
-        component: ProductsComponent
+        component: ProductsComponent,
+        children: [{
+            path: 'details',
+            component: ProductDetailsComponent
+        }]
     },
     {
         path: 'portfolio',

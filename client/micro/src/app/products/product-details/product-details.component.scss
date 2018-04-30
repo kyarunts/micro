@@ -1,0 +1,52 @@
+@import '../../sass-dass/exports';
+
+.product-details {
+    @include _(padding, 0 30px);
+    &__navigation { 
+        @include _(display, flex);
+    }
+
+    &__back {
+        @include _(margin-top, 14px);
+        @include _(cursor, pointer);
+        @include _(border, 1px solid #4b7086);
+        @include _(border-radius, 8px);
+        @include _(padding, 5px 20px 5px 10px);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(font-family, assistant);
+        @include _(font-size, 14px);
+        @include _(color, #4b7086);
+        & span {
+            @include _(margin-left, 5px);
+            @include _(text-transform, uppercase);
+            @include _(font-weight, 600);
+        }
+        transition: all 0.3s linear;
+
+        &:hover {
+            transform: scale(0.9);
+            @include _(background-color, #4b7086);
+            @include _(color, white);
+        }
+    }
+
+    &__icon-container {
+        @include _(margin-right, 5px);
+        @include _(transform, rotate(90deg));
+        @include _(width, 25px);
+        @include _(height, 25px);
+        & svg {
+            @include _(width, 100% !important);
+            @include _(height, 100% !important);
+        }
+    }
+
+    &__name {
+        @include _(margin-top, 25px);
+        @include _(font-family, play);
+        @include _(font-size, 40px);
+        @include _(color, #36393c);
+        @include _(text-transform, uppercase);
+    }
+}

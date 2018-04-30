@@ -74,5 +74,15 @@
                 routerLinkActive="navigation__item--active"
             >{{item.name}}</li>
         </ul>
+        <div class="navigation__mobile-language-bar">
+            <a 
+                *ngFor="let item of languages; let ind = index"
+                (click)="changeLanguage(ind)" 
+                [ngClass]="{'navigation__language--selected': currentLanguage === ind}"
+                class="navigation__language navigation__language--mobile"
+            >
+                {{item}}
+            </a>
+        </div>
     </div>
 </nav>
