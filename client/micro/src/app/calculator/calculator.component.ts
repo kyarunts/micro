@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorService } from './calculator.service';
+import { ModalService } from '../generics/modal/modal.service';
 @Component({
     selector: 'app-calculator',
     templateUrl: './calculator.component.html',
     styleUrls: ['./calculator.component.scss']
 })
 export class CalculatorComponent implements OnInit {
+    private re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+    public hasErrors: boolean = false;
     public products: any[];
     public productTypes: any[];
     public isReady: boolean = false;
@@ -14,7 +17,21 @@ export class CalculatorComponent implements OnInit {
     public selectedProducts: string[] = [];
     public productsObject: Object = {};
     public selectedProductsCount: Object = {};
-    constructor(private httpService: CalculatorService) { }
+    public isModalOpen: boolean = false;
+    public finalSelectedProducts: Object[] = [];
+    public personalDetailsObject: Object = {
+        name: '',
+        emailAddress: '',
+        phoneNumber: '',
+        name_error: false,
+        emailAddress_error: false,
+        phoneNumber_error: false,
+    }
+
+    constructor(
+        private httpService: CalculatorService,
+        private modalService: ModalService
+    ) { }
 
     testvalue;
 
@@ -44,7 +61,7 @@ export class CalculatorComponent implements OnInit {
     public generateProductsObject(): void {
         this.products.map(product => {
             this.productsObject[product._id] = {
-                option: 1,
+                option: 0,
                 amount: null,
             }
         });
@@ -76,7 +93,107 @@ export class CalculatorComponent implements OnInit {
         }, 300);
     }
 
-    test() {
-        console.log(this.productsObject);
+    public processSelectedProducts(): void {
+        this.finalSelectedProducts = [];
+        this.selectedProducts.map(productID => {
+            this.finalSelectedProducts.push(
+                {
+                    product: this.products.filter(product => product._id === productID)[0],
+                    values: this.productsObject[productID],
+                    optionError: false,
+                    amountError: false,
+                }
+            )
+        })
+    }
+
+    public goToSubmission(): void {
+        this.modalService.open('requestOrderModal');
+        this.processSelectedProducts();
+        this.isModalOpen = true;
+    }
+
+    public validate(): void {
+        this.finalSelectedProducts.map(product => {
+            if (+product['values']['option'] === 0) {
+                product['optionError'] = true;
+            }
+            if (!product['values']['amount']) {
+                product['amountError'] = true;
+            }
+        });
+        if (!this.personalDetailsObject['name'].trim()) {
+            this.personalDetailsObject['name_error'] = true;
+        }
+        if (!this.personalDetailsObject['phoneNumber'].trim()) {
+            this.personalDetailsObject['phoneNumber_error'] = true;
+        }
+        if (
+            !this.personalDetailsObject['emailAddress'].trim() ||
+            !this.re.test(this.personalDetailsObject['emailAddress'].toLowerCase())
+        ) {
+            this.personalDetailsObject['emailAddress_error'] = true;
+        }
+    }
+
+    public clearOptionValidation(value: any, item: Object): void {
+        if (value != 0) {
+            item['optionError'] = false;
+        } else {
+            item['optionError'] = true;
+        }
+        this.hasErrors = false;
+    }
+
+    public clearAmountError(value: any, item: Object): void {
+        if (value) {
+            item['amountError'] = false;
+        } else {
+            item['amountError'] = true;
+        }
+        this.hasErrors = false;
+    }
+
+    public clearPersonalValidation(value: any, name: string): void {
+        if (value) {
+            this.personalDetailsObject[name] = false;
+        } else {
+            this.personalDetailsObject[name] = true;
+        }
+        this.hasErrors = false;
+    }
+
+    public checkErrors(): void {
+        this.hasErrors = false;
+        for (let key in this.personalDetailsObject) {
+            if (
+                typeof this.personalDetailsObject[key] === 'boolean' &&
+                this.personalDetailsObject[key] === true
+            ) {
+                this.hasErrors = true;
+            }
+        }
+
+        this.finalSelectedProducts.map(product => {
+            for (let key in product) {
+                if (
+                    typeof product[key] === 'boolean' &&
+                    product[key] === true
+                ) {
+                    this.hasErrors = true;
+                }
+            }
+        });
+    }
+
+    public submit(): void {
+        this.validate();
+        this.checkErrors();
+        console.log(this.hasErrors);
+    }
+
+    public ngOnDestroy() {
+        this.modalService.close('requestOrderModal');
+        this.modalService.remove('requestOrderModal');
     }
 }

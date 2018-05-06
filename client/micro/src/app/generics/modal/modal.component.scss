@@ -21,6 +21,8 @@
         @include _(background-color, white);
         @include _(border-radius, 5px);
         @include _(position, relative);
+        @include _(overflow-y, auto);
+        @include _(overflow-x, hidden);
         -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
         box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);

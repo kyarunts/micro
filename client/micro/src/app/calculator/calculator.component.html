@@ -9,101 +9,219 @@
                 calculator
             </span>
         </div>
-    
-        <div class="calculator__panel-heading">
-            <span>
-                Having a prediction for building material before starting the process
-                is something that helps a lot in better and more effective planning.
-                We are pleased to provide you a way to request for the exact price of
-                our building materials directly from our website.
-                Select what you need and place a request and we will contact you as soon as possible. 
-            </span>
-        </div>
-    
-        <div class="calculator__products-container">
-            <div class="calculator__type-container" *ngFor="let type of productTypes">
-                <div class="calculator__type-heading"  (click)="typeSelected(type._id)">
-                    <h3 class="calculator__type-title">
-                        {{type.name}}
-                    </h3>
-                    <div class="calculator__type-heading-icons">
-                        <span 
-                            class="calculator__type-selected-items"
-                            [ngClass]="{
-                                'animate': selectedProductsCount[type._id + 'animate'], 
-                                'calculator__type-selected-items--gray': selectedProductsCount[type._id] === 0
-                            }"
-                        >
-                            {{selectedProductsCount[type._id]}}
-                        </span> 
-                        <svg
-                            class="calculator__arrow arrow-icon icon-angle-left"
-                            [ngClass]="{'calculator__arrow--top': extendedTypes.indexOf(type._id) > -1}"
-                        >
-                            <use xlink:href="#icon-angle-right"></use>
-                        </svg>
-                    </div>
-                </div>
-                <ng-container *ngIf="extendedTypes.indexOf(type._id) > -1">
-                    <div 
-                        class="calculator__product-item-container"  
-                        *ngFor="let product of productsByType(type._id)"
-                    >
-                        <div class="calculator__product-item-name">
-                            {{product.name}}
-                        </div>
-                        <select
-                            *ngIf="selectedProducts.indexOf(product._id) > -1"
-                            [(ngModel)]="this.productsObject[product._id]['option']"
-                            class="calculator__select"
-                        >
-                            <option 
-                                value="1"
-                                style="font-style: italic"
-                            >Select the option for the price</option>
-                            <option
-                                *ngFor="let option of product.options"
-                                [ngValue]="option"
-                            >{{option}}</option>
-                        </select>
-                        <input
-                            *ngIf="selectedProducts.indexOf(product._id) > -1"
-                            class="calculator__input"
-                            type="number"
-                            maxlength="3"
-                            placeholder="amount you need"
-                            [(ngModel)]="productsObject[product._id]['amount']"
-                        >
-                        <div
-                            *ngIf="selectedProducts.indexOf(product._id) === -1"
-                            (click)="selectProduct(product._id, type._id)"
-                            class="calculator__add"
-                        >
-                            Add to cart
-                            <svg class="arrow-icon icon-angle-left">
-                                <use xlink:href="#icon-plus-circled"></use>
-                            </svg>
-                        </div>
-                        <div
-                            *ngIf="selectedProducts.indexOf(product._id) > -1"
-                            (click)="deselectProduct(product._id, type._id)"
-                            class="calculator__remove"
-                        >
-                            <svg class="arrow-icon icon-angle-left">
-                                <use xlink:href="#icon-trash-o"></use>
-                            </svg>
-                        </div>
-                        <hr>
-                    </div>
-    
-                </ng-container>
+        <ng-container>
+            <div class="calculator__panel-heading">
+                <span>
+                    Having a prediction for building material before starting the process
+                    is something that helps a lot in better and more effective planning.
+                    We are pleased to provide you a way to request for the exact price of
+                    our building materials directly from our website.
+                    Select what you need and place a request and we will contact you as soon as possible. 
+                </span>
             </div>
-        </div>
+        
+            <div class="calculator__products-container">
+                <div class="calculator__type-container" *ngFor="let type of productTypes">
+                    <div class="calculator__type-heading"  (click)="typeSelected(type._id)">
+                        <h3 class="calculator__type-title">
+                            {{type.name}}
+                        </h3>
+                        <div class="calculator__type-heading-icons">
+                            <span 
+                                class="calculator__type-selected-items"
+                                [ngClass]="{
+                                    'animate': selectedProductsCount[type._id + 'animate'], 
+                                    'calculator__type-selected-items--gray': selectedProductsCount[type._id] === 0
+                                }"
+                            >
+                                {{selectedProductsCount[type._id]}}
+                            </span> 
+                            <svg
+                                class="calculator__arrow arrow-icon icon-angle-left"
+                                [ngClass]="{'calculator__arrow--top': extendedTypes.indexOf(type._id) > -1}"
+                            >
+                                <use xlink:href="#icon-angle-right"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="extendedTypes.indexOf(type._id) > -1">
+                        <div 
+                            class="calculator__product-item-container"  
+                            *ngFor="let product of productsByType(type._id)"
+                        >
+                            <div class="calculator__product-item-name">
+                                {{product.name}}
+                            </div>
+                            <select
+                                *ngIf="selectedProducts.indexOf(product._id) > -1"
+                                [(ngModel)]="productsObject[product._id]['option']"
+                                class="calculator__select"
+                                [ngClass]="{'placeholder': productsObject[product._id]['option'] == 0}"
+                            >
+                                <option 
+                                    value="0"
+                                    style="font-style: italic"
+                                >Select the option for the price</option>
+                                <option
+                                    *ngFor="let option of product.options"
+                                    [ngValue]="option"
+                                >{{option}}</option>
+                            </select>
+                            <input
+                                *ngIf="selectedProducts.indexOf(product._id) > -1"
+                                class="calculator__input"
+                                type="number"
+                                maxlength="3"
+                                placeholder="amount you need"
+                                [(ngModel)]="productsObject[product._id]['amount']"
+                                [ngClass]="{'placeholder': !productsObject[product._id]['amount']}"
+                            >
+                            <div
+                                *ngIf="selectedProducts.indexOf(product._id) === -1"
+                                (click)="selectProduct(product._id, type._id)"
+                                class="calculator__add"
+                            >
+                                Add to cart
+                                <svg class="arrow-icon icon-angle-left">
+                                    <use xlink:href="#icon-plus-circled"></use>
+                                </svg>
+                            </div>
+                            <div
+                                *ngIf="selectedProducts.indexOf(product._id) > -1"
+                                (click)="deselectProduct(product._id, type._id)"
+                                class="calculator__remove"
+                            >
+                                <svg class="arrow-icon icon-angle-left">
+                                    <use xlink:href="#icon-trash-o"></use>
+                                </svg>
+                            </div>
+                            <hr>
+                        </div>
+        
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
 
 <div class="calculator__submit">
     <button
         [disabled]="!selectedProducts.length"
+        (click)="goToSubmission()"
     >REQUEST AN ORDER</button>
 </div>
+
+<app-modal
+    [id]="'requestOrderModal'"
+>
+    <div class="calculator__modal-container" *ngIf="isModalOpen">
+        <div *ngIf="hasErrors" class="calculator__modal-errors-bar">
+            Please fix the errors to proceed
+        </div>
+        <h2 class="calculator__modal-title">
+            You have selected the following items
+        </h2>
+        <div 
+            *ngFor="let item of finalSelectedProducts; let i = index"
+            class="calculator__modal-item"
+        >
+            <span class="calculator__modal-product-name">
+                {{item.product.name}}
+            </span>
+            <div class="calculator__modal-select-container">
+                <label class="calculator__modal-label" for="{{'itemOption' + i}}">Option for price</label>
+                <select
+                    id="{{'itemOption' + i}}"
+                    [(ngModel)]="productsObject[item.product._id]['option']"
+                    class="calculator__select calculator__modal-select"
+                    [ngClass]="{
+                        'has-error': item.optionError,
+                        'placeholder': productsObject[item.product._id]['option'] == 0
+                    }"
+                    (change)="clearOptionValidation($event.target.value, item)"
+                >
+                    <option 
+                        value="0"
+                        style="font-style: italic"
+                    >Select the option for the price</option>
+                    <option
+                        *ngFor="let option of item.product.options"
+                        [ngValue]="option"
+                    >{{option}}</option>
+                </select>
+                <div *ngIf="item.optionError" class="calculator__error">
+                    Required
+                </div>
+            </div>
+            <div class="calculator__modal-input-container">
+                <label class="calculator__modal-label" for="{{'itemAmount' + i}}">Amount</label>
+                <input
+                    class="calculator__input calculator__modal-input"
+                    [ngClass]="{'has-error': item.amountError, 'placeholder': !productsObject[item.product._id]['amount']}"
+                    id="{{'itemAmount' + i}}"
+                    type="number"
+                    maxlength="3"
+                    placeholder="amount you need"
+                    (input)="clearAmountError($event.target.value, item)"
+                    [(ngModel)]="productsObject[item.product._id]['amount']"
+                >
+                <div *ngIf="item.amountError" class="calculator__error">
+                    Required
+                </div>
+            </div>
+        </div>
+
+        <h2 class="calculator__modal-title">
+            Enter your personal details
+        </h2>
+        <div class="calculator__modal-personal-container">
+            <div class="calculator__modal-details-row">
+                <label for="fullName">Your name</label>
+                <input
+                    class="calculator__input calculator__modal-input"
+                    id="fullName"
+                    type="text"
+                    (input)="clearPersonalValidation($event.target.value, 'name_error')"
+                    [(ngModel)]="personalDetailsObject.name"
+                    [ngClass]="{'has-error': personalDetailsObject.name_error}"
+                >
+                <div *ngIf="personalDetailsObject.name_error" class="calculator__error">
+                    Enter your name
+                </div>
+            </div>
+            <div class="calculator__modal-details-row">
+                <label for="emailAddress">Email Address</label>
+                <input
+                    class="calculator__input calculator__modal-input"
+                    id="emailAddress"
+                    type="text"
+                    (input)="clearPersonalValidation($event.target.value, 'emailAddress_error')"
+                    [(ngModel)]="personalDetailsObject.emailAddress"
+                    [ngClass]="{'has-error': personalDetailsObject.emailAddress_error}"
+                >
+                <div *ngIf="personalDetailsObject.emailAddress_error" class="calculator__error">
+                    Enter a valid email address
+                </div>
+            </div>
+            <div class="calculator__modal-details-row">
+                <label for="phoneNumber">Phone Number</label>
+                <input
+                    class="calculator__input calculator__modal-input"
+                    id="phoneNumber"
+                    type="text"
+                    (input)="clearPersonalValidation($event.target.value, 'phoneNumber_error')"
+                    [(ngModel)]="personalDetailsObject.phoneNumber"
+                    [ngClass]="{'has-error': personalDetailsObject.phoneNumber_error}"
+                >
+                <div *ngIf="personalDetailsObject.phoneNumber_error" class="calculator__error">
+                    Enter a valid phone number
+                </div>
+            </div>
+        </div>
+
+        <button (click)="submit()">
+            SUBMIT
+        </button>
+    </div>
+</app-modal>

@@ -242,6 +242,7 @@
             @include _(color, #20445a);
             @include _(border, 2px solid #e5ae00);
             @include _(border-radius, 10px);
+            @include _(transition, all 0.3s ease-out);
             @include breakpoint(tablet-desktop-view) {
                 @include _(padding, 0 60px);
             }
@@ -252,13 +253,148 @@
             &:disabled {
                 @include _(color, white);
                 @include _(border-color, gray);
-                @include _(background-color, gray);
+                @include _(background-color, gray !important);
                 @include _(cursor, not-allowed);
             }
+
+            &:hover {
+                @include _(background-color, #e5ae00);
+            }
         }
+    }
+
+    &__modal-item {
+        @include _(display, flex);
+        @include _(justify-content, space-between);
+        @include _(padding, 15px 10px);
+
+        @include breakpoint(tablet-desktop-view) {
+            // @include _(align-items, center);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(flex-direction, column);
+        }
+
+        &:nth-child(even) {
+            @include _(background-color, #e3e3e8);
+        }
+        &:nth-child(odd) {
+            @include _(background-color, #d3dae2);
+        }
+    }
+
+    &__modal-product-name {
+        @include _(flex-basis, 40%);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(font-size, 20px);
+        @include _(font-weight, 600);
+        @include _(font-family, cantarell);
+        @include breakpoint(mobile-view) {
+            @include _(margin-bottom, 15px);
+        }
+    }
+
+    &__modal-container {
+        @include breakpoint(tablet-desktop-view) {
+            @include _(padding, 40px 30px);
+        }
+
+        @include breakpoint(mobile-view) {
+            @include _(padding, 40px 10px);
+        }
+    }
+
+    &__modal-select {
+        @include breakpoint(mobile-view) {
+            @include _(margin, 0 !important);
+        }
+    }
+
+    &__modal-select,
+    &__modal-input {
+        width: 100% !important;
+    }
+
+    &__modal-select-container {
+        @include breakpoint(tablet-desktop-view) {
+            @include _(width, 33%);
+            @include _(max-width, 300px);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(margin-bottom, 10px);
+        }
+    }
+
+    &__modal-input-container {
+        @include breakpoint(tablet-desktop-view) {
+            @include _(width, 20%);
+            @include _(max-width, 230px);
+        }
+    }
+
+    &__error {
+        @include _(color, #ad2626);
+        @include _(font-size, 12px);
+        @include _(margin-top, 5px);
+    }
+
+    &__modal-personal-container {
+        @include _(display, flex);
+        @include _(justify-content, space-between);
+        @include _(flex-wrap, wrap);
+        @include _(padding, 10px);
+        @include _(background-color, #e3e3e9);
+    }
+
+    &__modal-details-row {
+        @include _(display, flex);
+        @include _(flex-direction, column);
+
+        @include breakpoint(tablet-desktop-view) {
+            @include _(width, 30%);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(width, 100%);
+            @include _(margin-bottom, 10px);
+        }
+
+        & input {
+            @include _(max-width, 100%);
+        }
+    }
+
+    &__modal-label {
+        @include _(display, block);
+    }
+
+    &__modal-errors-bar {
+        @include _(background-color, #ad2626);
+        @include _(border-radius, 5px);
+        @include _(padding, 8px);
+        @include _(color, white);
+        @include _(font-family, cantarell);
+        @include _(margin-top, 10px);
+    }
+
+    &__modal-title {
+        @include _(margin, 13px 0);
+        @include _(font-family, assistant);
+        @include _(font-weight, 600);
+        @include _(font-size, 23px);
+        @include _(color, #1e3c4c);
     }
 }
 
 .animate {
     @include _(transform, scale(1.3));
+}
+
+.has-error {
+    @include _(border, 1px solid #ad2626);
+}
+
+.placeholder {
+    @include _(color, #757577);
+    @include _(font-style, italic);
 }
