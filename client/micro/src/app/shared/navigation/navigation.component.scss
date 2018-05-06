@@ -133,7 +133,7 @@
     @include _(flex-direction, column);
     @include _(justify-content, center);
     @include _(cursor, default);
-    @include _(transition, all 1s ease-in-out);
+    @include _(transition, all 0.3s ease-in-out);
 
     &--hidden {
         @include _(display, none);

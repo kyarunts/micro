@@ -1,11 +1,264 @@
 @import '../sass-dass/exports';
 
 .calculator {
+    min-height: calc(100vh - 150px);
+
     &__header {
         background: url('../../assets/contacts-background.png');
         background-size: cover;
         background-attachment: fixed;
     }
 
+    &__panel-heading {
+        @include _(font-family, assistant);
+        @include _(text-align, center);
+        @include _(padding, 30px 0);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(font-size, 24px);
+        @include _(text-align, center);
+        @include _(color, #3c3c3c);
+
+        & span {
+            @include _(width, 70%);
+
+            @include breakpoint(mobile-view) {
+                @include _(font-size, 20px);
+                @include _(width, 100%);
+                @include _(padding, 0 20px);
+            }
+        }
+    }
+
+    &__products-container {
+        @include _(padding, 20px);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &__type-container {
+        @include _(margin-bottom, 20px);
+        & .calculator__product-item-container {
+            &:nth-child(even) {
+                @include _(background-color, #e3e3e8);
+            }
+            &:nth-child(odd) {
+                @include _(background-color, #d3dae2);
+            }
+        }
+
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    }
+
+    &__type-selected-items {
+        @include _(border, 2px solid #e4ae00);
+        @include _(border-radius, 50px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(width, 40px);
+        @include _(height, 40px);
+        @include _(margin-right, 20px);
+        @include _(margin-left, 20px);
+        @include _(color, #e4ae00);
+        @include _(transition, transform 0.3s ease-out);
+
+        &--gray {
+            @include _(border-color, #4c697b);
+            @include _(color, #4c697b);
+        }
+    }
+
+    &__type-heading-icons {
+        @include _(display, flex);
+        @include _(align-items, center);
+    }
+
+    &__type-heading {
+        @include _(cursor, pointer);
+        @include _(padding, 13px 10px);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(justify-content, space-between);
+        @include _(background-color, #658090);
+        @include _(border-top-right-radius, 5px);
+        @include _(border-top-left-radius, 5px);
+        @include _(color, #ececec);
+    }
     
+    &__type-title {
+        @include _(margin, 0);
+        @include _(font-size, 22px);
+        @include _(font-family, assistant);
+        @include _(text-transform, uppercase);
+    }
+
+    &__arrow {
+        @include _(transform, rotate(90deg));
+        @include _(transition, all 0.3s ease-out);
+        &--top {
+            @include _(transform, rotate(270deg));
+        }
+    }
+
+    &__product-item-container {
+        @include _(display, flex);
+        @include _(justify-content, space-between);
+        @include _(align-items, center);
+        @include _(min-height, 70px);
+        @include _(box-sizing, border-box);
+        @include breakpoint(tablet-desktop-view) {
+            @include _(padding, 15px 15px);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(padding, 15px 7px);
+            @include _(flex-direction, column);
+            @include _(justify-content, center);
+        }
+
+        & hr {
+            @include _(width, 90%);
+            @include _(margin-top, 10px);
+            @include _(margin-bottom, 0);
+            @include _(border-color, white);
+            @include breakpoint(tablet-desktop-view) {
+                @include _(display, none);
+            }
+        }
+    }
+
+    &__product-item-name {
+        @include _(font-family, cantarell);
+        @include _(font-size, 20px);
+        @include _(font-weight, 600);
+        @include breakpoint(mobile-view) {
+            @include _(text-align, center);
+        }
+        @include breakpoint(tablet-desktop-view) {
+            @include _(flex-basis, 40%);
+        }
+    }
+
+    &__select {
+        @include _(height, 40px);
+        @include _(font-size, 16px);
+        @include _(font-family, cantarell);
+        @include _(border, 1px solid green);
+        @include _(border-radius, 4px);
+        @include _(outline, none);
+        @include breakpoint(mobile-view) {
+            @include _(width, 90%);
+            @include _(margin, 15px 0);
+        }
+        @include breakpoint(tablet-desktop-view) {
+            @include _(width, 33%);
+            @include _(max-width, 300px);
+        }
+    }
+
+    &__input {
+        @include _(height, 40px);
+        @include _(font-size, 16px);
+        @include _(font-family, cantarell);
+        @include _(border, 1px solid green);
+        @include _(outline, none);
+        @include _(border-radius, 4px);
+        @include _(box-sizing, border-box);
+        @include _(margin, 0);
+        @include breakpoint(tablet-desktop-view) {
+            @include _(max-width, 230px);
+            @include _(width, 20%);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(width, 90%);
+        }
+    }
+
+    &__remove {
+        @include _(width, 20px);
+        @include _(height, 20px);
+        @include _(color, #b10a0a);
+        @include _(cursor, pointer);
+        @include _(transform, transform 0.2s ease-out);
+
+        &:hover {
+            @include _(transform, scale(1.1));
+        }
+
+        & svg {
+            @include _(width, 100% !important);
+            @include _(height, 100% !important);
+        }
+
+        @include breakpoint(mobile-view) {
+            @include _(margin-top, 20px);
+        }
+    }
+
+    &__add {
+        @include _(color, #166516);
+        @include _(cursor, pointer);
+        @include _(text-transform, uppercase);
+        @include _(font-size, 14px);
+        @include _(font-family, play);
+        @include _(font-weight, 600);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(transition, transform 0.3s ease-out);
+
+        &:hover {
+            @include _(transform, scale(1.1));
+        }
+        & svg {
+            @include _(margin-left, 10px);
+        }
+
+        @include breakpoint(mobile-view) {
+            @include _(margin-top, 20px);
+        }
+    }
+
+    &__submit {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(padding, 20px);
+
+        & button {
+            @include _(height, 60px);
+            @include _(cursor, pointer);
+            @include _(outline, none);
+            @include _(font-family, play);
+            @include _(box-sizing, border-box);
+            @include _(font-size, 23px);
+            @include _(display, flex);
+            @include _(align-items, center);
+            @include _(justify-content, center);
+            @include _(color, #20445a);
+            @include _(border, 2px solid #e5ae00);
+            @include _(border-radius, 10px);
+            @include breakpoint(tablet-desktop-view) {
+                @include _(padding, 0 60px);
+            }
+            @include breakpoint(mobile-view) {
+                @include _(width, 100%);
+            }
+
+            &:disabled {
+                @include _(color, white);
+                @include _(border-color, gray);
+                @include _(background-color, gray);
+                @include _(cursor, not-allowed);
+            }
+        }
+    }
+}
+
+.animate {
+    @include _(transform, scale(1.3));
 }

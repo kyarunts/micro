@@ -3,13 +3,107 @@
 </app-loader>
 
 <div class="calculator" *ngIf="isReady">
-    <div class="calculator__header page-header">
-        <span class="calculator__header-title page-title">
-            calculator
-        </span>
+    <div class="calculator__container">
+        <div class="calculator__header page-header">
+            <span class="calculator__header-title page-title">
+                calculator
+            </span>
+        </div>
+    
+        <div class="calculator__panel-heading">
+            <span>
+                Having a prediction for building material before starting the process
+                is something that helps a lot in better and more effective planning.
+                We are pleased to provide you a way to request for the exact price of
+                our building materials directly from our website.
+                Select what you need and place a request and we will contact you as soon as possible. 
+            </span>
+        </div>
+    
+        <div class="calculator__products-container">
+            <div class="calculator__type-container" *ngFor="let type of productTypes">
+                <div class="calculator__type-heading"  (click)="typeSelected(type._id)">
+                    <h3 class="calculator__type-title">
+                        {{type.name}}
+                    </h3>
+                    <div class="calculator__type-heading-icons">
+                        <span 
+                            class="calculator__type-selected-items"
+                            [ngClass]="{
+                                'animate': selectedProductsCount[type._id + 'animate'], 
+                                'calculator__type-selected-items--gray': selectedProductsCount[type._id] === 0
+                            }"
+                        >
+                            {{selectedProductsCount[type._id]}}
+                        </span> 
+                        <svg
+                            class="calculator__arrow arrow-icon icon-angle-left"
+                            [ngClass]="{'calculator__arrow--top': extendedTypes.indexOf(type._id) > -1}"
+                        >
+                            <use xlink:href="#icon-angle-right"></use>
+                        </svg>
+                    </div>
+                </div>
+                <ng-container *ngIf="extendedTypes.indexOf(type._id) > -1">
+                    <div 
+                        class="calculator__product-item-container"  
+                        *ngFor="let product of productsByType(type._id)"
+                    >
+                        <div class="calculator__product-item-name">
+                            {{product.name}}
+                        </div>
+                        <select
+                            *ngIf="selectedProducts.indexOf(product._id) > -1"
+                            [(ngModel)]="this.productsObject[product._id]['option']"
+                            class="calculator__select"
+                        >
+                            <option 
+                                value="1"
+                                style="font-style: italic"
+                            >Select the option for the price</option>
+                            <option
+                                *ngFor="let option of product.options"
+                                [ngValue]="option"
+                            >{{option}}</option>
+                        </select>
+                        <input
+                            *ngIf="selectedProducts.indexOf(product._id) > -1"
+                            class="calculator__input"
+                            type="number"
+                            maxlength="3"
+                            placeholder="amount you need"
+                            [(ngModel)]="productsObject[product._id]['amount']"
+                        >
+                        <div
+                            *ngIf="selectedProducts.indexOf(product._id) === -1"
+                            (click)="selectProduct(product._id, type._id)"
+                            class="calculator__add"
+                        >
+                            Add to cart
+                            <svg class="arrow-icon icon-angle-left">
+                                <use xlink:href="#icon-plus-circled"></use>
+                            </svg>
+                        </div>
+                        <div
+                            *ngIf="selectedProducts.indexOf(product._id) > -1"
+                            (click)="deselectProduct(product._id, type._id)"
+                            class="calculator__remove"
+                        >
+                            <svg class="arrow-icon icon-angle-left">
+                                <use xlink:href="#icon-trash-o"></use>
+                            </svg>
+                        </div>
+                        <hr>
+                    </div>
+    
+                </ng-container>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="calculator__products-container">
-        
-    </div>
+<div class="calculator__submit">
+    <button
+        [disabled]="!selectedProducts.length"
+    >REQUEST AN ORDER</button>
 </div>
