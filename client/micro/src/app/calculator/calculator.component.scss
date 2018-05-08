@@ -2,11 +2,12 @@
 
 .calculator {
     min-height: calc(100vh - 150px);
-
+    @include _(background-color, #fbfbf0);
     &__header {
-        background: url('../../assets/contacts-background.png');
+        background: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=612621fd686897b4812287430c8be9db&auto=format&fit=crop&w=2252&q=80');
         background-size: cover;
         background-attachment: fixed;
+        @include _(margin-bottom, 20px);
     }
 
     &__panel-heading {
@@ -15,7 +16,7 @@
         @include _(padding, 30px 0);
         @include _(display, flex);
         @include _(justify-content, center);
-        @include _(font-size, 24px);
+        @include _(font-size, 18px);
         @include _(text-align, center);
         @include _(color, #3c3c3c);
 
@@ -23,7 +24,7 @@
             @include _(width, 70%);
 
             @include breakpoint(mobile-view) {
-                @include _(font-size, 20px);
+                @include _(font-size, 16px);
                 @include _(width, 100%);
                 @include _(padding, 0 20px);
             }
@@ -243,6 +244,7 @@
             @include _(border, 2px solid #e5ae00);
             @include _(border-radius, 10px);
             @include _(transition, all 0.3s ease-out);
+            @include _(background-color, #fbfbf0);
             @include breakpoint(tablet-desktop-view) {
                 @include _(padding, 0 60px);
             }
@@ -252,8 +254,8 @@
 
             &:disabled {
                 @include _(color, white);
-                @include _(border-color, gray);
-                @include _(background-color, gray !important);
+                @include _(border-color, #e3e3e9);
+                @include _(background-color, #e3e3e9 !important);
                 @include _(cursor, not-allowed);
             }
 

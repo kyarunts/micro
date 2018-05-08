@@ -35,6 +35,7 @@ import { PartnersService } from './partners/partners.service';
 import { AboutService } from './about/about.service';
 import { CalculatorService } from './calculator/calculator.service';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { CalculatorStepsComponent } from './calculator/calculator-steps/calculator-steps.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -58,7 +59,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
         ImageViewerComponent,
         TextShortenerPipe,
         LoaderComponent,
-        ProductDetailsComponent
+        ProductDetailsComponent,
+        CalculatorStepsComponent
     ],
     imports: [
         BrowserModule,

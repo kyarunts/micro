@@ -10,6 +10,9 @@
             </span>
         </div>
         <ng-container>
+            <app-calculator-steps
+                [state]="1"
+            ></app-calculator-steps>
             <div class="calculator__panel-heading">
                 <span>
                     Having a prediction for building material before starting the process
@@ -19,7 +22,8 @@
                     Select what you need and place a request and we will contact you as soon as possible. 
                 </span>
             </div>
-        
+            
+            
             <div class="calculator__products-container">
                 <div class="calculator__type-container" *ngFor="let type of productTypes">
                     <div class="calculator__type-heading"  (click)="typeSelected(type._id)">
@@ -103,19 +107,20 @@
             </div>
         </ng-container>
     </div>
+    <div class="calculator__submit">
+        <button
+            [disabled]="!selectedProducts.length"
+            (click)="goToSubmission()"
+        >REQUEST AN ORDER</button>
+    </div>
 </div>
 
-<div class="calculator__submit">
-    <button
-        [disabled]="!selectedProducts.length"
-        (click)="goToSubmission()"
-    >REQUEST AN ORDER</button>
-</div>
 
 <app-modal
     [id]="'requestOrderModal'"
 >
     <div class="calculator__modal-container" *ngIf="isModalOpen">
+        <app-calculator-steps [state]="2"></app-calculator-steps>
         <div *ngIf="hasErrors" class="calculator__modal-errors-bar">
             Please fix the errors to proceed
         </div>
@@ -225,3 +230,4 @@
         </button>
     </div>
 </app-modal>
+

@@ -1,0 +1,56 @@
+<div class="steps">
+    <div 
+        class="steps__item"
+        [ngClass]="{
+            'steps__item--in-progress': state === 1, 'steps__item--completed': state !== 1
+        }"
+    >
+        <svg
+            class="icon-toolbox steps__icon"
+        >
+            <use xlink:href="#icon-checked"></use>
+        </svg>
+        <span class="steps__title">
+            SELECT PRODUCTS
+        </span>
+    </div>
+
+    <div 
+        class="steps__item"
+        [ngClass]="{
+            'steps__item--inactive': state === 1,
+            'steps__item--in-progress': state === 2, 
+            'steps__item--completed': state === 3
+        }"
+    >
+        <svg
+            class="icon-toolbox steps__icon"
+        >
+            <use xlink:href="#icon-list"></use>
+        </svg>
+        <span class="steps__title">
+            FILL IN YOUR DETAILS
+        </span>
+    </div>
+    
+    <div 
+        class="steps__item"
+        [ngClass]="{
+            'steps__item--inactive': state !== 3,
+            'steps__item--completed': state === 3
+        }">
+        <svg
+            class="icon-toolbox steps__icon"
+        >
+            <use xlink:href="#icon-paper-plane-o"></use>
+        </svg>
+        <span class="steps__title">
+            SEND AN ORDER REQUEST
+        </span>
+    </div>
+</div>
+<div class="steps__separator-container">
+    <div class="steps__separator">
+    
+    </div>
+</div>

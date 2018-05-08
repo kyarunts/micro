@@ -1,0 +1,110 @@
+@import '../../sass-dass/exports';
+
+.steps {
+    @include _(display, flex);
+    @include _(justify-content, center);
+    @include _(align-items, center);
+    @include _(margin-bottom, 10px);
+    @include breakpoint(mobile-view) {
+        @include _(flex-direction, column);
+        @include _(margin-top, 10px);
+    }
+    
+    &__item {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(flex-direction, column);
+        @include _(border-radius, 50%);
+        @include _(padding, 20px);
+        @include _(text-align, center);
+        @include _(margin, 0 20px);
+        @include _(box-sizing, border-box);
+        @include _(position, relative);
+
+        @include breakpoint(mobile-view) {
+            @include _(border, none);
+            @include _(border-radius, 0);
+            @include _(width, 100%);
+            @include _(margin-bottom, 8px);
+        }
+
+        &:nth-child(1) {
+            &:before {
+                content: '1';
+            }
+        }
+
+        &:nth-child(2) {
+            &:before {
+                content: '2';
+            }
+        }
+
+        &:nth-child(3) {
+            &:before {
+                content: '3';
+            }
+        }
+
+        &:before {
+            @include breakpoint(tablet-desktop-view) {
+                @include _(top, 0);
+                @include _(left, 5px);
+                @include _(background-color, #fbfbf0);
+            }
+            @include breakpoint(mobile-view) {
+                @include _(left, 20px);
+            }
+            @include _(font-family, play);
+            @include _(position, absolute);
+            @include _(font-size, 32px);
+            @include _(font-weight, 600);
+        }
+
+        &--inactive {
+            @include breakpoint(tablet-desktop-view) {
+                @include _(height, 120px);
+                @include _(width, 120px);
+                @include _(border, 1px solid #9db6c5);
+            }
+
+            @include _(color, #9db6c5);
+            @include _(font-size, 14px);
+            @include _(box-shadow, 3px 3px 10px -2px #9db6c5);
+        }
+        
+        &--in-progress {
+            @include breakpoint(tablet-desktop-view) {
+                @include _(height, 130px);
+                @include _(width, 130px);
+                @include _(border, 1px solid #ecc136);
+            }
+            @include _(color, #ecc136);
+            @include _(box-shadow, 3px 3px 10px -2px #c7bd9c);            
+        }
+
+        &--completed {
+            @include breakpoint(tablet-desktop-view) {
+                @include _(height, 120px);
+                @include _(width, 120px);
+                @include _(border, 1px solid #9db6c5);
+            }
+            @include _(color, #9db6c5);
+            @include _(font-size, 14px);
+            @include _(box-shadow, 3px 3px 10px -2px #9db6c5);       
+        }
+    }
+
+    &__separator-container {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(margin-top, 20px);
+    }
+
+    &__separator {
+        @include _(height, 1px);
+        @include _(width, 80%);
+        @include _(background-color, #e2e1e1);
+    }
+}
