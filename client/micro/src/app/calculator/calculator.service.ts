@@ -4,6 +4,8 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/forkJoin';
 @Injectable() 
 export class CalculatorService {
+    private url: string = '/api/newOrder'
+    
     constructor(private httpService: MicroHttpService) {}
 
     public getProducts(): Observable<any> {
@@ -20,4 +22,8 @@ export class CalculatorService {
             this.getProductTypes(),
         ]);
     }
+
+    public setOrder(body: Object): Observable<any> {
+        return this.httpService.post(this.url, body);
+    } 
 }

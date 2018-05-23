@@ -34,8 +34,6 @@ export class CalculatorComponent implements OnInit {
         private modalService: ModalService
     ) { }
 
-    testvalue;
-
     ngOnInit() {
         document.body.scrollIntoView(true);
         this.httpService.forkJoin().subscribe((data) => {
@@ -191,14 +189,38 @@ export class CalculatorComponent implements OnInit {
         this.validate();
         this.checkErrors();
         if (!this.hasErrors) {
-            this.isRequestSent = true;
+            console.log(this.finalSelectedProducts);
+            console.log(this.productTypes);
+            let productsText: string = '';
+            this.finalSelectedProducts.forEach((product, index) => {
+                let productType = this.productTypes.filter((type) => {
+                    return type._id === product['product']['type']
+                })[0]['name_hy'];
+                productsText += `${index + 1}. ՊՐՈԴՈՒԿՏ = ${productType} || ՏԵՍԱԿ = ${product['product']['name_hy']} || ԳՆԱՏԵՍԱԿ = ${product['values']['option']} || ՔԱՆԱԿ = ${product['values']['amount']} ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+                `
+            });
+            let postObject = {
+                name: this.personalDetailsObject['name'],
+                phone: this.personalDetailsObject['phoneNumber'],
+                email: this.personalDetailsObject['emailAddress'],
+                products: productsText,
+            }
+            this.httpService.setOrder(postObject).subscribe(data => {
+                this.isRequestSent = true;
+            });
         }
     }
     
     public processAfterClose(closed: boolean): void {
         if (this.isRequestSent && closed) {
             this.selectedProducts = [];
-            this.selectedProductsCount = {};
+            console.log(this.selectedProductsCount);
+            Object.keys(this.selectedProductsCount).forEach((key: string) => {
+                if (typeof this.selectedProductsCount[key] === 'number') {
+                    this.selectedProductsCount[key] = 0;
+                }
+            });
+            this.isRequestSent = false;
         }
     }
 
