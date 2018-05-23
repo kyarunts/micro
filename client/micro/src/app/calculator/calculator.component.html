@@ -118,116 +118,153 @@
 
 <app-modal
     [id]="'requestOrderModal'"
+    (closed)="processAfterClose($event)"
 >
     <div class="calculator__modal-container" *ngIf="isModalOpen">
-        <app-calculator-steps [state]="2"></app-calculator-steps>
-        <div *ngIf="hasErrors" class="calculator__modal-errors-bar">
-            Please fix the errors to proceed
+        <app-calculator-steps 
+            [state]="(isRequestSent ? 3 : 2)"
+        ></app-calculator-steps>
+        <ng-container *ngIf="!isRequestSent">
+            <div *ngIf="hasErrors" class="calculator__modal-errors-bar">
+                Please fix the errors to proceed
+            </div>
+            <div class="calculator__modal-section">
+                <h2 class="calculator__modal-title">
+                    <svg class="arrow-icon icon-angle-left">
+                        <use xlink:href="#icon-shopping-cart"></use>
+                    </svg>
+                    You have selected the following items
+                </h2>
+                <div 
+                    *ngFor="let item of finalSelectedProducts; let i = index"
+                    class="calculator__modal-item"
+                >
+                    <span class="calculator__modal-product-name">
+                        {{item.product.name}}
+                    </span>
+                    <div class="calculator__modal-select-container">
+                        <label class="calculator__modal-label" for="{{'itemOption' + i}}">Option for price</label>
+                        <select
+                            id="{{'itemOption' + i}}"
+                            [(ngModel)]="productsObject[item.product._id]['option']"
+                            class="calculator__select calculator__modal-select"
+                            [ngClass]="{
+                                'has-error': item.optionError,
+                                'placeholder': productsObject[item.product._id]['option'] == 0
+                            }"
+                            (change)="clearOptionValidation($event.target.value, item)"
+                        >
+                            <option 
+                                value="0"
+                                style="font-style: italic"
+                            >Select the option for the price</option>
+                            <option
+                                *ngFor="let option of item.product.options"
+                                [ngValue]="option"
+                            >{{option}}</option>
+                        </select>
+                        <div *ngIf="item.optionError" class="calculator__error">
+                            Required
+                        </div>
+                    </div>
+                    <div class="calculator__modal-input-container">
+                        <label class="calculator__modal-label" for="{{'itemAmount' + i}}">Amount</label>
+                        <input
+                            class="calculator__input calculator__modal-input"
+                            [ngClass]="{'has-error': item.amountError, 'placeholder': !productsObject[item.product._id]['amount']}"
+                            id="{{'itemAmount' + i}}"
+                            type="number"
+                            maxlength="3"
+                            placeholder="amount you need"
+                            (input)="clearAmountError($event.target.value, item)"
+                            [(ngModel)]="productsObject[item.product._id]['amount']"
+                        >
+                        <div *ngIf="item.amountError" class="calculator__error">
+                            Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="calculator__modal-section">
+                <h2 class="calculator__modal-title calculator__modal-title--personal">
+                    <svg class="arrow-icon icon-angle-left">
+                        <use xlink:href="#icon-user-outline"></use>
+                    </svg>
+                    Enter your personal details
+                </h2>
+                <div class="calculator__modal-personal-container">
+                    <div class="calculator__modal-details-row">
+                        <label for="fullName">Your name</label>
+                        <input
+                            class="calculator__input calculator__modal-input"
+                            id="fullName"
+                            type="text"
+                            (input)="clearPersonalValidation($event.target.value, 'name_error')"
+                            [(ngModel)]="personalDetailsObject.name"
+                            [ngClass]="{'has-error': personalDetailsObject.name_error}"
+                        >
+                        <div *ngIf="personalDetailsObject.name_error" class="calculator__error">
+                            Enter your name
+                        </div>
+                    </div>
+                    <div class="calculator__modal-details-row">
+                        <label for="emailAddress">Email Address</label>
+                        <input
+                            class="calculator__input calculator__modal-input"
+                            id="emailAddress"
+                            type="text"
+                            (input)="clearPersonalValidation($event.target.value, 'emailAddress_error')"
+                            [(ngModel)]="personalDetailsObject.emailAddress"
+                            [ngClass]="{'has-error': personalDetailsObject.emailAddress_error}"
+                        >
+                        <div *ngIf="personalDetailsObject.emailAddress_error" class="calculator__error">
+                            Enter a valid email address
+                        </div>
+                    </div>
+                    <div class="calculator__modal-details-row">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input
+                            class="calculator__input calculator__modal-input"
+                            id="phoneNumber"
+                            type="text"
+                            (input)="clearPersonalValidation($event.target.value, 'phoneNumber_error')"
+                            [(ngModel)]="personalDetailsObject.phoneNumber"
+                            [ngClass]="{'has-error': personalDetailsObject.phoneNumber_error}"
+                        >
+                        <div *ngIf="personalDetailsObject.phoneNumber_error" class="calculator__error">
+                            Enter a valid phone number
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="calculator__request-order">
+                <button 
+                    
+                    (click)="submit()"
+                >
+                    SUBMIT
+                </button>
+            </div>
+        </ng-container>
+        <div *ngIf="isRequestSent" class="calculator__sent">
+            <div class="calculator__sent-icon">
+                <svg class="arrow-icon icon-angle-left">
+                    <use xlink:href="#icon-check-circle-o"></use>
+                </svg>
+            </div>
+            <div class="calculator__sent-text">
+                You have succesfully placed an order!
+                We will contact you very soon with more details and information!
+                Thanks a lot for choosing Bonus Buildings!
+            </div>
+            <div class="calculator__sent-button">
+                <button (click)="modalService.close('requestOrderModal')">
+                    OK
+                </button>
+            </div>
         </div>
-        <h2 class="calculator__modal-title">
-            You have selected the following items
-        </h2>
-        <div 
-            *ngFor="let item of finalSelectedProducts; let i = index"
-            class="calculator__modal-item"
-        >
-            <span class="calculator__modal-product-name">
-                {{item.product.name}}
-            </span>
-            <div class="calculator__modal-select-container">
-                <label class="calculator__modal-label" for="{{'itemOption' + i}}">Option for price</label>
-                <select
-                    id="{{'itemOption' + i}}"
-                    [(ngModel)]="productsObject[item.product._id]['option']"
-                    class="calculator__select calculator__modal-select"
-                    [ngClass]="{
-                        'has-error': item.optionError,
-                        'placeholder': productsObject[item.product._id]['option'] == 0
-                    }"
-                    (change)="clearOptionValidation($event.target.value, item)"
-                >
-                    <option 
-                        value="0"
-                        style="font-style: italic"
-                    >Select the option for the price</option>
-                    <option
-                        *ngFor="let option of item.product.options"
-                        [ngValue]="option"
-                    >{{option}}</option>
-                </select>
-                <div *ngIf="item.optionError" class="calculator__error">
-                    Required
-                </div>
-            </div>
-            <div class="calculator__modal-input-container">
-                <label class="calculator__modal-label" for="{{'itemAmount' + i}}">Amount</label>
-                <input
-                    class="calculator__input calculator__modal-input"
-                    [ngClass]="{'has-error': item.amountError, 'placeholder': !productsObject[item.product._id]['amount']}"
-                    id="{{'itemAmount' + i}}"
-                    type="number"
-                    maxlength="3"
-                    placeholder="amount you need"
-                    (input)="clearAmountError($event.target.value, item)"
-                    [(ngModel)]="productsObject[item.product._id]['amount']"
-                >
-                <div *ngIf="item.amountError" class="calculator__error">
-                    Required
-                </div>
-            </div>
-        </div>
-
-        <h2 class="calculator__modal-title">
-            Enter your personal details
-        </h2>
-        <div class="calculator__modal-personal-container">
-            <div class="calculator__modal-details-row">
-                <label for="fullName">Your name</label>
-                <input
-                    class="calculator__input calculator__modal-input"
-                    id="fullName"
-                    type="text"
-                    (input)="clearPersonalValidation($event.target.value, 'name_error')"
-                    [(ngModel)]="personalDetailsObject.name"
-                    [ngClass]="{'has-error': personalDetailsObject.name_error}"
-                >
-                <div *ngIf="personalDetailsObject.name_error" class="calculator__error">
-                    Enter your name
-                </div>
-            </div>
-            <div class="calculator__modal-details-row">
-                <label for="emailAddress">Email Address</label>
-                <input
-                    class="calculator__input calculator__modal-input"
-                    id="emailAddress"
-                    type="text"
-                    (input)="clearPersonalValidation($event.target.value, 'emailAddress_error')"
-                    [(ngModel)]="personalDetailsObject.emailAddress"
-                    [ngClass]="{'has-error': personalDetailsObject.emailAddress_error}"
-                >
-                <div *ngIf="personalDetailsObject.emailAddress_error" class="calculator__error">
-                    Enter a valid email address
-                </div>
-            </div>
-            <div class="calculator__modal-details-row">
-                <label for="phoneNumber">Phone Number</label>
-                <input
-                    class="calculator__input calculator__modal-input"
-                    id="phoneNumber"
-                    type="text"
-                    (input)="clearPersonalValidation($event.target.value, 'phoneNumber_error')"
-                    [(ngModel)]="personalDetailsObject.phoneNumber"
-                    [ngClass]="{'has-error': personalDetailsObject.phoneNumber_error}"
-                >
-                <div *ngIf="personalDetailsObject.phoneNumber_error" class="calculator__error">
-                    Enter a valid phone number
-                </div>
-            </div>
-        </div>
-
-        <button (click)="submit()">
-            SUBMIT
-        </button>
     </div>
 </app-modal>
 

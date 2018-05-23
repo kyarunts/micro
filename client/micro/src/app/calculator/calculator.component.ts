@@ -10,6 +10,7 @@ export class CalculatorComponent implements OnInit {
     private re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     public hasErrors: boolean = false;
+    public isRequestSent: boolean = false;
     public products: any[];
     public productTypes: any[];
     public isReady: boolean = false;
@@ -189,7 +190,16 @@ export class CalculatorComponent implements OnInit {
     public submit(): void {
         this.validate();
         this.checkErrors();
-        console.log(this.hasErrors);
+        if (!this.hasErrors) {
+            this.isRequestSent = true;
+        }
+    }
+    
+    public processAfterClose(closed: boolean): void {
+        if (this.isRequestSent && closed) {
+            this.selectedProducts = [];
+            this.selectedProductsCount = {};
+        }
     }
 
     public ngOnDestroy() {

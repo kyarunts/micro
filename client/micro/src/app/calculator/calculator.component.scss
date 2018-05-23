@@ -385,6 +385,116 @@
         @include _(font-weight, 600);
         @include _(font-size, 23px);
         @include _(color, #1e3c4c);
+        @include _(display, flex);
+        & svg {
+            @include _(margin-right, 10px);
+        }
+    }
+    
+    &__sent {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(flex-direction, column);
+        @include _(align-items, center);
+        @include _(text-align, center);
+        @include _(height, 100%);
+        @include breakpoint(desktop-view) {
+            @include _(padding, 100px 250px);
+        }
+        @include breakpoint(tablet-view) {
+            @include _(padding, 70px 80px);
+        }
+        @include breakpoint(mobile-view) {
+            @include _(padding, 70px 20px);
+        }
+    }
+
+    &__sent-icon {
+        @include _(width, 50px);
+        @include _(height, 50px);
+        @include _(color, #1f771f);
+
+        & svg {
+            @include _(width, 100% !important);
+            @include _(height, 100% !important);
+        }
+    }
+
+    &__sent-text {
+        @include _(font-family, cantarell);
+        @include _(color, #1f445a);
+        @include _(line-height, 30px);
+        @include _(margin-top, 20px);
+    }
+
+    &__sent-button {
+        & button {
+            @include _(margin-top, 30px);
+            @include _(height, 50px);
+            @include _(border, none);
+            @include _(border-radius, 5px);
+            @include _(font-size, 19px);
+            @include _(font-family, quicksand);
+            @include _(color, #1f445a);
+            @include _(cursor, pointer);
+            @include _(outline, none);
+            @include _(box-sizing, border-box);
+            @include _(transition, all 0.2s linear);
+            @include _(font-weight, 600);
+            @include _(background-color, transparent);
+            @include _(border, 1px solid #1f445a);
+            @include _(padding, 0 80px);
+            &:hover {
+                @include _(background-color, #1f445a);
+                @include _(color, white);
+            }
+        }
+    }
+
+    &__modal-section {
+        @include _(margin-top, 20px);
+        @include _(padding, 10px);
+        @include _(border, 1px solid beige);
+        -webkit-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+        box-shadow: 2px 4px 26px -10px rgba(0,0,0,0.75);
+    }
+
+    &__request-order {
+        @include _(display, flex);
+        @include _(width, 100%);
+        @include _(justify-content, flex-end);
+
+        & button {
+            @include _(margin-top, 30px);
+            @include _(display, flex);
+            @include _(border, none);
+            @include _(justify-content, center);
+            @include _(align-items, center);
+            @include _(box-sizing, border-box);
+            @include _(padding, 15px 60px);
+            @include _(font-size, 20px);
+            @include _(background-color, #fdd22a);
+            @include _(color, #20445a);
+            @include _(border-radius, 6px);
+            @include _(outline, none);
+            @include _(cursor, pointer);
+            @include _(font-weight, 600);
+            @include _(transition, all 0.4s);
+            @include _(font-family, play);
+            @include _(min-width, 40%);
+
+            @include breakpoint(mobile-tablet-view) {
+                @include _(padding, 15px 30px);
+                @include _(font-size, 14px);
+                @include _(width, 100%);
+            }
+            &:hover {
+                @include _(background-color, #20445a);
+                @include _(color, white);
+            }
+
+        }
     }
 }
 

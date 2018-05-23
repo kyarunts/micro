@@ -20,7 +20,10 @@ export class ModalService {
 
     public close(modalId: string): void {
         let modal = this.modals.filter(modal => modal.id === modalId)[0];
-        if (modal) modal.isOpen = false;
+        if (modal) {
+            modal.isOpen = false;
+            modal.closed.emit(true);
+        }
         document.body.classList.remove('modal-open');
     }
 
