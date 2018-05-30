@@ -1,4 +1,4 @@
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var path = require('path');
 var index = path.resolve(path.dirname(path.dirname(__dirname)) + '/public/index.html');
 

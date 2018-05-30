@@ -18,7 +18,7 @@
  * http://expressjs.com/api.html#app.VERB
  */
 
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 var apiPartners = require('./api/partner');

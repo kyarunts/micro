@@ -1,4 +1,4 @@
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var Project = keystone.list('Project').model;
 
 var handlers = {

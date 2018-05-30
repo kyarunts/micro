@@ -3,7 +3,7 @@
 require('dotenv').config();
 
 // Require keystone
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var handlebars = require('express-handlebars');
 
 // Initialise Keystone with your project's configuration.

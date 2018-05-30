@@ -11,7 +11,7 @@
  * can be previewed at /keystone/test-email/{key}
  */
 
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 
 module.exports = {
 

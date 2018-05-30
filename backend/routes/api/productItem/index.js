@@ -1,4 +1,4 @@
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var Productitem = keystone.list('Productitem').model;
 
 var handlers = {

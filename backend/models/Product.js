@@ -1,4 +1,4 @@
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var Types = keystone.Field.Types;
 
 var Product = new keystone.List('Product',{
@@ -18,9 +18,12 @@ Product.add({
     name: { type: Types.Text, initial: true, required: true },
     name_hy: { type: Types.Text, initial: true, required: true },
     name_ru: { type: Types.Text, initial: true, required: true },
-    description: { type: Types.Text, initial: true, required: true },
-    description_hy: { type: Types.Text, initial: true, required: true },
-    description_ru: { type: Types.Text, initial: true, required: true },
+    description: { type: Types.Markdown, height: 200, initial: true, required: true },
+    description_hy: { type: Types.Markdown, height: 200, initial: true, required: true },
+    description_ru: { type: Types.Markdown, height: 200, initial: true, required: true },
+    home_description: {type: Types.Text, initial: true, required: false },
+    home_description_hy: {type: Types.Text, initial: true, required: false },
+    home_description_ru: {type: Types.Text, initial: true, required: false },
     mainImage: {type: Types.CloudinaryImage, initial: true, required: true},
     imageUrls: {type: Types.CloudinaryImages, initial: true, required: true},
     appearsOnHomePage: {type: Types.Boolean, initial:true, label: 'Show on home'},

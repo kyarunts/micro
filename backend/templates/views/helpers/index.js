@@ -1,7 +1,7 @@
 var moment = require('moment');
 var _ = require('lodash');
 var hbs = require('handlebars');
-var keystone = require('keystone');
+var keystone = require('micrpkey');
 var cloudinary = require('cloudinary');
 
 // Collection of templates to interpolate
