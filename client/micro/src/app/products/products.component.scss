@@ -177,6 +177,7 @@
         @include _(color, #ab9131);
         @include _(font-weight, 600);
         @include _(background-color, #17262f);
+        @include _(height, 100%);
         transition: all 0.3s linear;
         @include breakpoint(mobile-view) {
             @include _(width, 100%);
