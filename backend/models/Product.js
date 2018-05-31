@@ -15,13 +15,13 @@ var storage = new keystone.Storage({
 
 
 Product.add({
-    name: { type: Types.Text, initial: true, required: true },
+    name_en: { type: Types.Text, initial: true, required: true },
     name_hy: { type: Types.Text, initial: true, required: true },
     name_ru: { type: Types.Text, initial: true, required: true },
-    description: { type: Types.Markdown, height: 200, initial: true, required: true },
+    description_en: { type: Types.Markdown, height: 200, initial: true, required: true },
     description_hy: { type: Types.Markdown, height: 200, initial: true, required: true },
     description_ru: { type: Types.Markdown, height: 200, initial: true, required: true },
-    home_description: {type: Types.Text, initial: true, required: false },
+    home_description_en: {type: Types.Text, initial: true, required: false },
     home_description_hy: {type: Types.Text, initial: true, required: false },
     home_description_ru: {type: Types.Text, initial: true, required: false },
     mainImage: {type: Types.CloudinaryImage, initial: true, required: true},

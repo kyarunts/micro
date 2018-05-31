@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SharedService } from '../../shared/shared-service';
 
 @Component({
     selector: 'app-product-details',
@@ -8,10 +9,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ProductDetailsComponent implements OnInit {
     @Input() public selectedProduct: any;
     @Output() public back: EventEmitter<boolean> = new EventEmitter();
-    constructor() { }
+    constructor(
+        private sharedService: SharedService
+    ) { }
 
     ngOnInit() {
-        console.log(this.selectedProduct);
     }
 
 }

@@ -49,4 +49,16 @@
         @include _(color, #36393c);
         @include _(text-transform, uppercase);
     }
+
+    &__gallery {
+        @include _(border, 1px solid blue);
+        @include _(height, 200px);
+        @include _(position, relative);
+    }
+
+    &__section-title {
+        @include _(position, absolute);
+        @include _(top, 0);
+        @include _(left, 20px);
+    }
 }
