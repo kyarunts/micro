@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PartnersService } from './partners.service';
+import { SharedService } from '../shared/shared-service';
 
 @Component({
     selector: 'app-partners',
@@ -11,7 +12,10 @@ export class PartnersComponent implements OnInit {
 
     public partners: Object[];
 
-    constructor(private httpService: PartnersService) { }
+    constructor(
+        private httpService: PartnersService,
+        private sharedService: SharedService,
+    ) { }
 
     ngOnInit() {
         window.document.body.scrollIntoView(true);

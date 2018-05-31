@@ -18,10 +18,10 @@
                 </div>
                 <div class="portfolio__project-info-container">
                     <div class="portfolio__project-name">
-                        {{project.name}}
+                        {{project['name_' + sharedService.currentLanguage]}}
                     </div>
                     <div class="portfolio__project-description">
-                        {{project.description}}
+                        {{project['description_' + sharedService.currentLanguage]}}
                     </div>
                 </div>
                 <div class="portfolio__project-actions-container" *ngIf="project.imageUrls.length">

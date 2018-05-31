@@ -28,7 +28,7 @@
                 <div class="calculator__type-container" *ngFor="let type of productTypes">
                     <div class="calculator__type-heading"  (click)="typeSelected(type._id)">
                         <h3 class="calculator__type-title">
-                            {{type.name}}
+                            {{type['name_' + sharedService.currentLanguage]}}
                         </h3>
                         <div class="calculator__type-heading-icons">
                             <span 
@@ -54,7 +54,7 @@
                             *ngFor="let product of productsByType(type._id)"
                         >
                             <div class="calculator__product-item-name">
-                                {{product.name}}
+                                {{product['name_' + sharedService.currentLanguage]}}
                             </div>
                             <select
                                 *ngIf="selectedProducts.indexOf(product._id) > -1"
@@ -140,7 +140,7 @@
                     class="calculator__modal-item"
                 >
                     <span class="calculator__modal-product-name">
-                        {{item.product.name}}
+                        {{item.product['name_' + sharedService.currentLanguage]}}
                     </span>
                     <div class="calculator__modal-select-container">
                         <label class="calculator__modal-label" for="{{'itemOption' + i}}">Option for price</label>

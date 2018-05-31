@@ -11,8 +11,8 @@
                 class="projects__item"
                 [ngClass]="{'projects__item--active': currentProjectIndex === i}"
             >
-                {{project.name}} <br>
-                <span>{{project.description | textShortener:40}}</span>
+                {{project['name_' + sharedService.currentLanguage]}} <br>
+                <span>{{project['description_' + sharedService.currentLanguage] | textShortener:40}}</span>
             </div>
         </div>
         <div 

@@ -21,10 +21,10 @@
             </div>
             <div class="home-products__description">
                 <div class="home-products__name">
-                    {{product.name}}
+                    {{product['name_' + sharedService.currentLanguage]}}
                 </div>
                 <div class="home-products__details">
-                    {{product.description | textShortener:240}}
+                    {{product['home_description_' + sharedService.currentLanguage] | textShortener:240}}
                 </div>
                 <div class="home-products__buttons">
                     <button

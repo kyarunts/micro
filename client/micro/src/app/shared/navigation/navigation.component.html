@@ -27,7 +27,7 @@
                         ></use>
                     </svg>
                 </div>
-                <div class="submenu__item-name">{{item.name}}</div>
+                <div class="submenu__item-name">{{item['name_' + sharedService.currentLanguage]}}</div>
             </div>
             <div class="submenu__calculator">
                 <button
@@ -45,7 +45,7 @@
     <div class="navigation__language-bar">
         <a 
             *ngFor="let item of languages; let ind = index"
-            (click)="changeLanguage(ind)" 
+            (click)="changeLanguage(ind)"
             [ngClass]="{'navigation__language--selected': currentLanguage === ind}"
             class="navigation__language"
         >
@@ -70,7 +70,7 @@
             <li
                 *ngFor="let item of navigationItems" 
                 class="navigation__item" 
-                routerLink="{{item.routerLink}}" 
+                routerLink="{{item.routerLink}}"
                 routerLinkActive="navigation__item--active"
             >{{item.name}}</li>
         </ul>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ProductsComponentService } from '../../products/products.component.service';
+import { SharedService } from '../shared-service';
 
 @Component({
     selector: 'app-navigation',
@@ -30,7 +31,8 @@ export class NavigationComponent implements OnInit {
     constructor(
         private router: Router,
         private httpService: ProductsComponentService,
-        private translateService: TranslateService
+        private translateService: TranslateService,
+        private sharedService: SharedService,
     ) {
         router.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {
@@ -57,6 +59,7 @@ export class NavigationComponent implements OnInit {
         this.translateService.use(this.languages[index]);
         this.mobileNavOpen = false;
         document.body.classList.remove('navOpened');
+        this.sharedService.currentLanguage = this.languages[index];
     }
 
     public navMobileClickHandler() {

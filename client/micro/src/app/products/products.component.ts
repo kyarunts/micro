@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 import { ProductsComponentService } from 'app/products/products.component.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { SharedService } from '../shared/shared-service';
 
 @Component({
   selector: 'app-products',
@@ -20,6 +21,7 @@ export class ProductsComponent {
         private productsService: ProductsComponentService,
         private route: ActivatedRoute,
         private router: Router,
+        private sharedService: SharedService,
     ) { }
 
     public get categoryProducts() {
@@ -66,7 +68,6 @@ export class ProductsComponent {
             return product['_id'] === id;
         })[0];
         this.isProductSelected = true;
-        console.log(this.selectedProduct);
     }
     
 }

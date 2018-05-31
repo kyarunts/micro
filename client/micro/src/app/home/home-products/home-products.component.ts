@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeProductsInterface } from '../home.constants';
+import { SharedService } from '../../shared/shared-service';
 
 @Component({
     selector: 'app-home-products',
@@ -12,7 +13,9 @@ export class HomeProductsComponent implements OnInit {
     public currentProductIndex: number = 0;
     private sliderAnimation: any;
 
-    constructor() { }
+    constructor(
+        private sharedService: SharedService
+    ) { }
     
     ngOnInit() {
         this.startAnimation();
@@ -44,4 +47,5 @@ export class HomeProductsComponent implements OnInit {
             this.currentProductIndex = index;
         }
     }
+    
 }

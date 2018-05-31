@@ -14,7 +14,7 @@ var storage = new keystone.Storage({
 });
 
 Category.add({
-    name: { type: Types.Text, initial: true, required: true },
+    name_en: { type: Types.Text, initial: true, required: true },
     name_hy: { type: Types.Text, initial: true, required: true },
     name_ru: { type: Types.Text, initial: true, required: true },
     iconName: { type: Types.Text, initial: true, required: true}

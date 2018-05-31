@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorService } from './calculator.service';
 import { ModalService } from '../generics/modal/modal.service';
+import { SharedService } from '../shared/shared-service';
 @Component({
     selector: 'app-calculator',
     templateUrl: './calculator.component.html',
@@ -31,7 +32,8 @@ export class CalculatorComponent implements OnInit {
 
     constructor(
         private httpService: CalculatorService,
-        private modalService: ModalService
+        private modalService: ModalService,
+        private sharedService: SharedService,
     ) { }
 
     ngOnInit() {
@@ -189,8 +191,6 @@ export class CalculatorComponent implements OnInit {
         this.validate();
         this.checkErrors();
         if (!this.hasErrors) {
-            console.log(this.finalSelectedProducts);
-            console.log(this.productTypes);
             let productsText: string = '';
             this.finalSelectedProducts.forEach((product, index) => {
                 let productType = this.productTypes.filter((type) => {
@@ -214,7 +214,6 @@ export class CalculatorComponent implements OnInit {
     public processAfterClose(closed: boolean): void {
         if (this.isRequestSent && closed) {
             this.selectedProducts = [];
-            console.log(this.selectedProductsCount);
             Object.keys(this.selectedProductsCount).forEach((key: string) => {
                 if (typeof this.selectedProductsCount[key] === 'number') {
                     this.selectedProductsCount[key] = 0;

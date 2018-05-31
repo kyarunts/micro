@@ -18,7 +18,7 @@
                     (click)="selectCategory(category._id)"
                     [routerLink]="['/products/' + category._id]"
                 >
-                    {{category.name}}
+                    {{category['name_' + sharedService.currentLanguage]}}
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="products__product-name">
-                        {{product.name}}
+                        {{product['name_' + sharedService.currentLanguage]}}
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     </svg>
                 </div>
                 <div class="products__spec-title">
-                    {{spec.name}}
+                    {{spec['name_' + sharedService.currentLanguage]}}
                 </div>
             </div>
         </div>

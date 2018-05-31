@@ -6,10 +6,10 @@ var Project = new keystone.List('Project',{
 });
 
 Project.add({
-    name: { type: Types.Text, initial: true, required: true },
+    name_en: { type: Types.Text, initial: true, required: true },
     name_hy: { type: Types.Text, initial: true, required: true },
     name_ru: { type: Types.Text, initial: true, required: true },
-    description: { type: Types.Text, initial: true, required: true },
+    description_en: { type: Types.Text, initial: true, required: true },
     description_hy: { type: Types.Text, initial: true, required: true },
     description_ru: { type: Types.Text, initial: true, required: true },
     mainImageUrl: {type: Types.CloudinaryImage, initial: true, required: true},

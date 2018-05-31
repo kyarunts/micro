@@ -7,13 +7,52 @@
                     <use xlink:href="#icon-angle-left"></use>
                 </svg>
             </div>
-            Back to <span> {{' ' + selectedProduct.category.name}}</span>
+            Back to <span> {{' ' + selectedProduct.category['name_' + sharedService.currentLanguage]}}</span>
         </a>
     </div>
     <div class="product-details__name">
-        {{selectedProduct.name}}
+        {{selectedProduct['name_' + sharedService.currentLanguage]}}
     </div>
-    <div>
-        
+
+    <div
+        [innerHTML]="selectedProduct['description_' + sharedService.currentLanguage]['html']"
+    >
+    </div>
+
+    <div *ngIf="images.length" class="product-details__gallery">
+        <div class="product-details__section-title">
+            <svg class="calculator__arrow arrow-icon icon-angle-left">
+                <use xlink:href="#icon-gallery"></use>
+            </svg>
+            <span>Gallery</span>
+        </div>
+
+        <div class="product-details__images-container">
+            <div *ngFor="let image of selectedProduct['imageUrls']; let ind = index">
+                <div
+                    class="product-details__image"
+                    (click)="openModal(ind)"
+                    [ngStyle]="{'background-image': 'url(' + image.url + ')'}"
+                ></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-details__gallery">
+        <div class="product-details__section-title">
+            <svg class="calculator__arrow arrow-icon icon-angle-left">
+                <use xlink:href="#icon-download"></use>
+            </svg>
+            <span>Files</span>
+        </div>
     </div>
 </div>
+
+<app-modal
+    [id]="'productDetailsModal'"
+>
+    <app-image-viewer
+        [images]="images"
+        [currentIndex]="currentIndex"
+    ></app-image-viewer>
+</app-modal>

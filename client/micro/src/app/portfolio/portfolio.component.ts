@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from './portfolio.service';
 import { ProjectInterface } from '../interfaces';
 import { ModalService } from '../generics/modal/modal.service';
+import { SharedService } from '../shared/shared-service';
 
 @Component({
     selector: 'app-portfolio',
@@ -18,7 +19,8 @@ export class PortfolioComponent implements OnInit {
 
     constructor(
         private portfolioService: PortfolioService,
-        private modalService: ModalService
+        private modalService: ModalService,
+        private sharedService: SharedService,
     ) { }
 
     ngOnInit() {

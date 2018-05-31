@@ -36,6 +36,7 @@ import { AboutService } from './about/about.service';
 import { CalculatorService } from './calculator/calculator.service';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { CalculatorStepsComponent } from './calculator/calculator-steps/calculator-steps.component';
+import { SharedService } from './shared/shared-service';
 @NgModule({
     declarations: [
         AppComponent,
@@ -82,7 +83,8 @@ import { CalculatorStepsComponent } from './calculator/calculator-steps/calculat
         ContactsService, 
         PartnersService,
         AboutService,
-        CalculatorService
+        CalculatorService,
+        SharedService
     ],
     bootstrap: [AppComponent]
 })

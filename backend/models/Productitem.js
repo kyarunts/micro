@@ -6,7 +6,7 @@ var Productitem = new keystone.List('Productitem',{
 });
 
 Productitem.add({
-    name: { type: Types.Text, initial: true, required: true },
+    name_en: { type: Types.Text, initial: true, required: true },
     name_hy: { type: Types.Text, initial: true, required: true },
     name_ru: { type: Types.Text, initial: true, required: true },
     type: { type: Types.Relationship, ref: 'Productitemtype', initial: true, required: true },

@@ -49,4 +49,55 @@
         @include _(color, #36393c);
         @include _(text-transform, uppercase);
     }
+
+    &__gallery {
+        @include _(height, 200px);
+        @include _(box-shadow, 3px 3px 10px -2px #7b8189);
+        @include _(margin-bottom, 20px);
+        @include _(background-color, #f9f9f9);
+        @include _(padding, 15px 24px 0 24px);
+    }
+
+    &__section-title {
+        @include _(font-family, play);
+        @include _(font-size, 22px);
+        @include _(color, #e4ae00);
+        @include _(margin-bottom, 10px);
+        @include _(text-transform, uppercase);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include _(flex-wrap, wrap);
+        
+        & span {
+            @include _(margin-left, 10px);
+        }
+
+        @include breakpoint(tablet-desktop-view) {
+            @include _(padding-left, 18px);
+        }
+    }
+    
+    &__images-container {
+        @include _(overflow-y, scroll);
+        @include _(display, flex);
+        @include _(align-items, center);
+        @include breakpoint(tablet-desktop-view) {
+        }
+    }
+
+    &__image {
+        @include _(width, 100px);
+        @include _(height, 100px);
+        @include _(margin, 15px);
+        @include _(cursor, pointer);
+        @include _(background-color, #f1f1f1);
+        @include _(background-size, cover);
+        @include _(background-position, center);
+        @include _(box-shadow, 3px 3px 10px -2px #7b8189);
+        @include _(transition, transform 0.3s linear);
+
+        &:hover {
+            @include _(transform, scale(0.9));
+        }
+    }
 }
