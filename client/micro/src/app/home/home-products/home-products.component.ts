@@ -47,4 +47,5 @@ export class HomeProductsComponent implements OnInit {
             this.currentProductIndex = index;
         }
     }
+    
 }
