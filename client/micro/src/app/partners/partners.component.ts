@@ -14,7 +14,7 @@ export class PartnersComponent implements OnInit {
 
     constructor(
         private httpService: PartnersService,
-        private sharedService: SharedService,
+        public sharedService: SharedService,
     ) { }
 
     ngOnInit() {

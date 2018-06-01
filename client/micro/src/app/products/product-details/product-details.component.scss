@@ -95,9 +95,28 @@
         @include _(background-position, center);
         @include _(box-shadow, 3px 3px 10px -2px #7b8189);
         @include _(transition, transform 0.3s linear);
-
+        @include _(border-radius, 10px);
+        
         &:hover {
             @include _(transform, scale(0.9));
+        }
+    }
+
+    &__file {
+        @include _(font-family, cantarell);
+        @include _(width, 200px);
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(text-decoration, none);
+        @include _(flex-direction, column);
+        @include _(color, #5a4e4e);
+        @include _(background-color, #e4ae00 !important);
+
+        & svg {
+            @include _(width, 30% !important);
+            @include _(height, 30% !important);
+            @include _(margin-bottom, 8px);
         }
     }
 }

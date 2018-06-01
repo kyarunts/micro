@@ -14,7 +14,7 @@ export class HomeProductsComponent implements OnInit {
     private sliderAnimation: any;
 
     constructor(
-        private sharedService: SharedService
+        public sharedService: SharedService
     ) { }
     
     ngOnInit() {

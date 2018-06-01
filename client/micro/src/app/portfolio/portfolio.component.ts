@@ -20,7 +20,7 @@ export class PortfolioComponent implements OnInit {
     constructor(
         private portfolioService: PortfolioService,
         private modalService: ModalService,
-        private sharedService: SharedService,
+        public sharedService: SharedService,
     ) { }
 
     ngOnInit() {

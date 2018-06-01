@@ -8,11 +8,10 @@ var Product = new keystone.List('Product',{
 var storage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
 	fs: {
-		path: keystone.expandPath('../client/micro/src/assets/uploads'), 
-  		publicPath: '/public/uploads', 
+        path: keystone.expandPath('uploads/'), 
+        publicPath: '/assets/uploads', 
 	}
 });
-
 
 Product.add({
     name_en: { type: Types.Text, initial: true, required: true },
@@ -29,7 +28,8 @@ Product.add({
     appearsOnHomePage: {type: Types.Boolean, initial:true, label: 'Show on home'},
     type: { type: Types.Select, options: 'product, spec, catalog', initial: true, default: 'product'},
     category: { type: Types.Relationship, ref: 'Category', initial: true, required: true },
-    fileUrl: {type: Types.File, initial: true, storage, required: true}
+    fileUrl: {type: Types.File, initial: true, storage, required: true},
+    fileName: {type: Types.Text, initial: true, required: false},
 });
 
 Product.defaultColumns = 'name';

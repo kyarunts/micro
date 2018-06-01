@@ -15,12 +15,13 @@ export class ProductDetailsComponent implements OnInit {
     public currentIndex: number = 0;
 
     constructor(
-        private sharedService: SharedService,
+        public sharedService: SharedService,
         private modalService: ModalService,
     ) { }
 
     ngOnInit() {
         this.generateImages();
+        console.log(this.selectedProduct);
     }
 
     public generateImages() {

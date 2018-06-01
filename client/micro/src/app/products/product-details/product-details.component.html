@@ -38,12 +38,40 @@
         </div>
     </div>
 
-    <div class="product-details__gallery">
+    <div *ngIf="selectedProduct['fileUrl']" class="product-details__gallery">
         <div class="product-details__section-title">
             <svg class="calculator__arrow arrow-icon icon-angle-left">
                 <use xlink:href="#icon-download"></use>
             </svg>
             <span>Files</span>
+        </div>
+
+        <div class="product-details__images-container">
+            <a 
+                class="product-details__image product-details__file"
+                [href]="'/files/' + selectedProduct['fileUrl']['filename']"
+                target="_blank"
+            >
+                <svg class="calculator__arrow arrow-icon icon-angle-left">
+                    <use xlink:href="#icon-file"></use>
+                </svg>
+                <ng-container *ngIf="selectedProduct['fileName']">
+                    <span *ngIf="selectedProduct['fileName'].length > 15">
+                        {{selectedProduct['fileName'] | textShortener:15}}
+                    </span>
+                    <span *ngIf="selectedProduct['fileName'].length <= 15">
+                        {{selectedProduct['fileName']}}
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="!selectedProduct['fileName']">
+                    <span *ngIf="selectedProduct['fileUrl']['filename'].length > 15">
+                        {{selectedProduct['fileUrl']['filename'] | textShortener:15}}
+                    </span>
+                    <span *ngIf="selectedProduct['fileUrl']['filename'].length <= 15">
+                        {{selectedProduct['fileUrl']['filename']}}
+                    </span>
+                </ng-container>
+            </a>
         </div>
     </div>
 </div>

@@ -33,7 +33,7 @@ export class CalculatorComponent implements OnInit {
     constructor(
         private httpService: CalculatorService,
         private modalService: ModalService,
-        private sharedService: SharedService,
+        public sharedService: SharedService,
     ) { }
 
     ngOnInit() {

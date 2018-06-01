@@ -30,6 +30,7 @@ var apiProductItems = require('./api/productItem');
 var homeItems = require('./api/home');
 var orderHandler = require('./api/order');
 var mailSender = require('./api/email');
+var path = require('path');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -55,7 +56,11 @@ exports = module.exports = function (app) {
     app.post('/api/newOrder', orderHandler.createOrder);
 
     // Views
-  app.get('/orders', middleware.requireUser, routes.views.orders);
+    app.get('/orders', middleware.requireUser, routes.views.orders);
+    app.get('/files/:ID', function(req, res) {
+        let file = path.resolve(path.dirname(path.dirname(__dirname)) + '/backend/uploads/' + req.params.ID);
+        res.sendFile(file);
+    })
 	app.get('**', routes.views.index);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

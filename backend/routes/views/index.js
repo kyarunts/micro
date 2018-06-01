@@ -3,7 +3,7 @@ var path = require('path');
 var index = path.resolve(path.dirname(path.dirname(__dirname)) + '/public/index.html');
 
 exports = module.exports = function (req, res) {
-
+    console.log(index);
     res.sendFile(index);
 	// var view = new keystone.View(req, res);
 	// var locals = res.locals;

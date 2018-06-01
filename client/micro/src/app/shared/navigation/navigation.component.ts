@@ -32,7 +32,7 @@ export class NavigationComponent implements OnInit {
         private router: Router,
         private httpService: ProductsComponentService,
         private translateService: TranslateService,
-        private sharedService: SharedService,
+        public sharedService: SharedService,
     ) {
         router.events.subscribe((val) => {
             if (val instanceof NavigationEnd) {

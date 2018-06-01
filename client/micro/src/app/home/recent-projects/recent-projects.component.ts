@@ -13,7 +13,7 @@ export class RecentProjectsComponent implements OnInit {
     public currentProjectIndex: number = 0;
     
     constructor(
-        private sharedService: SharedService
+        public sharedService: SharedService
     ) { }
 
     ngOnInit() {

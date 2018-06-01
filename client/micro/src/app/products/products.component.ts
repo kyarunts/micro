@@ -21,7 +21,7 @@ export class ProductsComponent {
         private productsService: ProductsComponentService,
         private route: ActivatedRoute,
         private router: Router,
-        private sharedService: SharedService,
+        public sharedService: SharedService,
     ) { }
 
     public get categoryProducts() {
