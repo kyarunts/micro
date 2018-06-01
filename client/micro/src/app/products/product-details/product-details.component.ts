@@ -26,7 +26,8 @@ export class ProductDetailsComponent implements OnInit {
     public generateImages() {
         this.images = this.selectedProduct['imageUrls'].map((obj) => {
             return {image: obj.url}
-        })
+        });
+        this.images.push({image: this.selectedProduct['mainImage']['url']});
     }
 
     public openModal(index: number): void {

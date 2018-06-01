@@ -28,11 +28,11 @@
         </div>
 
         <div class="product-details__images-container">
-            <div *ngFor="let image of selectedProduct['imageUrls']; let ind = index">
+            <div *ngFor="let image of images; let ind = index">
                 <div
                     class="product-details__image"
                     (click)="openModal(ind)"
-                    [ngStyle]="{'background-image': 'url(' + image.url + ')'}"
+                    [ngStyle]="{'background-image': 'url(' + image.image + ')'}"
                 ></div>
             </div>
         </div>
