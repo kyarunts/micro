@@ -56,6 +56,7 @@
         @include _(margin-bottom, 20px);
         @include _(background-color, #f9f9f9);
         @include _(padding, 15px 24px 0 24px);
+        @include _(border-radius, 5px);
     }
 
     &__section-title {
@@ -96,7 +97,7 @@
         @include _(box-shadow, 3px 3px 10px -2px #7b8189);
         @include _(transition, transform 0.3s linear);
         @include _(border-radius, 10px);
-        
+
         &:hover {
             @include _(transform, scale(0.9));
         }
