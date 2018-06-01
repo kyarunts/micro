@@ -9,10 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "delete-dist": "rimraf ../../backend/dist",
-    "copy-dist": "copyfiles -u 1 dist/**/* ../../backend/public",
+    "delete-dist": "rimraf ../../backend/public",
+    "copy-dist": "copyfiles -u 1 dist/** ../../backend/public",
     "ng-build-prod": "ng build --prod",
-    "build-prod": "npm run ng-build-prod && npm run copy-dist"
+    "build-prod": "npm run ng-build-prod && npm run delete-dist && npm run copy-dist"
   },
   "private": true,
   "dependencies": {

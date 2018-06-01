@@ -8,7 +8,7 @@ var Product = new keystone.List('Product',{
 var storage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
 	fs: {
-		path: keystone.expandPath('./public/uploads'), 
+		path: keystone.expandPath('../client/micro/src/assets/uploads'), 
   		publicPath: '/public/uploads', 
 	}
 });
