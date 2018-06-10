@@ -2,14 +2,18 @@ var keystone = require('micrpkey');
 var Types = keystone.Field.Types;
 
 var Product = new keystone.List('Product',{
-    autokey: { from: 'name', path: 'slug', unique: true },
+    autokey: { from: 'name_en', path: 'slug', unique: true },
+    map: { name: 'name_en' }
 });
 
 var storage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
 	fs: {
         path: keystone.expandPath('uploads/'), 
-        publicPath: '/assets/uploads', 
+        publicPath: '/assets/uploads',
+        generateFilename: function(file) { 
+          return file.originalname
+        }
 	}
 });
 
@@ -32,5 +36,5 @@ Product.add({
     fileName: {type: Types.Text, initial: true, required: false},
 });
 
-Product.defaultColumns = 'name';
+Product.defaultColumns = 'name_en, name_hy, name_ru';
 Product.register();

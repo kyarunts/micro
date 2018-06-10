@@ -2,7 +2,8 @@ var keystone = require('micrpkey');
 var Types = keystone.Field.Types;
 
 var Project = new keystone.List('Project',{
-    autokey: { from: 'name', path: 'slug', unique: true },
+  autokey: { from: 'name_en', path: 'slug', unique: true },
+  map: { name: 'name_en' }
 });
 
 Project.add({
@@ -17,7 +18,7 @@ Project.add({
     appearsOnHomePage: {type: Types.Boolean, initial:true, label: 'Show on home'}
 });
 
-Project.defaultColumns = 'name';
+Project.defaultColumns = 'name_en, name_hy, name_ru';
 Project.defaultSort = '-appearsOnHomePage';
 
 Project.register();

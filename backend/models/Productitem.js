@@ -2,7 +2,8 @@ var keystone = require('micrpkey');
 var Types = keystone.Field.Types;
 
 var Productitem = new keystone.List('Productitem',{
-    autokey: { from: 'name', path: 'slug', unique: true },
+  autokey: { from: 'name_en', path: 'slug', unique: true },
+  map: { name: 'name_en' }
 });
 
 Productitem.add({
@@ -13,7 +14,7 @@ Productitem.add({
     options: {type: Types.TextArray, initial: true, separator : ','}
 });
 
-Productitem.defaultColumns = 'name';
-Productitem.defaultSort = '-name';
+Productitem.defaultColumns = 'name_en, name_hy, name_ru';
+Productitem.defaultSort = '-name_en';
 
 Productitem.register();

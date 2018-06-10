@@ -15,8 +15,8 @@ keystone.init({
 	'brand': 'micro',
 
 	'less': 'public',
-	'static': 'public',
-	'favicon': 'public/favicon.ico',
+	'static': ['public', 'public/assets'],
+  'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': '.hbs',
 

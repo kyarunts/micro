@@ -2,7 +2,8 @@ var keystone = require('micrpkey');
 var Types = keystone.Field.Types;
 
 var Partner = new keystone.List('Partner',{
-    autokey: { from: 'name', path: 'slug', unique: true },
+  autokey: { from: 'name_en', path: 'slug', unique: true },
+  map: { name: 'name_en' }
 });
 
 Partner.add({
@@ -15,7 +16,7 @@ Partner.add({
     appearsOnHomePage: {type: Types.Boolean, initial:true, label: 'Show on home'}
 });
 
-Partner.defaultColumns = 'name';
+Partner.defaultColumns = 'name_en, name_hy, name_ru';
 Partner.defaultSort = '-appearsOnHomePage';
 
 Partner.register();

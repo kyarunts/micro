@@ -2,7 +2,8 @@ var keystone = require('micrpkey');
 var Types = keystone.Field.Types;
 
 var Order = new keystone.List('Order',{
-    autokey: { from: 'name', path: 'slug', unique: true },
+    autokey: { from: 'name_en', path: 'slug', unique: true },
+    map: { name: 'name_en' },
     noedit: true,
     nocreate: true,
     nodelete: true
@@ -16,7 +17,7 @@ Order.add({
     products: { type: Types.Text, initial: true, required: true }
 });
 
-Order.defaultColumns = 'name';
+Order.defaultColumns = 'name_en';
 Order.defaultSort = '-date';
 
 Order.register();
