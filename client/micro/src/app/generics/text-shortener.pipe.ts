@@ -5,6 +5,6 @@ import { PipeTransform, Pipe } from "@angular/core";
 })
 export class TextShortenerPipe implements PipeTransform {
     public transform(text: string, count) {
-        return text.slice(0, count) + '...';
+        return text.slice(0, count) + (text.length > count ? '...' : '');
     }
 }

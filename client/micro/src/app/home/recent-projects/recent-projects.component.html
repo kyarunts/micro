@@ -17,8 +17,8 @@
         </div>
         <div 
             class="projects__image-container"
+            [ngStyle]="{'background': 'url(' + projects[currentProjectIndex]['mainImageUrl']['url'] + ')'}"
         >
-            <img src="{{projects[currentProjectIndex]['mainImageUrl']['url']}}" alt="">
             <div class="projects__action">
                 <button
                     [routerLink]="['/portfolio']"

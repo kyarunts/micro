@@ -68,7 +68,7 @@
     }
 
     &__name {
-        @include _(font-size, 30px);
+        @include _(font-size, 26px);
         @include _(font-family, play);
         @include _(margin-top, 20px);
         @include _(padding, 0 15px);

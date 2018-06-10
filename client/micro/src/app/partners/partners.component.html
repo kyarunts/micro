@@ -35,7 +35,7 @@
             </div>
             <div class="partners__name-container">
                 <span class="partners__name">
-                    {{partner['name_' + sharedService.currentLanguage]}}
+                    {{partner['name_' + sharedService.currentLanguage] | textShortener:30}}
                 </span>
                 <span class="partners__url">
                     Visit the Website
