@@ -15,6 +15,7 @@
     </div>
 
     <div
+        class="product-details__content"
         [innerHTML]="selectedProduct['description_' + sharedService.currentLanguage]['html']"
     >
     </div>
@@ -80,6 +81,7 @@
     [id]="'productDetailsModal'"
 >
     <app-image-viewer
+        *ngIf="images.length"
         [images]="images"
         [currentIndex]="currentIndex"
     ></app-image-viewer>

@@ -6,6 +6,15 @@
         @include _(display, flex);
     }
 
+    &__content {
+        @include _(font, assistant);
+        @include _(font-size, 18px);
+        @include _(line-height, 1.9);
+        @include _(color, #172228);
+
+        
+    }
+
     &__back {
         @include _(margin-top, 14px);
         @include _(cursor, pointer);
@@ -121,3 +130,4 @@
         }
     }
 }
+

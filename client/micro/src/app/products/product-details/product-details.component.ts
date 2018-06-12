@@ -21,14 +21,15 @@ export class ProductDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.generateImages();
-        console.log(this.selectedProduct);
     }
 
     public generateImages() {
         this.images = this.selectedProduct['imageUrls'].map((obj) => {
             return {image: obj.url}
         });
-        this.images.push({image: this.selectedProduct['mainImage']['url']});
+        if (this.selectedProduct['mainImage']) {
+            this.images.push({image: this.selectedProduct['mainImage']['url']});
+        }
     }
 
     public openModal(index: number): void {
