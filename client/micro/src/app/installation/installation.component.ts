@@ -13,38 +13,23 @@ export class InstallationComponent implements OnInit, OnDestroy {
     
     public currentImageIndex: number = 0;
 
-    public images: Object[] = [
-        { id: '0', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg'},
-        { id: '1', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '2', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '3', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '4', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '0', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '1', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '2', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '3', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '4', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '0', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '1', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '2', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '3', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '4', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '0', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '1', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '2', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '3', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '4', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '0', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '1', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '2', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '3', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-        { id: '4', image: 'http://bonusbuildings.com/imgs/gall_content/61a46ad.jpeg' },
-    ]
+    public images: Object[] = [];
+
     private timer: any;
     constructor(private modalService: ModalService) { }
     
     ngOnInit() {
         window.document.body.scrollIntoView(true);
+        this.generateImages();
+    }
+
+    private generateImages(): void {
+        for (let i = 1; i < 30; i++) {
+            this.images.push({
+                id: i,
+                image: `./assets/installation/${i}.jpeg`,
+            });
+        }
     }
 
     public scrollTo(direction: 'right' | 'left'): void {
