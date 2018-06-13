@@ -136,3 +136,8 @@ h2 {
 h1 {
     @include _(font-size, 23px !important);
 }
+
+table, th, td {
+    border: 1px solid black !important;
+    border-collapse: collapse !important;
+}
