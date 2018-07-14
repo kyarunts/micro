@@ -39,9 +39,11 @@
 
 <app-modal
     [id]="'projectImageViewer'"
+    (closed)="closeModal()"
 >
     <app-image-viewer
         *ngIf="isModalReady"
         [images]="images"
+        [destroyViewer]="destroyViewer"
     ></app-image-viewer>
 </app-modal>

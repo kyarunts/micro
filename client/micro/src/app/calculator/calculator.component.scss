@@ -4,10 +4,18 @@
     min-height: calc(100vh - 150px);
     @include _(background-color, #fbfbf0);
     &__header {
-        background: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=612621fd686897b4812287430c8be9db&auto=format&fit=crop&w=2252&q=80');
+        background: url('assets/order-background.jpeg');
         background-size: cover;
-        background-attachment: fixed;
         @include _(margin-bottom, 20px);
+    }
+
+    &__header-title {
+        @include _(display, flex);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+        @include _(width, 100%);
+        @include _(height, 100%);
+        background: rgba(0, 113, 128, 0.7);
     }
 
     &__panel-heading {

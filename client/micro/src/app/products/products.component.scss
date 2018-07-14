@@ -5,9 +5,8 @@
     @include _(min-height, calc(100vh - 150px));
 
     &__header {
-        background: url('../../assets/contacts-background.png');
+        background: url('assets/products-background.jpg');
         background-size: cover;
-        background-attachment: fixed;
     } 
     
     &__filter-menu-container {

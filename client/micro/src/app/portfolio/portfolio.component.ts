@@ -12,6 +12,8 @@ import { SharedService } from '../shared/shared-service';
 })
 export class PortfolioComponent implements OnInit {
 
+    public destroyViewer: Boolean;
+    public currentIndex: number = 0;
     public isReady: boolean = false;
     public projects: ProjectInterface[];
     public images: Object[];
@@ -39,6 +41,7 @@ export class PortfolioComponent implements OnInit {
     public openModal(index: number): void {
         this.getImages(index);
         if (this.images.length) {
+            this.currentIndex = 0;
             this.isModalReady = true;
             this.modalService.open('projectImageViewer');
         } else {
@@ -49,5 +52,9 @@ export class PortfolioComponent implements OnInit {
     public ngOnDestroy() {
         this.modalService.close('projectImageViewer');
         this.modalService.remove('projectImageViewer');
+    }
+
+    public closeModal(): void {
+        this.destroyViewer = new Boolean(true);
     }
 }

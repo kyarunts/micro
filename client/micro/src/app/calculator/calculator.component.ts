@@ -32,7 +32,7 @@ export class CalculatorComponent implements OnInit {
 
     constructor(
         private httpService: CalculatorService,
-        private modalService: ModalService,
+        public modalService: ModalService,
         public sharedService: SharedService,
     ) { }
 

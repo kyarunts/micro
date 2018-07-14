@@ -2,10 +2,10 @@
 
 .main {
     @include _(height, 100vh);
-    background-image: url(https://images.unsplash.com/photo-1433840496881-cbd845929862?auto=format&fit=crop&w=1350&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+    background-image: url('assets/main-background.jpg');
     @include _(background-size, cover);
     @include _(background-attachment, fixed);
-    @include _(position, relative);
+    @include _(position, center);
 
     &__overlay {
         @include _(background-color,  rgba(161, 167, 147, 0.5));
@@ -125,17 +125,21 @@
     &__stats {
         @include _(padding, 10px 0);
         @include _(width, 100%);
-        @include _(background-color, rgba(255, 255, 255, 0.3));
+        @include _(background-color, rgba(255, 255, 255, 0.7));
         @include _(position, absolute);
         @include _(bottom, 0);
         @include _(display, flex);
         @include _(justify-content, center);
         @include _(align-items, center);
+
         @include breakpoint(mobile-view) {
             @include _(flex-direction, column);
         }
 
         &--desktop {
+            @include breakpoint(desktop-view) {
+                width: calc(100% - 350px);
+            }
             @include breakpoint(mobile-view) {
                 @include _(display, none);
             }

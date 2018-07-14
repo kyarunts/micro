@@ -2,7 +2,7 @@
 
 .portfolio {
     &__header {
-        background: url('http://www.lboro.ac.uk/media/wwwlboroacuk/external/content/schoolsanddepartments/abce/photos/homepagefeatures/stemlab-home.jpg');
+        background: url('assets/main-background.jpg');
         @include _(background-size, cover);
         @include _(background-position, center);
     }

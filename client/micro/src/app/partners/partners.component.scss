@@ -4,9 +4,13 @@
     @include _(font-family, assistant);
     @include _(background-color, #f5f5f5);
     &__header {
-        background: url('../../assets/partners.png');
+        background: url('assets/partners-background.jpeg');
         @include _(background-size, cover);
-        @include _(background-attachment, fixed);
+        background-position: center center;
+    }
+
+    &__header-title {
+        color: white !important;
     }
 
     &__header-text-container {

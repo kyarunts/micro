@@ -1,4 +1,4 @@
-import { Component, Input, HostListener } from '@angular/core';
+import { Component, Input, HostListener, SimpleChanges } from '@angular/core';
 
 enum KEY_CODE {
     RIGHT_ARROW = 39,
@@ -12,6 +12,7 @@ enum KEY_CODE {
 })
 export class ImageViewerComponent {
 
+    @Input() destroyViewer: Boolean;
     @Input() images: Array<any>;
     @Input() currentIndex: number = 0;
     @HostListener('window:keyup', ['$event']) keyup(event: KeyboardEvent) {
@@ -20,6 +21,15 @@ export class ImageViewerComponent {
         if (event.keyCode === KEY_CODE.LEFT_ARROW && this.currentIndex !== 0) this.currentIndex -= 1;
     }
     
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.destroyViewer 
+            && changes.destroyViewer.currentValue 
+            && changes.destroyViewer.currentValue.valueOf()
+        ) {
+            this.currentIndex = 0;
+        }
+    }
+
     constructor() { }
     
     public changeCurrent(action: string): void {

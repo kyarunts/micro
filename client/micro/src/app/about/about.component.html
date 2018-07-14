@@ -43,23 +43,23 @@
                     class="about__service"
                 >
                     <div class="about__service-header">
-                        {{service.title}}
+                        {{service['title']}}
                     </div>
                     <div class="about__service-icon-container">
                         <svg
-                            *ngIf="service.title === 'Production'" 
+                            *ngIf="service['title'] === 'Production'" 
                             class="icon-toolbox about__service-icon"
                         >
                             <use xlink:href="#icon-toolbox"></use>
                         </svg>
                         <svg
-                            *ngIf="service.title === 'Construction'" 
+                            *ngIf="service['title'] === 'Construction'" 
                             class="icon-construction about__service-icon"
                         >
                             <use xlink:href="#icon-construction"></use>
                         </svg>
                         <svg
-                            *ngIf="service.title === 'Design and Consulting'" 
+                            *ngIf="service['title'] === 'Design and Consulting'" 
                             class="icon-sketch about__service-icon"
                         >
                             <use xlink:href="#icon-sketch"></use>
@@ -67,7 +67,7 @@
                     </div>
                     
                     <div class="about__service-text">
-                        {{service.copy}}
+                        {{service['copy']}}
                         <div
                             routerLink="/contacts/"
                             class="about__service-contact"

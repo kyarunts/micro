@@ -179,7 +179,7 @@
                             (input)="clearAmountError($event.target.value, item)"
                             [(ngModel)]="productsObject[item.product._id]['amount']"
                         >
-                        <div *ngIf="item.amountError" class="calculator__error">
+                        <div *ngIf="item['amountError']" class="calculator__error">
                             Required
                         </div>
                     </div>
