@@ -12,8 +12,8 @@ export class AboutComponent implements OnInit {
     public categories: any[];
     public services: Object[] = [
         {
-            title: {{ 'production' | translate }},  
-            copy: {{ 'copyproduction' | translate}}
+            title: '{{ 'production' | translate }}',  
+            copy: '{{ 'copyproduction' | translate}}''
         },
         {
             title: 'Construction',
