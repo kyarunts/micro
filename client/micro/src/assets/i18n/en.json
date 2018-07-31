@@ -63,6 +63,8 @@
   "sendanother": "Send another message",
   "information" : "Contacts information",
   "address1" : "RA, Syunik region, Goris, Narekatsi st, 1",
-  "address2" : "RA, Yerevan, Azatutyun ave. 27, 6th floor"
+  "address2" : "RA, Yerevan, Azatutyun ave. 27, 6th floor",
+  "previous" : "Previous",
+  "next" : "Next"
 
 }
