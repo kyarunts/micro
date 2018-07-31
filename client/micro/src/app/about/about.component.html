@@ -5,7 +5,7 @@
 <div class="about" *ngIf="isReady">
     <div class="about__header page-header">
         <span class="about__header-title page-title">
-            ABOUT US
+            {{ 'aboutus' | translate }}
         </span>
     </div>
     <div class="about__container page-container">
@@ -13,16 +13,14 @@
             <div class="about__section-header section-header">
                 <div></div>
                 <span>
-                    Our Story
+                    {{ 'ourstory' | translate }}
                 </span>
                 <div></div>
             </div>
             <div class="about__section-text section-text">
                 <span>
-                    The BONUS BILDING company was created on the basis of the Goris Microengine factory in 2007, which is located in
-                    the Goris city . The main activity of the company is sandwich-panel production. The raw materials are being supplied from
-                    foreign countries. High quality raw material and the superb technologies provide an ability to deliver a high quality product
-                    to the market.
+                    {{ 'story' | translate }}
+                    
                 </span>
             </div>
             <div class="about__story-picture">
@@ -33,7 +31,7 @@
             <div class="about__section-header section-header">
                 <div></div>
                 <span>
-                    What we do?
+                    {{'whatwedo' | translate }}
                 </span>
                 <div></div>
             </div>
@@ -72,7 +70,7 @@
                             routerLink="/contacts/"
                             class="about__service-contact"
                         >
-                            Contact us for details
+                            {{ 'contactus' | translate }}
                         </div>
                     </div>
                     
@@ -85,21 +83,16 @@
             <div class="about__section-header section-header">
                 <div></div>
                 <span>
-                    What we produce?
+                    {{'whatweproduce' | tranlsate }}
                 </span>
                 <div></div>
             </div>
             <div class="about__section-text section-text">
-                <span>
-                    Sandwich-panels are being used in the construction of almost all the fields of buildings. Due to its versatility sandwich-panels
-                    are used for finishing of the exterior walls, partitions, roof finishing and etc.. The scope of use is not limited to construction
-                    of the roof, industrial buildings, shopping centers and cabins. Thanks to the simplicity and functionality of sandwich-panels
-                    the construction becomes oversimplified. This material does not require any additional finishing. The usage of sandwich-panels
-                    does not limit the imagination of the customer, as there is an alternative of color variety, textures and designs.
+                <span> {{ 'whatweproduce1' | translate }}
                 </span>
                 <div class="about__products-block">
                     <span class="about__products-explore">
-                        Explore our products:
+                        {{ 'exploreourproducts'}}
                     </span>
                     <div class="about__products-items-container">
                         <div
@@ -124,7 +117,7 @@
                                 <use xlink:href="#icon-more"></use>
                             </svg>
                             <span class="about__products-item-name">
-                                More...
+                                {{ 'more' | translate}}
                             </span>
                         </div>
                     </div>
