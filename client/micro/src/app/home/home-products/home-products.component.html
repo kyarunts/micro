@@ -55,13 +55,13 @@
                     <svg class="icon-something">
                         <use xlink:href="#icon-angle-left"></use>
                     </svg>
-                    <span>Previous</span>
+                    <span> {{ 'previous' | translate }}</span>
                 </div>
                 <div 
                     class="home-products__next-previous"
                     (click)="changeProduct(i + 1)"
                 >
-                    <span>Next</span>
+                    <span>{{'next' | translate }}</span>
                     <svg class="icon-something">
                         <use xlink:href="#icon-angle-right"></use>
                     </svg>
