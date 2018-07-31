@@ -6,9 +6,9 @@
             class="navigation__item"
             routerLink="{{item.routerLink}}"
             routerLinkActive="navigation__item--active"
-            [ngClass]="{'navigation__item--products': item.name === 'PRODUCTS'}"
+            [ngClass]="{'navigation__item--products': item.name === 'products'}"
         >
-            {{item.name}}
+            {{item.name | translate}}
         </li>
         <div 
             class="submenu"

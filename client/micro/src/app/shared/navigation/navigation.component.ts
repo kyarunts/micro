@@ -13,14 +13,14 @@ export class NavigationComponent implements OnInit {
     
     public mobileNavOpen: boolean = false;
     public navigationItems: {name: string, routerLink: string}[] = [
-        { name: 'HOME PAGE', routerLink: '/home' },
-        { name: 'ABOUT US', routerLink: '/about' },
-        { name: 'PRODUCTS', routerLink: '/products' },
-        { name: 'ORDER NOW', routerLink: '/calculator' },
-        { name: 'PORTFOLIO', routerLink: '/portfolio' },
-        { name: 'PARTNERS', routerLink: '/partners' },
-        { name: 'INSTALLATION', routerLink: '/installation' },
-        { name: 'CONTACTS', routerLink: '/contacts' },
+        { name: 'homepage', routerLink: '/home' },
+        { name: 'aboutus', routerLink: '/about' },
+        { name: 'products', routerLink: '/products' },
+        { name: 'ordernow', routerLink: '/calculator' },
+        { name: 'portfolio', routerLink: '/portfolio' },
+        { name: 'partners', routerLink: '/partners' },
+        { name: 'installation', routerLink: '/installation' },
+        { name: 'contacts', routerLink: '/contacts' },
     ];
     public productsSubmenuItems: {}[];
 
