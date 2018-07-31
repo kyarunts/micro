@@ -13,15 +13,15 @@ export class AboutComponent implements OnInit {
     public services: Object[] = [
         {
             title: 'Production',  
-            copy: `Sandwich-panels are being used in the construction of almost all the fields of buildings.`
+            copy: 'copyproduction'
         },
         {
             title: 'Construction',
-            copy: `Sandwich-panels are being used in the construction of almost all the fields of buildings.`
+            copy: 'copyconstruction'
         },
         {
             title: 'DesignandConsulting',
-            copy: `Sandwich-panels are being used in the construction of almost all the fields of buildings.`
+            copy: 'copydesign'
         },
 
     ]
