@@ -16,7 +16,7 @@
                 </a>
                 <a class="main__contacts-item" routerLink="/contacts">
                     <img src="./assets/email.png" alt="">
-                    <span>write us</span>
+                    <span> {{ 'writeus' | translate }} </span>
                 </a>
             </div>
             <div class="main__logo-container">
@@ -32,13 +32,13 @@
                         class="main__button main__button--primary"
                         routerLink="/products"
                     >
-                        VIEW ALL PRODUCTS
+                        {{ 'viewallproducts' | translate }}
                     </button>
                     <button 
                         class="main__button main__button--secondary"
                         routerLink="/about"
                     >
-                        Learn more
+                        {{ 'learnmore' | translate }}
                     </button>
                 </div>
             </div>
@@ -47,7 +47,8 @@
                     <span class="main__stats-title"> {{ 'whoweare' | translate }} </span>
                     <hr class="main__stats-hr">
                     <span class="main__stats-copy">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo hic aperiam excepturi repellendus quam tempore
+                        {{ 'whoweare1' | translate }} <br>
+                        {{ 'whoweare2' | translate }}
                     </span>
                 </div>
                 <div class="main__stats-icons">
