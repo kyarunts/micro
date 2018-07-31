@@ -72,7 +72,7 @@
                                 class="calculator__input"
                                 type="number"
                                 maxlength="3"
-                                placeholder={{'amount' | translate }}
+                                placeholder="amount you need"
                                 [(ngModel)]="productsObject[product._id]['amount']"
                                 [ngClass]="{'placeholder': !productsObject[product._id]['amount']}"
                             >
@@ -171,7 +171,7 @@
                             id="{{'itemAmount' + i}}"
                             type="number"
                             maxlength="3"
-                            placeholder={{'amount' | translate }}
+                            placeholder="amount you need"
                             (input)="clearAmountError($event.target.value, item)"
                             [(ngModel)]="productsObject[item.product._id]['amount']"
                         >
