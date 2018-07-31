@@ -38,6 +38,20 @@
   "request" : "Request an order directly from our website",
   "ordernowtext" : "Having a prediction for building material before starting the process is something that helps a lot in better and more effective planning. We are pleased to provide you a way to request for the exact price of our building materials directly from our website. Select what you need and place a request and we will contact you as soon as possible.",
   "select" : "Select the option for the price",
-  "amount" : "amount you need"
+  "amount" : "amount you need",
+  "addtocard": "ADD TO CART",
+  "requestanorder" : "REQUEST AN ORDER",
+  "errorfix" : " Please fix the errors to proceed",
+  "youhaveselected" : "You have selected the following items։",
+  "enterpersonal" : "Enter your personal details",
+  "yourname" : "Your name",
+  "entername" : "Enter your name",
+  "email": "Email address",
+  "validemail" : "Enter a valid email address",
+  "phone" : "Phone number",
+  "validphone" : "Enter a valid phone number",
+  "submit" : "SUBMIT",
+  "submittext" : "You have successfully placed an order! We will contact you very soon with more details and information! Thanks a lot for choosing Bonus Buildings!"
+
 
 }

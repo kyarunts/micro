@@ -81,7 +81,7 @@
                                 (click)="selectProduct(product._id, type._id)"
                                 class="calculator__add"
                             >
-                                Add to cart
+                                {{'addtocard' | translate }}
                                 <svg class="arrow-icon icon-angle-left">
                                     <use xlink:href="#icon-plus-circled"></use>
                                 </svg>
@@ -107,7 +107,7 @@
         <button
             [disabled]="!selectedProducts.length"
             (click)="goToSubmission()"
-        >REQUEST AN ORDER</button>
+        >{{'requestanorder' | translate }}</button>
     </div>
 </div>
 
@@ -122,14 +122,14 @@
         ></app-calculator-steps>
         <ng-container *ngIf="!isRequestSent">
             <div *ngIf="hasErrors" class="calculator__modal-errors-bar">
-                Please fix the errors to proceed
+                {{'errorfix' | translate }}
             </div>
             <div class="calculator__modal-section">
                 <h2 class="calculator__modal-title">
                     <svg class="arrow-icon icon-angle-left">
                         <use xlink:href="#icon-shopping-cart"></use>
                     </svg>
-                    You have selected the following items
+                    {{'youhaveselected' | translate }}
                 </h2>
                 <div 
                     *ngFor="let item of finalSelectedProducts; let i = index"
@@ -153,7 +153,7 @@
                             <option 
                                 value="0"
                                 style="font-style: italic"
-                            >Select the option for the price</option>
+                            >{{'select' | translate }}</option>
                             <option
                                 *ngFor="let option of item.product.options"
                                 [ngValue]="option"
@@ -187,11 +187,11 @@
                     <svg class="arrow-icon icon-angle-left">
                         <use xlink:href="#icon-user-outline"></use>
                     </svg>
-                    Enter your personal details
+                    {{'enterpersonal' | translate}}
                 </h2>
                 <div class="calculator__modal-personal-container">
                     <div class="calculator__modal-details-row">
-                        <label for="fullName">Your name</label>
+                        <label for="fullName">{{'yourname' | translate }}</label>
                         <input
                             class="calculator__input calculator__modal-input"
                             id="fullName"
@@ -201,11 +201,11 @@
                             [ngClass]="{'has-error': personalDetailsObject.name_error}"
                         >
                         <div *ngIf="personalDetailsObject.name_error" class="calculator__error">
-                            Enter your name
+                            {{'entername' | translate }}
                         </div>
                     </div>
                     <div class="calculator__modal-details-row">
-                        <label for="emailAddress">Email Address</label>
+                        <label for="emailAddress">{{'email' | translate}}</label>
                         <input
                             class="calculator__input calculator__modal-input"
                             id="emailAddress"
@@ -215,11 +215,11 @@
                             [ngClass]="{'has-error': personalDetailsObject.emailAddress_error}"
                         >
                         <div *ngIf="personalDetailsObject.emailAddress_error" class="calculator__error">
-                            Enter a valid email address
+                            {{'validemail' | translate }}
                         </div>
                     </div>
                     <div class="calculator__modal-details-row">
-                        <label for="phoneNumber">Phone Number</label>
+                        <label for="phoneNumber">{{'phone' | translate}}</label>
                         <input
                             class="calculator__input calculator__modal-input"
                             id="phoneNumber"
@@ -229,7 +229,7 @@
                             [ngClass]="{'has-error': personalDetailsObject.phoneNumber_error}"
                         >
                         <div *ngIf="personalDetailsObject.phoneNumber_error" class="calculator__error">
-                            Enter a valid phone number
+                            {{'validphone' | translate  }}
                         </div>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                     
                     (click)="submit()"
                 >
-                    SUBMIT
+                    {{'submit' | translate}}
                 </button>
             </div>
         </ng-container>
@@ -251,9 +251,7 @@
                 </svg>
             </div>
             <div class="calculator__sent-text">
-                You have succesfully placed an order!
-                We will contact you very soon with more details and information!
-                Thanks a lot for choosing Bonus Buildings!
+                {{'submittext' | translate}}
             </div>
             <div class="calculator__sent-button">
                 <button (click)="modalService.close('requestOrderModal')">
