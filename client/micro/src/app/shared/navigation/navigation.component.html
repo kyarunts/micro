@@ -6,7 +6,7 @@
             class="navigation__item"
             routerLink="{{item.routerLink}}"
             routerLinkActive="navigation__item--active"
-            [ngClass]="{'navigation__item--products': item.name === 'products'}"
+            [ngClass]="{'navigation__item--products': item.name === 'products1'}"
         >
             {{item.name | translate}}
         </li>
@@ -34,10 +34,10 @@
                     routerLink="/calculator"
                     class="submenu__calculator-button"
                 >
-                    ORDER NOW
+                    {{'ordernow' | translate }}
                 </button>
                 <div class="submenu__calculator-text">
-                    Request an order directly from our website
+                    {{'request' | translate }}
                 </div>
             </div>
         </div>

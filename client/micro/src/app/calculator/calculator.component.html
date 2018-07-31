@@ -6,7 +6,7 @@
     <div class="calculator__container">
         <div class="calculator__header page-header">
             <span class="calculator__header-title page-title">
-                Order now
+                {{ 'ordernow' | translate }}
             </span>
         </div>
         <ng-container>
@@ -15,11 +15,7 @@
             ></app-calculator-steps>
             <div class="calculator__panel-heading">
                 <span>
-                    Having a prediction for building material before starting the process
-                    is something that helps a lot in better and more effective planning.
-                    We are pleased to provide you a way to request for the exact price of
-                    our building materials directly from our website.
-                    Select what you need and place a request and we will contact you as soon as possible. 
+                    {{'ordernowtext' | translate }}
                 </span>
             </div>
             
@@ -65,7 +61,7 @@
                                 <option 
                                     value="0"
                                     style="font-style: italic"
-                                >Select the option for the price</option>
+                                >{{'select' | translate }}</option>
                                 <option
                                     *ngFor="let option of product.options"
                                     [ngValue]="option"
@@ -76,7 +72,7 @@
                                 class="calculator__input"
                                 type="number"
                                 maxlength="3"
-                                placeholder="amount you need"
+                                placeholder={{'amount' | translate }}
                                 [(ngModel)]="productsObject[product._id]['amount']"
                                 [ngClass]="{'placeholder': !productsObject[product._id]['amount']}"
                             >
@@ -175,7 +171,7 @@
                             id="{{'itemAmount' + i}}"
                             type="number"
                             maxlength="3"
-                            placeholder="amount you need"
+                            placeholder={{'amount' | translate }}
                             (input)="clearAmountError($event.target.value, item)"
                             [(ngModel)]="productsObject[item.product._id]['amount']"
                         >

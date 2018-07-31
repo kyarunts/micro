@@ -15,10 +15,10 @@ export class NavigationComponent implements OnInit {
     public navigationItems: {name: string, routerLink: string}[] = [
         { name: 'homepage', routerLink: '/home' },
         { name: 'aboutus', routerLink: '/about' },
-        { name: 'products', routerLink: '/products' },
+        { name: 'products1', routerLink: '/products' },
         { name: 'ordernow', routerLink: '/calculator' },
         { name: 'portfolio', routerLink: '/portfolio' },
-        { name: 'partners', routerLink: '/partners' },
+        { name: 'partners1', routerLink: '/partners' },
         { name: 'installation', routerLink: '/installation' },
         { name: 'contacts', routerLink: '/contacts' },
     ];

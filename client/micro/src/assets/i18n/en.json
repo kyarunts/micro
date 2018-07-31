@@ -34,5 +34,10 @@
   "portfolio": "PORTFOLIO",
   "partners1": "PARTNERS",
   "installation": "INSTALLATION",
-  "contacts" : "CONTACTS"
+  "contacts" : "CONTACTS",
+  "request" : "Request an order directly from our website",
+  "ordernowtext" : "Having a prediction for building material before starting the process is something that helps a lot in better and more effective planning. We are pleased to provide you a way to request for the exact price of our building materials directly from our website. Select what you need and place a request and we will contact you as soon as possible.",
+  "select" : "Select the option for the price",
+  "amount" : "amount you need"
+
 }
