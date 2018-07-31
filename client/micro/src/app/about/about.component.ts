@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
             copy: `Sandwich-panels are being used in the construction of almost all the fields of buildings.`
         },
         {
-            title: 'Design and Consulting',
+            title: 'DesignandConsulting',
             copy: `Sandwich-panels are being used in the construction of almost all the fields of buildings.`
         },
 
