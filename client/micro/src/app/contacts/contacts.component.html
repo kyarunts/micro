@@ -2,31 +2,31 @@
 <div class="contacts">
     <div class="contacts__header">
         <div>
-            <h2 class="contacts__header-title">GET IN TOUCH</h2>
+            <h2 class="contacts__header-title"> {{'getintouch' | translate}}</h2>
             <h3 class="contacts__header-subtitle">
-                We would be happy to listen from you!
+                {{'touchtext' | translate }}
             </h3>
         </div>
     </div>
     <div class="contacts__address-block-container">
         <div class="contacts__address-block">
             <div class="contacts__form">
-                <h2>Send us an email</h2>
+                <h2>{{'sendus' | translate}}</h2>
                 <div class="contacts__form-block" *ngIf="showForm">
-                    <label for="contacter-name">Your name</label>
+                    <label for="contacter-name"> {{'yourname' | translate}}</label>
                     <input [(ngModel)]="formObject['name']" type="text" id="contacter-name" (input)="validateOnInput('name')" [ngClass]="{'error-input' : formErrors['name']}">
                     <div *ngIf="formErrors['name']" class="contacts__error">
                         Fill in your name
                     </div>
                     
-                    <label for="contacter-email">Your email address</label>
+                    <label for="contacter-email">{{'email' | translate}}</label>
                     <input [(ngModel)]="formObject['email']" type="input" id="contacter-email" (input)="validateOnInput('email')" [ngClass]="{'error-input': formErrors['email']}">
                     <div *ngIf="formErrors['email']" class="contacts__error">
-                        Fill in a valid email address
+                        {{'validemail' | translate}}
                     </div>
                     
                     
-                    <label for="contacter-message">Message</label>
+                    <label for="contacter-message"> {{ 'message' | translate }}</label>
                     <textarea [(ngModel)]="formObject['message']" name="contacter-message" id="contacter-message" cols="30" rows="10" (input)="validateOnInput('message')"
                         [ngClass]="{'error-input': formErrors['message']}"></textarea>
                     <div *ngIf="formErrors['message']" class="contacts__error">
@@ -39,7 +39,7 @@
                             </svg>
                         </div>
                         <span>
-                            SEND MESSAGE
+                            {{'sendmessage' | translate }}
                         </span>
                     </button>
                 </div>
@@ -49,23 +49,23 @@
                             <use xlink:href="#icon-check-circle-o"></use>
                         </svg>
                     </div>
-                    <p>Thank you!
-                        <br>Your email has been sent.
-                        <br>We will contact you if needed</p>
-                    <a (click)="showForm = true">Send another message</a>
+                    <p>{{ 'thankyou' | translate }}
+                        <br> {{ 'beensent' | translate }}
+                        <br>{{'ifneeded' | translate }}/p>
+                    <a (click)="showForm = true"> {{'sendanother' | translate }}</a>
                 </div>
             </div>
 
             <div class="contacts__info">
-                <h2>Contacts information</h2>
+                <h2>{{'information' | translate }}</h2>
 
                 <div class="contacts__location-icon contacts__icon">
                     <svg class="icon-checked">
                         <use xlink:href="#icon-locationn"></use>
                     </svg>
                 </div>
-                <p>RA, Syunik region, Goris, Narekatsi st, 1</p>
-                <p>RA, Yerevan, Azatutyun ave. 27, 6th floor</p>
+                <p>{{ 'address1' | translate }}</p>
+                <p>{{ 'address2' | translate }}</p>
                 <hr>
                 <div class="contacts__phone-icon contacts__icon">
                     <svg class="icon-checked">

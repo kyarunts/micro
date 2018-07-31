@@ -51,7 +51,18 @@
   "phone" : "Phone number",
   "validphone" : "Enter a valid phone number",
   "submit" : "SUBMIT",
-  "submittext" : "You have successfully placed an order! We will contact you very soon with more details and information! Thanks a lot for choosing Bonus Buildings!"
-
+  "submittext" : "You have successfully placed an order! We will contact you very soon with more details and information! Thanks a lot for choosing Bonus Buildings!",
+  "getintouch" : "GET IN TOUCH",
+  "touchtext" : "We would be happy to listen from you!",
+  "sendus" : "Send us an email",
+  "message" : "Message",
+  "sendmessage" : "SEND MESSAGE",
+  "thankyou" : "Thank you!",
+  "beensent" : "Your email has been sent.",
+  "ifneeded" : "We will contact you if needed",
+  "sendanother": "Send another message",
+  "information" : "Contacts information",
+  "address1" : "RA, Syunik region, Goris, Narekatsi st, 1",
+  "address2" : "RA, Yerevan, Azatutyun ave. 27, 6th floor"
 
 }
