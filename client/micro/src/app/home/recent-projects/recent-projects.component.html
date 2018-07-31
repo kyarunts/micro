@@ -1,6 +1,6 @@
 <div class="projects">
     <div class="projects__header">
-        RECENT PROJECTS
+        {{ 'recentprojects' | translate }}
         <hr class="projects__hr">
     </div>
     <div class="projects__project-container">
@@ -22,7 +22,7 @@
             <div class="projects__action">
                 <button
                     [routerLink]="['/portfolio']"
-                >EXPLORE DETAILS</button>
+                >{{'exploredetails' | translate }}</button>
             </div>
         </div>
     </div>

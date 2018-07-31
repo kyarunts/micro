@@ -1,7 +1,7 @@
 <app-icons></app-icons>
 <div class="home-products" (mouseover)="stopAnimation()" (mouseleave)="startAnimation()">
     <div class="home-products__header">
-        OUR PRODUCTS
+        {{ 'ourproducts' | translate }}
         <hr class="home-products__hr">
     </div>
     
@@ -30,7 +30,7 @@
                     <button
                         [routerLink]="['/products/' + product.category._id]"
                     >
-                        More Info
+                        {{'learnmore' | translate }}
                     </button>
                 </div>
             </div>
