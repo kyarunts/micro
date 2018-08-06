@@ -237,7 +237,7 @@ html, body {
     &__hamburger {
         @include _(padding-top, 20px);
         @include _(padding-left, 20px);
-        @include _(position, absolute);
+        @include _(position, fixed);
         & > div {
             @include _(width, 40px);
             @include _(height, 3px);

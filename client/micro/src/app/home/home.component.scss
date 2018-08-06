@@ -191,6 +191,7 @@
         @include _(justify-content, space-around);
         @include breakpoint(mobile-view) {
             @include _(width, 100%);
+            @include _(flex-wrap, wrap);
         }
     }
 
@@ -248,6 +249,10 @@
         @include _(margin-top, 20px);
         @include _(color, #1f445a);
         @include _(font-weight, 600);
+
+        @include breakpoint(mobile-view) {
+            @include _(margin-top, 0);
+        }
     }
 
     &__stats-item {
@@ -257,6 +262,15 @@
         
         &:hover {
             transform: scale(1.1);
+        }
+        @include _(display, flex);
+        @include _(flex-direction, column);
+        @include _(justify-content, center);
+        @include _(align-items, center);
+
+        @include breakpoint(mobile-view) {
+            @include _(flex-basis, 100%);
+            @include _(margin-bottom, 30px);
         }
     }
 }

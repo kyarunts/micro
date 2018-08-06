@@ -165,6 +165,7 @@
     }
 
     &__product-name {
+        @include _(box-sizing, border-box);
         @include _(text-align, center);
         @include _(display, flex);
         @include _(justify-content, center);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AboutService } from './about.service';
+import { SharedService } from '../shared/shared-service';
 
 @Component({
     selector: 'app-about',
@@ -26,7 +27,10 @@ export class AboutComponent implements OnInit {
 
     ]
 
-    constructor(private httpService: AboutService) { }
+    constructor(
+        private httpService: AboutService,
+        public sharedService: SharedService
+    ) { }
     
     ngOnInit() {
         document.body.scrollIntoView(true);
