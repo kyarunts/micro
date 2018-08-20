@@ -48,19 +48,21 @@
         @include _(display, flex);
         @include _(flex-direction, column);
         @include _(align-items, center);
-        @include _(margin-top, 12vh);
+        @include _(margin-top, 8vh);
         @include breakpoint(mobile-tablet-view) {
             @include _(margin-top, 0);
-            @include _(padding-top, 24vh);
+            @include _(padding-top, 18vh);
         }
     }
 
     &__logo {
-        @include _(height, 215px);
-        @include breakpoint(mobile-tablet-view) {
-            @include _(width, 70%);
-            @include _(height, auto);
-        }
+        @include _(height, 20vh);
+        @include _(width, auto);
+        // @include _(height, 215px);
+        // @include breakpoint(mobile-tablet-view) {
+        //     @include _(width, 70%);
+        //     @include _(height, auto);
+        // }
     }
 
     &__slogan {
