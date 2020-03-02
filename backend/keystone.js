@@ -1,7 +1,7 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').config();
-
+// This is a change by Artur Khojabaghyan
 // Require keystone
 var keystone = require('micrpkey');
 var handlebars = require('express-handlebars');
