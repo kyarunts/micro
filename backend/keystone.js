@@ -13,7 +13,8 @@ var handlebars = require('express-handlebars');
 keystone.init({
 	'name': 'micro',
 	'brand': 'micro',
-
+	'cloudinary config': 'cloudinary://api_key:api_secret@cloud_name',
+	'mongo': 'mongodb://micro:Micro2018#@ds111279.mlab.com:11279/micro',
 	'less': 'public',
 	'static': ['public', 'public/assets'],
   'favicon': 'public/favicon.ico',

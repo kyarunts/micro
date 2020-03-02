@@ -61,6 +61,10 @@ exports = module.exports = function (app) {
         let file = path.resolve(path.dirname(path.dirname(__dirname)) + '/backend/uploads/' + req.params.ID);
         res.sendFile(file);
     })
+	app.get('/assets/:fileName', function(req, res) {
+        let file = path.resolve(path.dirname(path.dirname(__dirname)) + '/backend/public/assets/' + req.params.fileName);
+        res.sendFile(file);
+    });
 	app.get('**', routes.views.index);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
